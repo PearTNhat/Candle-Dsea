@@ -1,0 +1,478 @@
+{
+	"compiler": {
+		"version": "0.8.30+commit.73712a01"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "key",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "contractAddress",
+						"type": "address"
+					}
+				],
+				"name": "KlineContractCreated",
+				"type": "event"
+			},
+			{
+				"inputs": [
+					{
+						"components": [
+							{
+								"internalType": "uint256",
+								"name": "t",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "T",
+								"type": "uint256"
+							},
+							{
+								"internalType": "string",
+								"name": "s",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "i",
+								"type": "string"
+							},
+							{
+								"internalType": "uint256",
+								"name": "f",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "L",
+								"type": "uint256"
+							},
+							{
+								"internalType": "string",
+								"name": "o",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "c",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "h",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "l",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "v",
+								"type": "string"
+							},
+							{
+								"internalType": "uint256",
+								"name": "n",
+								"type": "uint256"
+							},
+							{
+								"internalType": "bool",
+								"name": "x",
+								"type": "bool"
+							},
+							{
+								"internalType": "string",
+								"name": "q",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "V",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "Q",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "B",
+								"type": "string"
+							}
+						],
+						"internalType": "struct KlineRecord",
+						"name": "record",
+						"type": "tuple"
+					},
+					{
+						"internalType": "string",
+						"name": "_interval",
+						"type": "string"
+					}
+				],
+				"name": "addCandle",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "a",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "b",
+						"type": "string"
+					}
+				],
+				"name": "compareStrings",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "pure",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "interval",
+						"type": "string"
+					},
+					{
+						"internalType": "uint256",
+						"name": "timestime",
+						"type": "uint256"
+					}
+				],
+				"name": "getAllKline",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "string",
+								"name": "e",
+								"type": "string"
+							},
+							{
+								"internalType": "uint256",
+								"name": "E",
+								"type": "uint256"
+							},
+							{
+								"internalType": "string",
+								"name": "s",
+								"type": "string"
+							},
+							{
+								"components": [
+									{
+										"internalType": "uint256",
+										"name": "t",
+										"type": "uint256"
+									},
+									{
+										"internalType": "uint256",
+										"name": "T",
+										"type": "uint256"
+									},
+									{
+										"internalType": "string",
+										"name": "s",
+										"type": "string"
+									},
+									{
+										"internalType": "string",
+										"name": "i",
+										"type": "string"
+									},
+									{
+										"internalType": "uint256",
+										"name": "f",
+										"type": "uint256"
+									},
+									{
+										"internalType": "uint256",
+										"name": "L",
+										"type": "uint256"
+									},
+									{
+										"internalType": "string",
+										"name": "o",
+										"type": "string"
+									},
+									{
+										"internalType": "string",
+										"name": "c",
+										"type": "string"
+									},
+									{
+										"internalType": "string",
+										"name": "h",
+										"type": "string"
+									},
+									{
+										"internalType": "string",
+										"name": "l",
+										"type": "string"
+									},
+									{
+										"internalType": "string",
+										"name": "v",
+										"type": "string"
+									},
+									{
+										"internalType": "uint256",
+										"name": "n",
+										"type": "uint256"
+									},
+									{
+										"internalType": "bool",
+										"name": "x",
+										"type": "bool"
+									},
+									{
+										"internalType": "string",
+										"name": "q",
+										"type": "string"
+									},
+									{
+										"internalType": "string",
+										"name": "V",
+										"type": "string"
+									},
+									{
+										"internalType": "string",
+										"name": "Q",
+										"type": "string"
+									},
+									{
+										"internalType": "string",
+										"name": "B",
+										"type": "string"
+									}
+								],
+								"internalType": "struct KlineRecord",
+								"name": "k",
+								"type": "tuple"
+							}
+						],
+						"internalType": "struct KlineResponse[]",
+						"name": "",
+						"type": "tuple[]"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "interval",
+						"type": "string"
+					}
+				],
+				"name": "getKlineContract",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "_interval",
+						"type": "string"
+					},
+					{
+						"internalType": "uint256",
+						"name": "timestime",
+						"type": "uint256"
+					}
+				],
+				"name": "getLengthKline",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "str",
+						"type": "string"
+					}
+				],
+				"name": "getPrefix",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					}
+				],
+				"stateMutability": "pure",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					},
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "klineContracts",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {
+				"compareStrings(string,string)": {
+					"params": {
+						"a": "Chuỗi a",
+						"b": "Chuỗi b"
+					},
+					"returns": {
+						"_0": "true nếu 2 chuỗi bằng nhau"
+					}
+				},
+				"getPrefix(string)": {
+					"params": {
+						"str": "Chuỗi đầu vào"
+					},
+					"returns": {
+						"_0": "prefix Chuỗi con trước dấu '-'"
+					}
+				}
+			},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {
+				"compareStrings(string,string)": {
+					"notice": "So sánh 2 chuỗi string có giống nhau không (dùng keccak256)"
+				},
+				"getPrefix(string)": {
+					"notice": "Tách phần chuỗi trước dấu '-' (nếu không có '-' trả về toàn bộ chuỗi)"
+				}
+			},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/manager/Kline_1s/KlineFactory.sol": "KlineFactory"
+		},
+		"evmVersion": "prague",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": true,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/interface/IKlineManager.sol": {
+			"keccak256": "0xcf621ac82c1968f33934c4e237b94a8ba2d394d4692ce6fa93c53fe28ec9cb72",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://810130ed29402e351ad92c15a75d9cb6c7b652d5f5de7dfa98959367dbb6ddbb",
+				"dweb:/ipfs/QmekxEZDnvEUCEfYHKBXUmvSqsr9NFWsMYNn77e6pJkUFW"
+			]
+		},
+		"contracts/manager/Kline_1s/BaseKline.sol": {
+			"keccak256": "0xc076f0c64750585c9faf09715f5587b12ffafa3e6c792c8fd6200b7701e4993f",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://120458f208768a635a464afa4d7f790b8a0395d9ef12cc354c290d07f62db38d",
+				"dweb:/ipfs/QmYQU1qWdtierfRwRLKQYDUt4yAEYc9Wivfq1BvCCYgkvb"
+			]
+		},
+		"contracts/manager/Kline_1s/KlineFactory.sol": {
+			"keccak256": "0x0cd7ecffa9194e2d0650983631f2f980f9b75b06cd0885f8a3b778c38a78bd0f",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://e350d927c50709b2d84efa473e9a94c7aef5ae0b11aaeb537fdba7e069aa5d5e",
+				"dweb:/ipfs/QmcDHzJpxcbjfov6818jvSVuJaxYWGQWCbUiRohEQzKuqm"
+			]
+		},
+		"contracts/struct/CandleStruct.sol": {
+			"keccak256": "0x6d0d00fa4fb0a7c07dac4bcc16a23d8f9c46450e2194f30b7f4bf2b3814b47f2",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://e3ab2f75328ab7ed9c3b1c8d5ad2025a3d308ceed90a9b0cbb59f3f699d79727",
+				"dweb:/ipfs/QmPYRNAJL3njQcgtC6zHQ7yYkST1BddyfnvSWCtw28n8MJ"
+			]
+		},
+		"contracts/utils/StringUtils.sol": {
+			"keccak256": "0xd85b7f5e34d655dd65bb35a0e6ccbf1918cfe7d058388f096455164803248b8f",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://c7bd657ce28c677d7844240296e889caf2331437ed02d62c3d78d8b4fa0759fa",
+				"dweb:/ipfs/Qmc8CbTizkGhx7Rn7ZmBn8T4DUhdPfSktwiqKK6KE2XRWJ"
+			]
+		},
+		"hardhat/console.sol": {
+			"keccak256": "0xf2560b5386574153057104d19a9e68a32ee912cf23c0c8df1fe9a0607f42d543",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://a63166e036b040826baa513772451a79925daa304b38749100efb089ac07cdc2",
+				"dweb:/ipfs/QmUtMTxUFKU6a5oFXsEJnTPvb3QPb7GDDmSv5yZ1jFHDwR"
+			]
+		}
+	},
+	"version": 1
+}

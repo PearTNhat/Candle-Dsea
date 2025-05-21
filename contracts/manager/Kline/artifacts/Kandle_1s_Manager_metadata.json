@@ -1,0 +1,597 @@
+{
+	"compiler": {
+		"version": "0.8.30+commit.73712a01"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "timestamp",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "string",
+						"name": "symbol",
+						"type": "string"
+					},
+					{
+						"indexed": false,
+						"internalType": "string",
+						"name": "open",
+						"type": "string"
+					},
+					{
+						"indexed": false,
+						"internalType": "string",
+						"name": "close",
+						"type": "string"
+					}
+				],
+				"name": "AddKlineRecord",
+				"type": "event"
+			},
+			{
+				"inputs": [],
+				"name": "INTERVAL_1S",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getAllKline",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "string",
+								"name": "e",
+								"type": "string"
+							},
+							{
+								"internalType": "uint256",
+								"name": "E",
+								"type": "uint256"
+							},
+							{
+								"internalType": "string",
+								"name": "s",
+								"type": "string"
+							},
+							{
+								"components": [
+									{
+										"internalType": "uint256",
+										"name": "t",
+										"type": "uint256"
+									},
+									{
+										"internalType": "uint256",
+										"name": "T",
+										"type": "uint256"
+									},
+									{
+										"internalType": "string",
+										"name": "s",
+										"type": "string"
+									},
+									{
+										"internalType": "string",
+										"name": "i",
+										"type": "string"
+									},
+									{
+										"internalType": "uint256",
+										"name": "f",
+										"type": "uint256"
+									},
+									{
+										"internalType": "uint256",
+										"name": "L",
+										"type": "uint256"
+									},
+									{
+										"internalType": "string",
+										"name": "o",
+										"type": "string"
+									},
+									{
+										"internalType": "string",
+										"name": "c",
+										"type": "string"
+									},
+									{
+										"internalType": "string",
+										"name": "h",
+										"type": "string"
+									},
+									{
+										"internalType": "string",
+										"name": "l",
+										"type": "string"
+									},
+									{
+										"internalType": "string",
+										"name": "v",
+										"type": "string"
+									},
+									{
+										"internalType": "uint256",
+										"name": "n",
+										"type": "uint256"
+									},
+									{
+										"internalType": "bool",
+										"name": "x",
+										"type": "bool"
+									},
+									{
+										"internalType": "string",
+										"name": "q",
+										"type": "string"
+									},
+									{
+										"internalType": "string",
+										"name": "V",
+										"type": "string"
+									},
+									{
+										"internalType": "string",
+										"name": "Q",
+										"type": "string"
+									},
+									{
+										"internalType": "string",
+										"name": "B",
+										"type": "string"
+									}
+								],
+								"internalType": "struct KlineRecord",
+								"name": "k",
+								"type": "tuple"
+							}
+						],
+						"internalType": "struct KlineResponse[]",
+						"name": "",
+						"type": "tuple[]"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "timestamp",
+						"type": "uint256"
+					}
+				],
+				"name": "getKline",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "string",
+								"name": "e",
+								"type": "string"
+							},
+							{
+								"internalType": "uint256",
+								"name": "E",
+								"type": "uint256"
+							},
+							{
+								"internalType": "string",
+								"name": "s",
+								"type": "string"
+							},
+							{
+								"components": [
+									{
+										"internalType": "uint256",
+										"name": "t",
+										"type": "uint256"
+									},
+									{
+										"internalType": "uint256",
+										"name": "T",
+										"type": "uint256"
+									},
+									{
+										"internalType": "string",
+										"name": "s",
+										"type": "string"
+									},
+									{
+										"internalType": "string",
+										"name": "i",
+										"type": "string"
+									},
+									{
+										"internalType": "uint256",
+										"name": "f",
+										"type": "uint256"
+									},
+									{
+										"internalType": "uint256",
+										"name": "L",
+										"type": "uint256"
+									},
+									{
+										"internalType": "string",
+										"name": "o",
+										"type": "string"
+									},
+									{
+										"internalType": "string",
+										"name": "c",
+										"type": "string"
+									},
+									{
+										"internalType": "string",
+										"name": "h",
+										"type": "string"
+									},
+									{
+										"internalType": "string",
+										"name": "l",
+										"type": "string"
+									},
+									{
+										"internalType": "string",
+										"name": "v",
+										"type": "string"
+									},
+									{
+										"internalType": "uint256",
+										"name": "n",
+										"type": "uint256"
+									},
+									{
+										"internalType": "bool",
+										"name": "x",
+										"type": "bool"
+									},
+									{
+										"internalType": "string",
+										"name": "q",
+										"type": "string"
+									},
+									{
+										"internalType": "string",
+										"name": "V",
+										"type": "string"
+									},
+									{
+										"internalType": "string",
+										"name": "Q",
+										"type": "string"
+									},
+									{
+										"internalType": "string",
+										"name": "B",
+										"type": "string"
+									}
+								],
+								"internalType": "struct KlineRecord",
+								"name": "k",
+								"type": "tuple"
+							}
+						],
+						"internalType": "struct KlineResponse",
+						"name": "",
+						"type": "tuple"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "fromTimestamp",
+						"type": "uint256"
+					}
+				],
+				"name": "getKlineFrom",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "string",
+								"name": "e",
+								"type": "string"
+							},
+							{
+								"internalType": "uint256",
+								"name": "E",
+								"type": "uint256"
+							},
+							{
+								"internalType": "string",
+								"name": "s",
+								"type": "string"
+							},
+							{
+								"components": [
+									{
+										"internalType": "uint256",
+										"name": "t",
+										"type": "uint256"
+									},
+									{
+										"internalType": "uint256",
+										"name": "T",
+										"type": "uint256"
+									},
+									{
+										"internalType": "string",
+										"name": "s",
+										"type": "string"
+									},
+									{
+										"internalType": "string",
+										"name": "i",
+										"type": "string"
+									},
+									{
+										"internalType": "uint256",
+										"name": "f",
+										"type": "uint256"
+									},
+									{
+										"internalType": "uint256",
+										"name": "L",
+										"type": "uint256"
+									},
+									{
+										"internalType": "string",
+										"name": "o",
+										"type": "string"
+									},
+									{
+										"internalType": "string",
+										"name": "c",
+										"type": "string"
+									},
+									{
+										"internalType": "string",
+										"name": "h",
+										"type": "string"
+									},
+									{
+										"internalType": "string",
+										"name": "l",
+										"type": "string"
+									},
+									{
+										"internalType": "string",
+										"name": "v",
+										"type": "string"
+									},
+									{
+										"internalType": "uint256",
+										"name": "n",
+										"type": "uint256"
+									},
+									{
+										"internalType": "bool",
+										"name": "x",
+										"type": "bool"
+									},
+									{
+										"internalType": "string",
+										"name": "q",
+										"type": "string"
+									},
+									{
+										"internalType": "string",
+										"name": "V",
+										"type": "string"
+									},
+									{
+										"internalType": "string",
+										"name": "Q",
+										"type": "string"
+									},
+									{
+										"internalType": "string",
+										"name": "B",
+										"type": "string"
+									}
+								],
+								"internalType": "struct KlineRecord",
+								"name": "k",
+								"type": "tuple"
+							}
+						],
+						"internalType": "struct KlineResponse[]",
+						"name": "",
+						"type": "tuple[]"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getLength",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"components": [
+							{
+								"internalType": "uint256",
+								"name": "t",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "T",
+								"type": "uint256"
+							},
+							{
+								"internalType": "string",
+								"name": "s",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "i",
+								"type": "string"
+							},
+							{
+								"internalType": "uint256",
+								"name": "f",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "L",
+								"type": "uint256"
+							},
+							{
+								"internalType": "string",
+								"name": "o",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "c",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "h",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "l",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "v",
+								"type": "string"
+							},
+							{
+								"internalType": "uint256",
+								"name": "n",
+								"type": "uint256"
+							},
+							{
+								"internalType": "bool",
+								"name": "x",
+								"type": "bool"
+							},
+							{
+								"internalType": "string",
+								"name": "q",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "V",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "Q",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "B",
+								"type": "string"
+							}
+						],
+						"internalType": "struct KlineRecord",
+						"name": "kline",
+						"type": "tuple"
+					}
+				],
+				"name": "recordKline",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/manager/Candel_1s/Kandel_1s_Manager.sol": "Kandle_1s_Manager"
+		},
+		"evmVersion": "prague",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": true,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/interface/IKlineManager.sol": {
+			"keccak256": "0xcf621ac82c1968f33934c4e237b94a8ba2d394d4692ce6fa93c53fe28ec9cb72",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://810130ed29402e351ad92c15a75d9cb6c7b652d5f5de7dfa98959367dbb6ddbb",
+				"dweb:/ipfs/QmekxEZDnvEUCEfYHKBXUmvSqsr9NFWsMYNn77e6pJkUFW"
+			]
+		},
+		"contracts/manager/Candel_1s/Kandel_1s_Manager.sol": {
+			"keccak256": "0x88fa7374810ac3a01ae50a171a9716d1d120a0e062469abf9dd05d20988cc2fc",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://b970eff2a27e2e581d0542adbebbd898504cdf5fe098c560d8a9dac6b4d73eee",
+				"dweb:/ipfs/QmT2wpa4kqVrG9dabKJXzfxWK1AeGKwsuZYx4oE42upX74"
+			]
+		},
+		"contracts/struct/CandleStruct.sol": {
+			"keccak256": "0x6d0d00fa4fb0a7c07dac4bcc16a23d8f9c46450e2194f30b7f4bf2b3814b47f2",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://e3ab2f75328ab7ed9c3b1c8d5ad2025a3d308ceed90a9b0cbb59f3f699d79727",
+				"dweb:/ipfs/QmPYRNAJL3njQcgtC6zHQ7yYkST1BddyfnvSWCtw28n8MJ"
+			]
+		}
+	},
+	"version": 1
+}

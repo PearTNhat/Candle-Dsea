@@ -22,18 +22,18 @@
 					},
 					{
 						"indexed": false,
-						"internalType": "uint256",
+						"internalType": "string",
 						"name": "open",
-						"type": "uint256"
+						"type": "string"
 					},
 					{
 						"indexed": false,
-						"internalType": "uint256",
+						"internalType": "string",
 						"name": "close",
-						"type": "uint256"
+						"type": "string"
 					}
 				],
-				"name": "AddCandleRecord",
+				"name": "AddKlineRecord",
 				"type": "event"
 			},
 			{
@@ -90,29 +90,29 @@
 										"type": "uint256"
 									},
 									{
-										"internalType": "uint256",
+										"internalType": "string",
 										"name": "o",
-										"type": "uint256"
+										"type": "string"
 									},
 									{
-										"internalType": "uint256",
+										"internalType": "string",
 										"name": "c",
-										"type": "uint256"
+										"type": "string"
 									},
 									{
-										"internalType": "uint256",
+										"internalType": "string",
 										"name": "h",
-										"type": "uint256"
+										"type": "string"
 									},
 									{
-										"internalType": "uint256",
+										"internalType": "string",
 										"name": "l",
-										"type": "uint256"
+										"type": "string"
 									},
 									{
-										"internalType": "uint256",
+										"internalType": "string",
 										"name": "v",
-										"type": "uint256"
+										"type": "string"
 									},
 									{
 										"internalType": "uint256",
@@ -125,19 +125,19 @@
 										"type": "bool"
 									},
 									{
-										"internalType": "uint256",
+										"internalType": "string",
 										"name": "q",
-										"type": "uint256"
+										"type": "string"
 									},
 									{
-										"internalType": "uint256",
+										"internalType": "string",
 										"name": "V",
-										"type": "uint256"
+										"type": "string"
 									},
 									{
-										"internalType": "uint256",
+										"internalType": "string",
 										"name": "Q",
-										"type": "uint256"
+										"type": "string"
 									},
 									{
 										"internalType": "string",
@@ -145,12 +145,12 @@
 										"type": "string"
 									}
 								],
-								"internalType": "struct CandleRecord",
+								"internalType": "struct KlineRecord",
 								"name": "k",
 								"type": "tuple"
 							}
 						],
-						"internalType": "struct CandleResponse[]",
+						"internalType": "struct KlineResponse[]",
 						"name": "",
 						"type": "tuple[]"
 					}
@@ -218,29 +218,29 @@
 										"type": "uint256"
 									},
 									{
-										"internalType": "uint256",
+										"internalType": "string",
 										"name": "o",
-										"type": "uint256"
+										"type": "string"
 									},
 									{
-										"internalType": "uint256",
+										"internalType": "string",
 										"name": "c",
-										"type": "uint256"
+										"type": "string"
 									},
 									{
-										"internalType": "uint256",
+										"internalType": "string",
 										"name": "h",
-										"type": "uint256"
+										"type": "string"
 									},
 									{
-										"internalType": "uint256",
+										"internalType": "string",
 										"name": "l",
-										"type": "uint256"
+										"type": "string"
 									},
 									{
-										"internalType": "uint256",
+										"internalType": "string",
 										"name": "v",
-										"type": "uint256"
+										"type": "string"
 									},
 									{
 										"internalType": "uint256",
@@ -253,19 +253,19 @@
 										"type": "bool"
 									},
 									{
-										"internalType": "uint256",
+										"internalType": "string",
 										"name": "q",
-										"type": "uint256"
+										"type": "string"
 									},
 									{
-										"internalType": "uint256",
+										"internalType": "string",
 										"name": "V",
-										"type": "uint256"
+										"type": "string"
 									},
 									{
-										"internalType": "uint256",
+										"internalType": "string",
 										"name": "Q",
-										"type": "uint256"
+										"type": "string"
 									},
 									{
 										"internalType": "string",
@@ -273,12 +273,12 @@
 										"type": "string"
 									}
 								],
-								"internalType": "struct CandleRecord",
+								"internalType": "struct KlineRecord",
 								"name": "k",
 								"type": "tuple"
 							}
 						],
-						"internalType": "struct CandleResponse",
+						"internalType": "struct KlineResponse",
 						"name": "",
 						"type": "tuple"
 					}
@@ -287,8 +287,14 @@
 				"type": "function"
 			},
 			{
-				"inputs": [],
-				"name": "getLastKline",
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "fromTimestamp",
+						"type": "uint256"
+					}
+				],
+				"name": "getCandleFrom",
 				"outputs": [
 					{
 						"components": [
@@ -340,29 +346,29 @@
 										"type": "uint256"
 									},
 									{
-										"internalType": "uint256",
+										"internalType": "string",
 										"name": "o",
-										"type": "uint256"
+										"type": "string"
 									},
 									{
-										"internalType": "uint256",
+										"internalType": "string",
 										"name": "c",
-										"type": "uint256"
+										"type": "string"
 									},
 									{
-										"internalType": "uint256",
+										"internalType": "string",
 										"name": "h",
-										"type": "uint256"
+										"type": "string"
 									},
 									{
-										"internalType": "uint256",
+										"internalType": "string",
 										"name": "l",
-										"type": "uint256"
+										"type": "string"
 									},
 									{
-										"internalType": "uint256",
+										"internalType": "string",
 										"name": "v",
-										"type": "uint256"
+										"type": "string"
 									},
 									{
 										"internalType": "uint256",
@@ -375,19 +381,19 @@
 										"type": "bool"
 									},
 									{
-										"internalType": "uint256",
+										"internalType": "string",
 										"name": "q",
-										"type": "uint256"
+										"type": "string"
 									},
 									{
-										"internalType": "uint256",
+										"internalType": "string",
 										"name": "V",
-										"type": "uint256"
+										"type": "string"
 									},
 									{
-										"internalType": "uint256",
+										"internalType": "string",
 										"name": "Q",
-										"type": "uint256"
+										"type": "string"
 									},
 									{
 										"internalType": "string",
@@ -395,14 +401,27 @@
 										"type": "string"
 									}
 								],
-								"internalType": "struct CandleRecord",
+								"internalType": "struct KlineRecord",
 								"name": "k",
 								"type": "tuple"
 							}
 						],
-						"internalType": "struct CandleResponse",
+						"internalType": "struct KlineResponse[]",
 						"name": "",
-						"type": "tuple"
+						"type": "tuple[]"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getLength",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
 					}
 				],
 				"stateMutability": "view",
@@ -443,29 +462,29 @@
 								"type": "uint256"
 							},
 							{
-								"internalType": "uint256",
+								"internalType": "string",
 								"name": "o",
-								"type": "uint256"
+								"type": "string"
 							},
 							{
-								"internalType": "uint256",
+								"internalType": "string",
 								"name": "c",
-								"type": "uint256"
+								"type": "string"
 							},
 							{
-								"internalType": "uint256",
+								"internalType": "string",
 								"name": "h",
-								"type": "uint256"
+								"type": "string"
 							},
 							{
-								"internalType": "uint256",
+								"internalType": "string",
 								"name": "l",
-								"type": "uint256"
+								"type": "string"
 							},
 							{
-								"internalType": "uint256",
+								"internalType": "string",
 								"name": "v",
-								"type": "uint256"
+								"type": "string"
 							},
 							{
 								"internalType": "uint256",
@@ -478,19 +497,19 @@
 								"type": "bool"
 							},
 							{
-								"internalType": "uint256",
+								"internalType": "string",
 								"name": "q",
-								"type": "uint256"
+								"type": "string"
 							},
 							{
-								"internalType": "uint256",
+								"internalType": "string",
 								"name": "V",
-								"type": "uint256"
+								"type": "string"
 							},
 							{
-								"internalType": "uint256",
+								"internalType": "string",
 								"name": "Q",
-								"type": "uint256"
+								"type": "string"
 							},
 							{
 								"internalType": "string",
@@ -498,7 +517,7 @@
 								"type": "string"
 							}
 						],
-						"internalType": "struct CandleRecord",
+						"internalType": "struct KlineRecord",
 						"name": "kline",
 						"type": "tuple"
 					}
@@ -537,19 +556,19 @@
 	},
 	"sources": {
 		"contracts/interface/ICandleManager.sol": {
-			"keccak256": "0x6d87c179585c4c0c6afa45357fc99869688aa4dd8f48e9fc1b2ab7bfa580a9d3",
+			"keccak256": "0x7493b1a0d8f3640ae6c344b6539b575e51857c9bb4d941953cc08a0daaac3599",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://fe140a2b982c788149caeebe3f1fb5f155d178586c3cd5b5b7eb7bb93966f5e4",
-				"dweb:/ipfs/Qmamp8fjMsuzQ8yozPKNCbs34PbpX47vuzg3CJosLCPkQV"
+				"bzz-raw://a965611fc1b2fc69b7aeaef3387925afd7937578e65e629489b4102fe99ef4c8",
+				"dweb:/ipfs/QmTnpmTvQ1x2x5M3awd2Q71ZVyyE4VdUFydf1aKqL5pyLu"
 			]
 		},
 		"contracts/struct/CandleStruct.sol": {
-			"keccak256": "0x60d2f18492e397750ecf6eff113a363d96bf297256899ddaf8729920701075ac",
+			"keccak256": "0x6d0d00fa4fb0a7c07dac4bcc16a23d8f9c46450e2194f30b7f4bf2b3814b47f2",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://e58f08aa60b91b2802ef89a6973bf327e374e46a873cc4e1c6fa7dc7cf61e849",
-				"dweb:/ipfs/QmRUykvaSaCec7VJNRWmyLtCc3bcMVdrGqywXvNJc8a24S"
+				"bzz-raw://e3ab2f75328ab7ed9c3b1c8d5ad2025a3d308ceed90a9b0cbb59f3f699d79727",
+				"dweb:/ipfs/QmPYRNAJL3njQcgtC6zHQ7yYkST1BddyfnvSWCtw28n8MJ"
 			]
 		}
 	},

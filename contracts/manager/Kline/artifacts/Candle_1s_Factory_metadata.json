@@ -1,0 +1,601 @@
+{
+	"compiler": {
+		"version": "0.8.30+commit.73712a01"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "string",
+						"name": "key",
+						"type": "string"
+					},
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "contractAddress",
+						"type": "address"
+					}
+				],
+				"name": "CandleContractCreated",
+				"type": "event"
+			},
+			{
+				"inputs": [],
+				"name": "INTERVAL_1S",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"components": [
+							{
+								"internalType": "uint256",
+								"name": "t",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "T",
+								"type": "uint256"
+							},
+							{
+								"internalType": "string",
+								"name": "s",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "i",
+								"type": "string"
+							},
+							{
+								"internalType": "uint256",
+								"name": "f",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "L",
+								"type": "uint256"
+							},
+							{
+								"internalType": "string",
+								"name": "o",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "c",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "h",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "l",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "v",
+								"type": "string"
+							},
+							{
+								"internalType": "uint256",
+								"name": "n",
+								"type": "uint256"
+							},
+							{
+								"internalType": "bool",
+								"name": "x",
+								"type": "bool"
+							},
+							{
+								"internalType": "string",
+								"name": "q",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "V",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "Q",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "B",
+								"type": "string"
+							}
+						],
+						"internalType": "struct CandleRecord",
+						"name": "record",
+						"type": "tuple"
+					},
+					{
+						"internalType": "string",
+						"name": "_key",
+						"type": "string"
+					}
+				],
+				"name": "addCandle",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					}
+				],
+				"name": "candleContracts",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "a",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "b",
+						"type": "string"
+					}
+				],
+				"name": "compareStrings",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "pure",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "_key",
+						"type": "string"
+					}
+				],
+				"name": "getAllCandle",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "string",
+								"name": "e",
+								"type": "string"
+							},
+							{
+								"internalType": "uint256",
+								"name": "E",
+								"type": "uint256"
+							},
+							{
+								"internalType": "string",
+								"name": "s",
+								"type": "string"
+							},
+							{
+								"components": [
+									{
+										"internalType": "uint256",
+										"name": "t",
+										"type": "uint256"
+									},
+									{
+										"internalType": "uint256",
+										"name": "T",
+										"type": "uint256"
+									},
+									{
+										"internalType": "string",
+										"name": "s",
+										"type": "string"
+									},
+									{
+										"internalType": "string",
+										"name": "i",
+										"type": "string"
+									},
+									{
+										"internalType": "uint256",
+										"name": "f",
+										"type": "uint256"
+									},
+									{
+										"internalType": "uint256",
+										"name": "L",
+										"type": "uint256"
+									},
+									{
+										"internalType": "string",
+										"name": "o",
+										"type": "string"
+									},
+									{
+										"internalType": "string",
+										"name": "c",
+										"type": "string"
+									},
+									{
+										"internalType": "string",
+										"name": "h",
+										"type": "string"
+									},
+									{
+										"internalType": "string",
+										"name": "l",
+										"type": "string"
+									},
+									{
+										"internalType": "string",
+										"name": "v",
+										"type": "string"
+									},
+									{
+										"internalType": "uint256",
+										"name": "n",
+										"type": "uint256"
+									},
+									{
+										"internalType": "bool",
+										"name": "x",
+										"type": "bool"
+									},
+									{
+										"internalType": "string",
+										"name": "q",
+										"type": "string"
+									},
+									{
+										"internalType": "string",
+										"name": "V",
+										"type": "string"
+									},
+									{
+										"internalType": "string",
+										"name": "Q",
+										"type": "string"
+									},
+									{
+										"internalType": "string",
+										"name": "B",
+										"type": "string"
+									}
+								],
+								"internalType": "struct CandleRecord",
+								"name": "k",
+								"type": "tuple"
+							}
+						],
+						"internalType": "struct CandleResponse[]",
+						"name": "",
+						"type": "tuple[]"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "fromTimestamp",
+						"type": "uint256"
+					},
+					{
+						"internalType": "string",
+						"name": "_key",
+						"type": "string"
+					}
+				],
+				"name": "getCandleFrom",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "string",
+								"name": "e",
+								"type": "string"
+							},
+							{
+								"internalType": "uint256",
+								"name": "E",
+								"type": "uint256"
+							},
+							{
+								"internalType": "string",
+								"name": "s",
+								"type": "string"
+							},
+							{
+								"components": [
+									{
+										"internalType": "uint256",
+										"name": "t",
+										"type": "uint256"
+									},
+									{
+										"internalType": "uint256",
+										"name": "T",
+										"type": "uint256"
+									},
+									{
+										"internalType": "string",
+										"name": "s",
+										"type": "string"
+									},
+									{
+										"internalType": "string",
+										"name": "i",
+										"type": "string"
+									},
+									{
+										"internalType": "uint256",
+										"name": "f",
+										"type": "uint256"
+									},
+									{
+										"internalType": "uint256",
+										"name": "L",
+										"type": "uint256"
+									},
+									{
+										"internalType": "string",
+										"name": "o",
+										"type": "string"
+									},
+									{
+										"internalType": "string",
+										"name": "c",
+										"type": "string"
+									},
+									{
+										"internalType": "string",
+										"name": "h",
+										"type": "string"
+									},
+									{
+										"internalType": "string",
+										"name": "l",
+										"type": "string"
+									},
+									{
+										"internalType": "string",
+										"name": "v",
+										"type": "string"
+									},
+									{
+										"internalType": "uint256",
+										"name": "n",
+										"type": "uint256"
+									},
+									{
+										"internalType": "bool",
+										"name": "x",
+										"type": "bool"
+									},
+									{
+										"internalType": "string",
+										"name": "q",
+										"type": "string"
+									},
+									{
+										"internalType": "string",
+										"name": "V",
+										"type": "string"
+									},
+									{
+										"internalType": "string",
+										"name": "Q",
+										"type": "string"
+									},
+									{
+										"internalType": "string",
+										"name": "B",
+										"type": "string"
+									}
+								],
+								"internalType": "struct CandleRecord",
+								"name": "k",
+								"type": "tuple"
+							}
+						],
+						"internalType": "struct CandleResponse[]",
+						"name": "",
+						"type": "tuple[]"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "_key",
+						"type": "string"
+					}
+				],
+				"name": "getLengthCandle",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "key",
+						"type": "string"
+					}
+				],
+				"name": "getOrCreateCandleContract",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "str",
+						"type": "string"
+					}
+				],
+				"name": "getPrefix",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					}
+				],
+				"stateMutability": "pure",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {
+				"compareStrings(string,string)": {
+					"params": {
+						"a": "Chuỗi a",
+						"b": "Chuỗi b"
+					},
+					"returns": {
+						"_0": "true nếu 2 chuỗi bằng nhau"
+					}
+				},
+				"getPrefix(string)": {
+					"params": {
+						"str": "Chuỗi đầu vào"
+					},
+					"returns": {
+						"_0": "prefix Chuỗi con trước dấu '-'"
+					}
+				}
+			},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {
+				"compareStrings(string,string)": {
+					"notice": "So sánh 2 chuỗi string có giống nhau không (dùng keccak256)"
+				},
+				"getPrefix(string)": {
+					"notice": "Tách phần chuỗi trước dấu '-' (nếu không có '-' trả về toàn bộ chuỗi)"
+				}
+			},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/manager/Candel_1s/Candel_1s_Factory.sol": "Candle_1s_Factory"
+		},
+		"evmVersion": "prague",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": true,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/interface/ICandleManager.sol": {
+			"keccak256": "0x94154a83ba858f2a27fe863a8365d30c99cbf82f46cffa5bb2f5d1ac8b00e2dd",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://a6e8bf0edffa2e251ed217dde3b92be85082d36ca9ef4de2e7c9d1e317342382",
+				"dweb:/ipfs/QmdMfNMQbNhGtbxZZgjhSVJorAEQsnttpzkWaBwGE8VFUG"
+			]
+		},
+		"contracts/manager/Candel_1s/Candel_1s_Factory.sol": {
+			"keccak256": "0x65ed6168dc61f4f31100528c600ff79560449c84f8013c6083517695f4e07b36",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://5250c4fb62956c67d9a98384dd36c1a3cdd1a0caba4af51d55e2f9720bfd0887",
+				"dweb:/ipfs/QmbQ9DeSNTbsBmTPAWF4SE4nCiKDK4ecngzj9T91kDdjPM"
+			]
+		},
+		"contracts/manager/Candel_1s/Candel_1s_Manager.sol": {
+			"keccak256": "0xa81d11d43a0e44c709fb864d0623a05de26a330f1165852a74908b7c7b71796a",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://7f28afcf875b83e7c8f750e1d4a8121c42704b1416e791abf71b21b77013804b",
+				"dweb:/ipfs/QmZKvasjZwd3WhxTbdXxDyBg6pxPGKPBCU4H1SxJqa43PN"
+			]
+		},
+		"contracts/struct/CandleStruct.sol": {
+			"keccak256": "0x402c45c173cd6408714da9ccda3351888bab31f0667463f445a6436679ba7a31",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://7fb87d8b1595b105511ccbd974e3a9267acb41e354b160ff9ed64295ecd38ac8",
+				"dweb:/ipfs/QmZMueqyxkY5YfjQSt1Zhhg5XNpJd9hNsF7BWi3qoWcAbm"
+			]
+		},
+		"contracts/utils/StringUtils.sol": {
+			"keccak256": "0xd85b7f5e34d655dd65bb35a0e6ccbf1918cfe7d058388f096455164803248b8f",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://c7bd657ce28c677d7844240296e889caf2331437ed02d62c3d78d8b4fa0759fa",
+				"dweb:/ipfs/Qmc8CbTizkGhx7Rn7ZmBn8T4DUhdPfSktwiqKK6KE2XRWJ"
+			]
+		}
+	},
+	"version": 1
+}
