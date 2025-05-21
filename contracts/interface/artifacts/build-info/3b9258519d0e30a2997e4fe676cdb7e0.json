@@ -1,0 +1,1728 @@
+{
+	"id": "3b9258519d0e30a2997e4fe676cdb7e0",
+	"_format": "hh-sol-build-info-1",
+	"solcVersion": "0.8.30",
+	"solcLongVersion": "0.8.30+commit.73712a01",
+	"input": {
+		"language": "Solidity",
+		"settings": {
+			"optimizer": {
+				"enabled": true,
+				"runs": 200
+			},
+			"outputSelection": {
+				"*": {
+					"": [
+						"ast"
+					],
+					"*": [
+						"abi",
+						"metadata",
+						"devdoc",
+						"userdoc",
+						"storageLayout",
+						"evm.legacyAssembly",
+						"evm.bytecode",
+						"evm.deployedBytecode",
+						"evm.methodIdentifiers",
+						"evm.gasEstimates",
+						"evm.assembly"
+					]
+				}
+			},
+			"remappings": []
+		},
+		"sources": {
+			"contracts/interface/ICandleManager.sol": {
+				"content": "// SPDX-License-Identifier: MIT\r\npragma solidity ^0.8.0;\r\n\r\nimport \"../struct/CandleStruct.sol\";\r\ninterface ICandleManager {\r\n    event AddCandleRecord(uint256 timestamp, string symbol, uint256 open, uint256 close);\r\n    \r\n    function recordCandle(CandleRecord calldata kline) external;\r\n    function getCandle(uint256 timestamp) external view returns (CandleResponse memory);\r\n    function getLastKline() external view returns (CandleResponse memory);\r\n    function getAllCandle() external  view returns (CandleResponse[] memory);\r\n    // function getKlinesPaginated(uint256 startTimestamp, uint256 limit, uint256 offset) external view  returns (CandleRecord[] memory);\r\n}"
+			},
+			"contracts/struct/CandleStruct.sol": {
+				"content": "// SPDX-License-Identifier: MIT\r\npragma solidity ^0.8.0;\r\n// thiếu name \r\nstruct CandleRecord {\r\n    uint256 t;    // startTime\r\n    uint256 T;    // endTime\r\n    string s;    // symbol\r\n    string i;      // interval\r\n    uint256 f;    // firstTradeId\r\n    uint256 L;    // lastTradeId\r\n    uint256 o;    // open\r\n    uint256 c;    // close\r\n    uint256 h;    // high\r\n    uint256 l;    // low\r\n    uint256 v;    // volume\r\n    uint256 n;    // trades\r\n    bool x;       // x (no change since name and comment are the same)\r\n    uint256 q;    // quoteVolume\r\n    uint256 V;    // takerBuyVolume\r\n    uint256 Q;    // takerBuyQuoteVol\r\n    string B;     // ignoredField\r\n}\r\n\r\nstruct CandleResponse {\r\n    string e; //\r\n    uint E;\r\n    string s ; // symbol\r\n    CandleRecord k;\r\n}"
+			}
+		}
+	},
+	"output": {
+		"contracts": {
+			"contracts/interface/ICandleManager.sol": {
+				"ICandleManager": {
+					"abi": [
+						{
+							"anonymous": false,
+							"inputs": [
+								{
+									"indexed": false,
+									"internalType": "uint256",
+									"name": "timestamp",
+									"type": "uint256"
+								},
+								{
+									"indexed": false,
+									"internalType": "string",
+									"name": "symbol",
+									"type": "string"
+								},
+								{
+									"indexed": false,
+									"internalType": "uint256",
+									"name": "open",
+									"type": "uint256"
+								},
+								{
+									"indexed": false,
+									"internalType": "uint256",
+									"name": "close",
+									"type": "uint256"
+								}
+							],
+							"name": "AddCandleRecord",
+							"type": "event"
+						},
+						{
+							"inputs": [],
+							"name": "getAllCandle",
+							"outputs": [
+								{
+									"components": [
+										{
+											"internalType": "string",
+											"name": "e",
+											"type": "string"
+										},
+										{
+											"internalType": "uint256",
+											"name": "E",
+											"type": "uint256"
+										},
+										{
+											"internalType": "string",
+											"name": "s",
+											"type": "string"
+										},
+										{
+											"components": [
+												{
+													"internalType": "uint256",
+													"name": "t",
+													"type": "uint256"
+												},
+												{
+													"internalType": "uint256",
+													"name": "T",
+													"type": "uint256"
+												},
+												{
+													"internalType": "string",
+													"name": "s",
+													"type": "string"
+												},
+												{
+													"internalType": "string",
+													"name": "i",
+													"type": "string"
+												},
+												{
+													"internalType": "uint256",
+													"name": "f",
+													"type": "uint256"
+												},
+												{
+													"internalType": "uint256",
+													"name": "L",
+													"type": "uint256"
+												},
+												{
+													"internalType": "uint256",
+													"name": "o",
+													"type": "uint256"
+												},
+												{
+													"internalType": "uint256",
+													"name": "c",
+													"type": "uint256"
+												},
+												{
+													"internalType": "uint256",
+													"name": "h",
+													"type": "uint256"
+												},
+												{
+													"internalType": "uint256",
+													"name": "l",
+													"type": "uint256"
+												},
+												{
+													"internalType": "uint256",
+													"name": "v",
+													"type": "uint256"
+												},
+												{
+													"internalType": "uint256",
+													"name": "n",
+													"type": "uint256"
+												},
+												{
+													"internalType": "bool",
+													"name": "x",
+													"type": "bool"
+												},
+												{
+													"internalType": "uint256",
+													"name": "q",
+													"type": "uint256"
+												},
+												{
+													"internalType": "uint256",
+													"name": "V",
+													"type": "uint256"
+												},
+												{
+													"internalType": "uint256",
+													"name": "Q",
+													"type": "uint256"
+												},
+												{
+													"internalType": "string",
+													"name": "B",
+													"type": "string"
+												}
+											],
+											"internalType": "struct CandleRecord",
+											"name": "k",
+											"type": "tuple"
+										}
+									],
+									"internalType": "struct CandleResponse[]",
+									"name": "",
+									"type": "tuple[]"
+								}
+							],
+							"stateMutability": "view",
+							"type": "function"
+						},
+						{
+							"inputs": [
+								{
+									"internalType": "uint256",
+									"name": "timestamp",
+									"type": "uint256"
+								}
+							],
+							"name": "getCandle",
+							"outputs": [
+								{
+									"components": [
+										{
+											"internalType": "string",
+											"name": "e",
+											"type": "string"
+										},
+										{
+											"internalType": "uint256",
+											"name": "E",
+											"type": "uint256"
+										},
+										{
+											"internalType": "string",
+											"name": "s",
+											"type": "string"
+										},
+										{
+											"components": [
+												{
+													"internalType": "uint256",
+													"name": "t",
+													"type": "uint256"
+												},
+												{
+													"internalType": "uint256",
+													"name": "T",
+													"type": "uint256"
+												},
+												{
+													"internalType": "string",
+													"name": "s",
+													"type": "string"
+												},
+												{
+													"internalType": "string",
+													"name": "i",
+													"type": "string"
+												},
+												{
+													"internalType": "uint256",
+													"name": "f",
+													"type": "uint256"
+												},
+												{
+													"internalType": "uint256",
+													"name": "L",
+													"type": "uint256"
+												},
+												{
+													"internalType": "uint256",
+													"name": "o",
+													"type": "uint256"
+												},
+												{
+													"internalType": "uint256",
+													"name": "c",
+													"type": "uint256"
+												},
+												{
+													"internalType": "uint256",
+													"name": "h",
+													"type": "uint256"
+												},
+												{
+													"internalType": "uint256",
+													"name": "l",
+													"type": "uint256"
+												},
+												{
+													"internalType": "uint256",
+													"name": "v",
+													"type": "uint256"
+												},
+												{
+													"internalType": "uint256",
+													"name": "n",
+													"type": "uint256"
+												},
+												{
+													"internalType": "bool",
+													"name": "x",
+													"type": "bool"
+												},
+												{
+													"internalType": "uint256",
+													"name": "q",
+													"type": "uint256"
+												},
+												{
+													"internalType": "uint256",
+													"name": "V",
+													"type": "uint256"
+												},
+												{
+													"internalType": "uint256",
+													"name": "Q",
+													"type": "uint256"
+												},
+												{
+													"internalType": "string",
+													"name": "B",
+													"type": "string"
+												}
+											],
+											"internalType": "struct CandleRecord",
+											"name": "k",
+											"type": "tuple"
+										}
+									],
+									"internalType": "struct CandleResponse",
+									"name": "",
+									"type": "tuple"
+								}
+							],
+							"stateMutability": "view",
+							"type": "function"
+						},
+						{
+							"inputs": [],
+							"name": "getLastKline",
+							"outputs": [
+								{
+									"components": [
+										{
+											"internalType": "string",
+											"name": "e",
+											"type": "string"
+										},
+										{
+											"internalType": "uint256",
+											"name": "E",
+											"type": "uint256"
+										},
+										{
+											"internalType": "string",
+											"name": "s",
+											"type": "string"
+										},
+										{
+											"components": [
+												{
+													"internalType": "uint256",
+													"name": "t",
+													"type": "uint256"
+												},
+												{
+													"internalType": "uint256",
+													"name": "T",
+													"type": "uint256"
+												},
+												{
+													"internalType": "string",
+													"name": "s",
+													"type": "string"
+												},
+												{
+													"internalType": "string",
+													"name": "i",
+													"type": "string"
+												},
+												{
+													"internalType": "uint256",
+													"name": "f",
+													"type": "uint256"
+												},
+												{
+													"internalType": "uint256",
+													"name": "L",
+													"type": "uint256"
+												},
+												{
+													"internalType": "uint256",
+													"name": "o",
+													"type": "uint256"
+												},
+												{
+													"internalType": "uint256",
+													"name": "c",
+													"type": "uint256"
+												},
+												{
+													"internalType": "uint256",
+													"name": "h",
+													"type": "uint256"
+												},
+												{
+													"internalType": "uint256",
+													"name": "l",
+													"type": "uint256"
+												},
+												{
+													"internalType": "uint256",
+													"name": "v",
+													"type": "uint256"
+												},
+												{
+													"internalType": "uint256",
+													"name": "n",
+													"type": "uint256"
+												},
+												{
+													"internalType": "bool",
+													"name": "x",
+													"type": "bool"
+												},
+												{
+													"internalType": "uint256",
+													"name": "q",
+													"type": "uint256"
+												},
+												{
+													"internalType": "uint256",
+													"name": "V",
+													"type": "uint256"
+												},
+												{
+													"internalType": "uint256",
+													"name": "Q",
+													"type": "uint256"
+												},
+												{
+													"internalType": "string",
+													"name": "B",
+													"type": "string"
+												}
+											],
+											"internalType": "struct CandleRecord",
+											"name": "k",
+											"type": "tuple"
+										}
+									],
+									"internalType": "struct CandleResponse",
+									"name": "",
+									"type": "tuple"
+								}
+							],
+							"stateMutability": "view",
+							"type": "function"
+						},
+						{
+							"inputs": [
+								{
+									"components": [
+										{
+											"internalType": "uint256",
+											"name": "t",
+											"type": "uint256"
+										},
+										{
+											"internalType": "uint256",
+											"name": "T",
+											"type": "uint256"
+										},
+										{
+											"internalType": "string",
+											"name": "s",
+											"type": "string"
+										},
+										{
+											"internalType": "string",
+											"name": "i",
+											"type": "string"
+										},
+										{
+											"internalType": "uint256",
+											"name": "f",
+											"type": "uint256"
+										},
+										{
+											"internalType": "uint256",
+											"name": "L",
+											"type": "uint256"
+										},
+										{
+											"internalType": "uint256",
+											"name": "o",
+											"type": "uint256"
+										},
+										{
+											"internalType": "uint256",
+											"name": "c",
+											"type": "uint256"
+										},
+										{
+											"internalType": "uint256",
+											"name": "h",
+											"type": "uint256"
+										},
+										{
+											"internalType": "uint256",
+											"name": "l",
+											"type": "uint256"
+										},
+										{
+											"internalType": "uint256",
+											"name": "v",
+											"type": "uint256"
+										},
+										{
+											"internalType": "uint256",
+											"name": "n",
+											"type": "uint256"
+										},
+										{
+											"internalType": "bool",
+											"name": "x",
+											"type": "bool"
+										},
+										{
+											"internalType": "uint256",
+											"name": "q",
+											"type": "uint256"
+										},
+										{
+											"internalType": "uint256",
+											"name": "V",
+											"type": "uint256"
+										},
+										{
+											"internalType": "uint256",
+											"name": "Q",
+											"type": "uint256"
+										},
+										{
+											"internalType": "string",
+											"name": "B",
+											"type": "string"
+										}
+									],
+									"internalType": "struct CandleRecord",
+									"name": "kline",
+									"type": "tuple"
+								}
+							],
+							"name": "recordCandle",
+							"outputs": [],
+							"stateMutability": "nonpayable",
+							"type": "function"
+						}
+					],
+					"devdoc": {
+						"kind": "dev",
+						"methods": {},
+						"version": 1
+					},
+					"evm": {
+						"assembly": "",
+						"bytecode": {
+							"functionDebugData": {},
+							"generatedSources": [],
+							"linkReferences": {},
+							"object": "",
+							"opcodes": "",
+							"sourceMap": ""
+						},
+						"deployedBytecode": {
+							"functionDebugData": {},
+							"generatedSources": [],
+							"immutableReferences": {},
+							"linkReferences": {},
+							"object": "",
+							"opcodes": "",
+							"sourceMap": ""
+						},
+						"gasEstimates": null,
+						"legacyAssembly": null,
+						"methodIdentifiers": {
+							"getAllCandle()": "8d5ce2bc",
+							"getCandle(uint256)": "a00a5424",
+							"getLastKline()": "edd0bf6a",
+							"recordCandle((uint256,uint256,string,string,uint256,uint256,uint256,uint256,uint256,uint256,uint256,uint256,bool,uint256,uint256,uint256,string))": "c80da6cf"
+						}
+					},
+					"metadata": "{\"compiler\":{\"version\":\"0.8.30+commit.73712a01\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"timestamp\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"string\",\"name\":\"symbol\",\"type\":\"string\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"open\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"close\",\"type\":\"uint256\"}],\"name\":\"AddCandleRecord\",\"type\":\"event\"},{\"inputs\":[],\"name\":\"getAllCandle\",\"outputs\":[{\"components\":[{\"internalType\":\"string\",\"name\":\"e\",\"type\":\"string\"},{\"internalType\":\"uint256\",\"name\":\"E\",\"type\":\"uint256\"},{\"internalType\":\"string\",\"name\":\"s\",\"type\":\"string\"},{\"components\":[{\"internalType\":\"uint256\",\"name\":\"t\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"T\",\"type\":\"uint256\"},{\"internalType\":\"string\",\"name\":\"s\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"i\",\"type\":\"string\"},{\"internalType\":\"uint256\",\"name\":\"f\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"L\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"o\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"c\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"h\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"l\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"v\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"n\",\"type\":\"uint256\"},{\"internalType\":\"bool\",\"name\":\"x\",\"type\":\"bool\"},{\"internalType\":\"uint256\",\"name\":\"q\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"V\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"Q\",\"type\":\"uint256\"},{\"internalType\":\"string\",\"name\":\"B\",\"type\":\"string\"}],\"internalType\":\"struct CandleRecord\",\"name\":\"k\",\"type\":\"tuple\"}],\"internalType\":\"struct CandleResponse[]\",\"name\":\"\",\"type\":\"tuple[]\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"timestamp\",\"type\":\"uint256\"}],\"name\":\"getCandle\",\"outputs\":[{\"components\":[{\"internalType\":\"string\",\"name\":\"e\",\"type\":\"string\"},{\"internalType\":\"uint256\",\"name\":\"E\",\"type\":\"uint256\"},{\"internalType\":\"string\",\"name\":\"s\",\"type\":\"string\"},{\"components\":[{\"internalType\":\"uint256\",\"name\":\"t\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"T\",\"type\":\"uint256\"},{\"internalType\":\"string\",\"name\":\"s\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"i\",\"type\":\"string\"},{\"internalType\":\"uint256\",\"name\":\"f\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"L\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"o\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"c\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"h\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"l\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"v\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"n\",\"type\":\"uint256\"},{\"internalType\":\"bool\",\"name\":\"x\",\"type\":\"bool\"},{\"internalType\":\"uint256\",\"name\":\"q\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"V\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"Q\",\"type\":\"uint256\"},{\"internalType\":\"string\",\"name\":\"B\",\"type\":\"string\"}],\"internalType\":\"struct CandleRecord\",\"name\":\"k\",\"type\":\"tuple\"}],\"internalType\":\"struct CandleResponse\",\"name\":\"\",\"type\":\"tuple\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getLastKline\",\"outputs\":[{\"components\":[{\"internalType\":\"string\",\"name\":\"e\",\"type\":\"string\"},{\"internalType\":\"uint256\",\"name\":\"E\",\"type\":\"uint256\"},{\"internalType\":\"string\",\"name\":\"s\",\"type\":\"string\"},{\"components\":[{\"internalType\":\"uint256\",\"name\":\"t\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"T\",\"type\":\"uint256\"},{\"internalType\":\"string\",\"name\":\"s\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"i\",\"type\":\"string\"},{\"internalType\":\"uint256\",\"name\":\"f\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"L\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"o\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"c\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"h\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"l\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"v\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"n\",\"type\":\"uint256\"},{\"internalType\":\"bool\",\"name\":\"x\",\"type\":\"bool\"},{\"internalType\":\"uint256\",\"name\":\"q\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"V\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"Q\",\"type\":\"uint256\"},{\"internalType\":\"string\",\"name\":\"B\",\"type\":\"string\"}],\"internalType\":\"struct CandleRecord\",\"name\":\"k\",\"type\":\"tuple\"}],\"internalType\":\"struct CandleResponse\",\"name\":\"\",\"type\":\"tuple\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"components\":[{\"internalType\":\"uint256\",\"name\":\"t\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"T\",\"type\":\"uint256\"},{\"internalType\":\"string\",\"name\":\"s\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"i\",\"type\":\"string\"},{\"internalType\":\"uint256\",\"name\":\"f\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"L\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"o\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"c\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"h\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"l\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"v\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"n\",\"type\":\"uint256\"},{\"internalType\":\"bool\",\"name\":\"x\",\"type\":\"bool\"},{\"internalType\":\"uint256\",\"name\":\"q\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"V\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"Q\",\"type\":\"uint256\"},{\"internalType\":\"string\",\"name\":\"B\",\"type\":\"string\"}],\"internalType\":\"struct CandleRecord\",\"name\":\"kline\",\"type\":\"tuple\"}],\"name\":\"recordCandle\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"contracts/interface/ICandleManager.sol\":\"ICandleManager\"},\"evmVersion\":\"prague\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"contracts/interface/ICandleManager.sol\":{\"keccak256\":\"0x6d87c179585c4c0c6afa45357fc99869688aa4dd8f48e9fc1b2ab7bfa580a9d3\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://fe140a2b982c788149caeebe3f1fb5f155d178586c3cd5b5b7eb7bb93966f5e4\",\"dweb:/ipfs/Qmamp8fjMsuzQ8yozPKNCbs34PbpX47vuzg3CJosLCPkQV\"]},\"contracts/struct/CandleStruct.sol\":{\"keccak256\":\"0x60d2f18492e397750ecf6eff113a363d96bf297256899ddaf8729920701075ac\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://e58f08aa60b91b2802ef89a6973bf327e374e46a873cc4e1c6fa7dc7cf61e849\",\"dweb:/ipfs/QmRUykvaSaCec7VJNRWmyLtCc3bcMVdrGqywXvNJc8a24S\"]}},\"version\":1}",
+					"storageLayout": {
+						"storage": [],
+						"types": null
+					},
+					"userdoc": {
+						"kind": "user",
+						"methods": {},
+						"version": 1
+					}
+				}
+			}
+		},
+		"sources": {
+			"contracts/interface/ICandleManager.sol": {
+				"ast": {
+					"absolutePath": "contracts/interface/ICandleManager.sol",
+					"exportedSymbols": {
+						"CandleRecord": [
+							77
+						],
+						"CandleResponse": [
+							87
+						],
+						"ICandleManager": [
+							40
+						]
+					},
+					"id": 41,
+					"license": "MIT",
+					"nodeType": "SourceUnit",
+					"nodes": [
+						{
+							"id": 1,
+							"literals": [
+								"solidity",
+								"^",
+								"0.8",
+								".0"
+							],
+							"nodeType": "PragmaDirective",
+							"src": "33:23:0"
+						},
+						{
+							"absolutePath": "contracts/struct/CandleStruct.sol",
+							"file": "../struct/CandleStruct.sol",
+							"id": 2,
+							"nameLocation": "-1:-1:-1",
+							"nodeType": "ImportDirective",
+							"scope": 41,
+							"sourceUnit": 88,
+							"src": "60:36:0",
+							"symbolAliases": [],
+							"unitAlias": ""
+						},
+						{
+							"abstract": false,
+							"baseContracts": [],
+							"canonicalName": "ICandleManager",
+							"contractDependencies": [],
+							"contractKind": "interface",
+							"fullyImplemented": false,
+							"id": 40,
+							"linearizedBaseContracts": [
+								40
+							],
+							"name": "ICandleManager",
+							"nameLocation": "108:14:0",
+							"nodeType": "ContractDefinition",
+							"nodes": [
+								{
+									"anonymous": false,
+									"eventSelector": "457e71e233bfca657f83107e4d22cc35169beda85c2b16268c89ed23a9d2d086",
+									"id": 12,
+									"name": "AddCandleRecord",
+									"nameLocation": "136:15:0",
+									"nodeType": "EventDefinition",
+									"parameters": {
+										"id": 11,
+										"nodeType": "ParameterList",
+										"parameters": [
+											{
+												"constant": false,
+												"id": 4,
+												"indexed": false,
+												"mutability": "mutable",
+												"name": "timestamp",
+												"nameLocation": "160:9:0",
+												"nodeType": "VariableDeclaration",
+												"scope": 12,
+												"src": "152:17:0",
+												"stateVariable": false,
+												"storageLocation": "default",
+												"typeDescriptions": {
+													"typeIdentifier": "t_uint256",
+													"typeString": "uint256"
+												},
+												"typeName": {
+													"id": 3,
+													"name": "uint256",
+													"nodeType": "ElementaryTypeName",
+													"src": "152:7:0",
+													"typeDescriptions": {
+														"typeIdentifier": "t_uint256",
+														"typeString": "uint256"
+													}
+												},
+												"visibility": "internal"
+											},
+											{
+												"constant": false,
+												"id": 6,
+												"indexed": false,
+												"mutability": "mutable",
+												"name": "symbol",
+												"nameLocation": "178:6:0",
+												"nodeType": "VariableDeclaration",
+												"scope": 12,
+												"src": "171:13:0",
+												"stateVariable": false,
+												"storageLocation": "default",
+												"typeDescriptions": {
+													"typeIdentifier": "t_string_memory_ptr",
+													"typeString": "string"
+												},
+												"typeName": {
+													"id": 5,
+													"name": "string",
+													"nodeType": "ElementaryTypeName",
+													"src": "171:6:0",
+													"typeDescriptions": {
+														"typeIdentifier": "t_string_storage_ptr",
+														"typeString": "string"
+													}
+												},
+												"visibility": "internal"
+											},
+											{
+												"constant": false,
+												"id": 8,
+												"indexed": false,
+												"mutability": "mutable",
+												"name": "open",
+												"nameLocation": "194:4:0",
+												"nodeType": "VariableDeclaration",
+												"scope": 12,
+												"src": "186:12:0",
+												"stateVariable": false,
+												"storageLocation": "default",
+												"typeDescriptions": {
+													"typeIdentifier": "t_uint256",
+													"typeString": "uint256"
+												},
+												"typeName": {
+													"id": 7,
+													"name": "uint256",
+													"nodeType": "ElementaryTypeName",
+													"src": "186:7:0",
+													"typeDescriptions": {
+														"typeIdentifier": "t_uint256",
+														"typeString": "uint256"
+													}
+												},
+												"visibility": "internal"
+											},
+											{
+												"constant": false,
+												"id": 10,
+												"indexed": false,
+												"mutability": "mutable",
+												"name": "close",
+												"nameLocation": "208:5:0",
+												"nodeType": "VariableDeclaration",
+												"scope": 12,
+												"src": "200:13:0",
+												"stateVariable": false,
+												"storageLocation": "default",
+												"typeDescriptions": {
+													"typeIdentifier": "t_uint256",
+													"typeString": "uint256"
+												},
+												"typeName": {
+													"id": 9,
+													"name": "uint256",
+													"nodeType": "ElementaryTypeName",
+													"src": "200:7:0",
+													"typeDescriptions": {
+														"typeIdentifier": "t_uint256",
+														"typeString": "uint256"
+													}
+												},
+												"visibility": "internal"
+											}
+										],
+										"src": "151:63:0"
+									},
+									"src": "130:85:0"
+								},
+								{
+									"functionSelector": "c80da6cf",
+									"id": 18,
+									"implemented": false,
+									"kind": "function",
+									"modifiers": [],
+									"name": "recordCandle",
+									"nameLocation": "236:12:0",
+									"nodeType": "FunctionDefinition",
+									"parameters": {
+										"id": 16,
+										"nodeType": "ParameterList",
+										"parameters": [
+											{
+												"constant": false,
+												"id": 15,
+												"mutability": "mutable",
+												"name": "kline",
+												"nameLocation": "271:5:0",
+												"nodeType": "VariableDeclaration",
+												"scope": 18,
+												"src": "249:27:0",
+												"stateVariable": false,
+												"storageLocation": "calldata",
+												"typeDescriptions": {
+													"typeIdentifier": "t_struct$_CandleRecord_$77_calldata_ptr",
+													"typeString": "struct CandleRecord"
+												},
+												"typeName": {
+													"id": 14,
+													"nodeType": "UserDefinedTypeName",
+													"pathNode": {
+														"id": 13,
+														"name": "CandleRecord",
+														"nameLocations": [
+															"249:12:0"
+														],
+														"nodeType": "IdentifierPath",
+														"referencedDeclaration": 77,
+														"src": "249:12:0"
+													},
+													"referencedDeclaration": 77,
+													"src": "249:12:0",
+													"typeDescriptions": {
+														"typeIdentifier": "t_struct$_CandleRecord_$77_storage_ptr",
+														"typeString": "struct CandleRecord"
+													}
+												},
+												"visibility": "internal"
+											}
+										],
+										"src": "248:29:0"
+									},
+									"returnParameters": {
+										"id": 17,
+										"nodeType": "ParameterList",
+										"parameters": [],
+										"src": "286:0:0"
+									},
+									"scope": 40,
+									"src": "227:60:0",
+									"stateMutability": "nonpayable",
+									"virtual": false,
+									"visibility": "external"
+								},
+								{
+									"functionSelector": "a00a5424",
+									"id": 26,
+									"implemented": false,
+									"kind": "function",
+									"modifiers": [],
+									"name": "getCandle",
+									"nameLocation": "302:9:0",
+									"nodeType": "FunctionDefinition",
+									"parameters": {
+										"id": 21,
+										"nodeType": "ParameterList",
+										"parameters": [
+											{
+												"constant": false,
+												"id": 20,
+												"mutability": "mutable",
+												"name": "timestamp",
+												"nameLocation": "320:9:0",
+												"nodeType": "VariableDeclaration",
+												"scope": 26,
+												"src": "312:17:0",
+												"stateVariable": false,
+												"storageLocation": "default",
+												"typeDescriptions": {
+													"typeIdentifier": "t_uint256",
+													"typeString": "uint256"
+												},
+												"typeName": {
+													"id": 19,
+													"name": "uint256",
+													"nodeType": "ElementaryTypeName",
+													"src": "312:7:0",
+													"typeDescriptions": {
+														"typeIdentifier": "t_uint256",
+														"typeString": "uint256"
+													}
+												},
+												"visibility": "internal"
+											}
+										],
+										"src": "311:19:0"
+									},
+									"returnParameters": {
+										"id": 25,
+										"nodeType": "ParameterList",
+										"parameters": [
+											{
+												"constant": false,
+												"id": 24,
+												"mutability": "mutable",
+												"name": "",
+												"nameLocation": "-1:-1:-1",
+												"nodeType": "VariableDeclaration",
+												"scope": 26,
+												"src": "354:21:0",
+												"stateVariable": false,
+												"storageLocation": "memory",
+												"typeDescriptions": {
+													"typeIdentifier": "t_struct$_CandleResponse_$87_memory_ptr",
+													"typeString": "struct CandleResponse"
+												},
+												"typeName": {
+													"id": 23,
+													"nodeType": "UserDefinedTypeName",
+													"pathNode": {
+														"id": 22,
+														"name": "CandleResponse",
+														"nameLocations": [
+															"354:14:0"
+														],
+														"nodeType": "IdentifierPath",
+														"referencedDeclaration": 87,
+														"src": "354:14:0"
+													},
+													"referencedDeclaration": 87,
+													"src": "354:14:0",
+													"typeDescriptions": {
+														"typeIdentifier": "t_struct$_CandleResponse_$87_storage_ptr",
+														"typeString": "struct CandleResponse"
+													}
+												},
+												"visibility": "internal"
+											}
+										],
+										"src": "353:23:0"
+									},
+									"scope": 40,
+									"src": "293:84:0",
+									"stateMutability": "view",
+									"virtual": false,
+									"visibility": "external"
+								},
+								{
+									"functionSelector": "edd0bf6a",
+									"id": 32,
+									"implemented": false,
+									"kind": "function",
+									"modifiers": [],
+									"name": "getLastKline",
+									"nameLocation": "392:12:0",
+									"nodeType": "FunctionDefinition",
+									"parameters": {
+										"id": 27,
+										"nodeType": "ParameterList",
+										"parameters": [],
+										"src": "404:2:0"
+									},
+									"returnParameters": {
+										"id": 31,
+										"nodeType": "ParameterList",
+										"parameters": [
+											{
+												"constant": false,
+												"id": 30,
+												"mutability": "mutable",
+												"name": "",
+												"nameLocation": "-1:-1:-1",
+												"nodeType": "VariableDeclaration",
+												"scope": 32,
+												"src": "430:21:0",
+												"stateVariable": false,
+												"storageLocation": "memory",
+												"typeDescriptions": {
+													"typeIdentifier": "t_struct$_CandleResponse_$87_memory_ptr",
+													"typeString": "struct CandleResponse"
+												},
+												"typeName": {
+													"id": 29,
+													"nodeType": "UserDefinedTypeName",
+													"pathNode": {
+														"id": 28,
+														"name": "CandleResponse",
+														"nameLocations": [
+															"430:14:0"
+														],
+														"nodeType": "IdentifierPath",
+														"referencedDeclaration": 87,
+														"src": "430:14:0"
+													},
+													"referencedDeclaration": 87,
+													"src": "430:14:0",
+													"typeDescriptions": {
+														"typeIdentifier": "t_struct$_CandleResponse_$87_storage_ptr",
+														"typeString": "struct CandleResponse"
+													}
+												},
+												"visibility": "internal"
+											}
+										],
+										"src": "429:23:0"
+									},
+									"scope": 40,
+									"src": "383:70:0",
+									"stateMutability": "view",
+									"virtual": false,
+									"visibility": "external"
+								},
+								{
+									"functionSelector": "8d5ce2bc",
+									"id": 39,
+									"implemented": false,
+									"kind": "function",
+									"modifiers": [],
+									"name": "getAllCandle",
+									"nameLocation": "468:12:0",
+									"nodeType": "FunctionDefinition",
+									"parameters": {
+										"id": 33,
+										"nodeType": "ParameterList",
+										"parameters": [],
+										"src": "480:2:0"
+									},
+									"returnParameters": {
+										"id": 38,
+										"nodeType": "ParameterList",
+										"parameters": [
+											{
+												"constant": false,
+												"id": 37,
+												"mutability": "mutable",
+												"name": "",
+												"nameLocation": "-1:-1:-1",
+												"nodeType": "VariableDeclaration",
+												"scope": 39,
+												"src": "507:23:0",
+												"stateVariable": false,
+												"storageLocation": "memory",
+												"typeDescriptions": {
+													"typeIdentifier": "t_array$_t_struct$_CandleResponse_$87_memory_ptr_$dyn_memory_ptr",
+													"typeString": "struct CandleResponse[]"
+												},
+												"typeName": {
+													"baseType": {
+														"id": 35,
+														"nodeType": "UserDefinedTypeName",
+														"pathNode": {
+															"id": 34,
+															"name": "CandleResponse",
+															"nameLocations": [
+																"507:14:0"
+															],
+															"nodeType": "IdentifierPath",
+															"referencedDeclaration": 87,
+															"src": "507:14:0"
+														},
+														"referencedDeclaration": 87,
+														"src": "507:14:0",
+														"typeDescriptions": {
+															"typeIdentifier": "t_struct$_CandleResponse_$87_storage_ptr",
+															"typeString": "struct CandleResponse"
+														}
+													},
+													"id": 36,
+													"nodeType": "ArrayTypeName",
+													"src": "507:16:0",
+													"typeDescriptions": {
+														"typeIdentifier": "t_array$_t_struct$_CandleResponse_$87_storage_$dyn_storage_ptr",
+														"typeString": "struct CandleResponse[]"
+													}
+												},
+												"visibility": "internal"
+											}
+										],
+										"src": "506:25:0"
+									},
+									"scope": 40,
+									"src": "459:73:0",
+									"stateMutability": "view",
+									"virtual": false,
+									"visibility": "external"
+								}
+							],
+							"scope": 41,
+							"src": "98:576:0",
+							"usedErrors": [],
+							"usedEvents": [
+								12
+							]
+						}
+					],
+					"src": "33:641:0"
+				},
+				"id": 0
+			},
+			"contracts/struct/CandleStruct.sol": {
+				"ast": {
+					"absolutePath": "contracts/struct/CandleStruct.sol",
+					"exportedSymbols": {
+						"CandleRecord": [
+							77
+						],
+						"CandleResponse": [
+							87
+						]
+					},
+					"id": 88,
+					"license": "MIT",
+					"nodeType": "SourceUnit",
+					"nodes": [
+						{
+							"id": 42,
+							"literals": [
+								"solidity",
+								"^",
+								"0.8",
+								".0"
+							],
+							"nodeType": "PragmaDirective",
+							"src": "33:23:1"
+						},
+						{
+							"canonicalName": "CandleRecord",
+							"id": 77,
+							"members": [
+								{
+									"constant": false,
+									"id": 44,
+									"mutability": "mutable",
+									"name": "t",
+									"nameLocation": "111:1:1",
+									"nodeType": "VariableDeclaration",
+									"scope": 77,
+									"src": "103:9:1",
+									"stateVariable": false,
+									"storageLocation": "default",
+									"typeDescriptions": {
+										"typeIdentifier": "t_uint256",
+										"typeString": "uint256"
+									},
+									"typeName": {
+										"id": 43,
+										"name": "uint256",
+										"nodeType": "ElementaryTypeName",
+										"src": "103:7:1",
+										"typeDescriptions": {
+											"typeIdentifier": "t_uint256",
+											"typeString": "uint256"
+										}
+									},
+									"visibility": "internal"
+								},
+								{
+									"constant": false,
+									"id": 46,
+									"mutability": "mutable",
+									"name": "T",
+									"nameLocation": "143:1:1",
+									"nodeType": "VariableDeclaration",
+									"scope": 77,
+									"src": "135:9:1",
+									"stateVariable": false,
+									"storageLocation": "default",
+									"typeDescriptions": {
+										"typeIdentifier": "t_uint256",
+										"typeString": "uint256"
+									},
+									"typeName": {
+										"id": 45,
+										"name": "uint256",
+										"nodeType": "ElementaryTypeName",
+										"src": "135:7:1",
+										"typeDescriptions": {
+											"typeIdentifier": "t_uint256",
+											"typeString": "uint256"
+										}
+									},
+									"visibility": "internal"
+								},
+								{
+									"constant": false,
+									"id": 48,
+									"mutability": "mutable",
+									"name": "s",
+									"nameLocation": "172:1:1",
+									"nodeType": "VariableDeclaration",
+									"scope": 77,
+									"src": "165:8:1",
+									"stateVariable": false,
+									"storageLocation": "default",
+									"typeDescriptions": {
+										"typeIdentifier": "t_string_storage_ptr",
+										"typeString": "string"
+									},
+									"typeName": {
+										"id": 47,
+										"name": "string",
+										"nodeType": "ElementaryTypeName",
+										"src": "165:6:1",
+										"typeDescriptions": {
+											"typeIdentifier": "t_string_storage_ptr",
+											"typeString": "string"
+										}
+									},
+									"visibility": "internal"
+								},
+								{
+									"constant": false,
+									"id": 50,
+									"mutability": "mutable",
+									"name": "i",
+									"nameLocation": "200:1:1",
+									"nodeType": "VariableDeclaration",
+									"scope": 77,
+									"src": "193:8:1",
+									"stateVariable": false,
+									"storageLocation": "default",
+									"typeDescriptions": {
+										"typeIdentifier": "t_string_storage_ptr",
+										"typeString": "string"
+									},
+									"typeName": {
+										"id": 49,
+										"name": "string",
+										"nodeType": "ElementaryTypeName",
+										"src": "193:6:1",
+										"typeDescriptions": {
+											"typeIdentifier": "t_string_storage_ptr",
+											"typeString": "string"
+										}
+									},
+									"visibility": "internal"
+								},
+								{
+									"constant": false,
+									"id": 52,
+									"mutability": "mutable",
+									"name": "f",
+									"nameLocation": "233:1:1",
+									"nodeType": "VariableDeclaration",
+									"scope": 77,
+									"src": "225:9:1",
+									"stateVariable": false,
+									"storageLocation": "default",
+									"typeDescriptions": {
+										"typeIdentifier": "t_uint256",
+										"typeString": "uint256"
+									},
+									"typeName": {
+										"id": 51,
+										"name": "uint256",
+										"nodeType": "ElementaryTypeName",
+										"src": "225:7:1",
+										"typeDescriptions": {
+											"typeIdentifier": "t_uint256",
+											"typeString": "uint256"
+										}
+									},
+									"visibility": "internal"
+								},
+								{
+									"constant": false,
+									"id": 54,
+									"mutability": "mutable",
+									"name": "L",
+									"nameLocation": "268:1:1",
+									"nodeType": "VariableDeclaration",
+									"scope": 77,
+									"src": "260:9:1",
+									"stateVariable": false,
+									"storageLocation": "default",
+									"typeDescriptions": {
+										"typeIdentifier": "t_uint256",
+										"typeString": "uint256"
+									},
+									"typeName": {
+										"id": 53,
+										"name": "uint256",
+										"nodeType": "ElementaryTypeName",
+										"src": "260:7:1",
+										"typeDescriptions": {
+											"typeIdentifier": "t_uint256",
+											"typeString": "uint256"
+										}
+									},
+									"visibility": "internal"
+								},
+								{
+									"constant": false,
+									"id": 56,
+									"mutability": "mutable",
+									"name": "o",
+									"nameLocation": "302:1:1",
+									"nodeType": "VariableDeclaration",
+									"scope": 77,
+									"src": "294:9:1",
+									"stateVariable": false,
+									"storageLocation": "default",
+									"typeDescriptions": {
+										"typeIdentifier": "t_uint256",
+										"typeString": "uint256"
+									},
+									"typeName": {
+										"id": 55,
+										"name": "uint256",
+										"nodeType": "ElementaryTypeName",
+										"src": "294:7:1",
+										"typeDescriptions": {
+											"typeIdentifier": "t_uint256",
+											"typeString": "uint256"
+										}
+									},
+									"visibility": "internal"
+								},
+								{
+									"constant": false,
+									"id": 58,
+									"mutability": "mutable",
+									"name": "c",
+									"nameLocation": "329:1:1",
+									"nodeType": "VariableDeclaration",
+									"scope": 77,
+									"src": "321:9:1",
+									"stateVariable": false,
+									"storageLocation": "default",
+									"typeDescriptions": {
+										"typeIdentifier": "t_uint256",
+										"typeString": "uint256"
+									},
+									"typeName": {
+										"id": 57,
+										"name": "uint256",
+										"nodeType": "ElementaryTypeName",
+										"src": "321:7:1",
+										"typeDescriptions": {
+											"typeIdentifier": "t_uint256",
+											"typeString": "uint256"
+										}
+									},
+									"visibility": "internal"
+								},
+								{
+									"constant": false,
+									"id": 60,
+									"mutability": "mutable",
+									"name": "h",
+									"nameLocation": "357:1:1",
+									"nodeType": "VariableDeclaration",
+									"scope": 77,
+									"src": "349:9:1",
+									"stateVariable": false,
+									"storageLocation": "default",
+									"typeDescriptions": {
+										"typeIdentifier": "t_uint256",
+										"typeString": "uint256"
+									},
+									"typeName": {
+										"id": 59,
+										"name": "uint256",
+										"nodeType": "ElementaryTypeName",
+										"src": "349:7:1",
+										"typeDescriptions": {
+											"typeIdentifier": "t_uint256",
+											"typeString": "uint256"
+										}
+									},
+									"visibility": "internal"
+								},
+								{
+									"constant": false,
+									"id": 62,
+									"mutability": "mutable",
+									"name": "l",
+									"nameLocation": "384:1:1",
+									"nodeType": "VariableDeclaration",
+									"scope": 77,
+									"src": "376:9:1",
+									"stateVariable": false,
+									"storageLocation": "default",
+									"typeDescriptions": {
+										"typeIdentifier": "t_uint256",
+										"typeString": "uint256"
+									},
+									"typeName": {
+										"id": 61,
+										"name": "uint256",
+										"nodeType": "ElementaryTypeName",
+										"src": "376:7:1",
+										"typeDescriptions": {
+											"typeIdentifier": "t_uint256",
+											"typeString": "uint256"
+										}
+									},
+									"visibility": "internal"
+								},
+								{
+									"constant": false,
+									"id": 64,
+									"mutability": "mutable",
+									"name": "v",
+									"nameLocation": "410:1:1",
+									"nodeType": "VariableDeclaration",
+									"scope": 77,
+									"src": "402:9:1",
+									"stateVariable": false,
+									"storageLocation": "default",
+									"typeDescriptions": {
+										"typeIdentifier": "t_uint256",
+										"typeString": "uint256"
+									},
+									"typeName": {
+										"id": 63,
+										"name": "uint256",
+										"nodeType": "ElementaryTypeName",
+										"src": "402:7:1",
+										"typeDescriptions": {
+											"typeIdentifier": "t_uint256",
+											"typeString": "uint256"
+										}
+									},
+									"visibility": "internal"
+								},
+								{
+									"constant": false,
+									"id": 66,
+									"mutability": "mutable",
+									"name": "n",
+									"nameLocation": "439:1:1",
+									"nodeType": "VariableDeclaration",
+									"scope": 77,
+									"src": "431:9:1",
+									"stateVariable": false,
+									"storageLocation": "default",
+									"typeDescriptions": {
+										"typeIdentifier": "t_uint256",
+										"typeString": "uint256"
+									},
+									"typeName": {
+										"id": 65,
+										"name": "uint256",
+										"nodeType": "ElementaryTypeName",
+										"src": "431:7:1",
+										"typeDescriptions": {
+											"typeIdentifier": "t_uint256",
+											"typeString": "uint256"
+										}
+									},
+									"visibility": "internal"
+								},
+								{
+									"constant": false,
+									"id": 68,
+									"mutability": "mutable",
+									"name": "x",
+									"nameLocation": "465:1:1",
+									"nodeType": "VariableDeclaration",
+									"scope": 77,
+									"src": "460:6:1",
+									"stateVariable": false,
+									"storageLocation": "default",
+									"typeDescriptions": {
+										"typeIdentifier": "t_bool",
+										"typeString": "bool"
+									},
+									"typeName": {
+										"id": 67,
+										"name": "bool",
+										"nodeType": "ElementaryTypeName",
+										"src": "460:4:1",
+										"typeDescriptions": {
+											"typeIdentifier": "t_bool",
+											"typeString": "bool"
+										}
+									},
+									"visibility": "internal"
+								},
+								{
+									"constant": false,
+									"id": 70,
+									"mutability": "mutable",
+									"name": "q",
+									"nameLocation": "540:1:1",
+									"nodeType": "VariableDeclaration",
+									"scope": 77,
+									"src": "532:9:1",
+									"stateVariable": false,
+									"storageLocation": "default",
+									"typeDescriptions": {
+										"typeIdentifier": "t_uint256",
+										"typeString": "uint256"
+									},
+									"typeName": {
+										"id": 69,
+										"name": "uint256",
+										"nodeType": "ElementaryTypeName",
+										"src": "532:7:1",
+										"typeDescriptions": {
+											"typeIdentifier": "t_uint256",
+											"typeString": "uint256"
+										}
+									},
+									"visibility": "internal"
+								},
+								{
+									"constant": false,
+									"id": 72,
+									"mutability": "mutable",
+									"name": "V",
+									"nameLocation": "574:1:1",
+									"nodeType": "VariableDeclaration",
+									"scope": 77,
+									"src": "566:9:1",
+									"stateVariable": false,
+									"storageLocation": "default",
+									"typeDescriptions": {
+										"typeIdentifier": "t_uint256",
+										"typeString": "uint256"
+									},
+									"typeName": {
+										"id": 71,
+										"name": "uint256",
+										"nodeType": "ElementaryTypeName",
+										"src": "566:7:1",
+										"typeDescriptions": {
+											"typeIdentifier": "t_uint256",
+											"typeString": "uint256"
+										}
+									},
+									"visibility": "internal"
+								},
+								{
+									"constant": false,
+									"id": 74,
+									"mutability": "mutable",
+									"name": "Q",
+									"nameLocation": "611:1:1",
+									"nodeType": "VariableDeclaration",
+									"scope": 77,
+									"src": "603:9:1",
+									"stateVariable": false,
+									"storageLocation": "default",
+									"typeDescriptions": {
+										"typeIdentifier": "t_uint256",
+										"typeString": "uint256"
+									},
+									"typeName": {
+										"id": 73,
+										"name": "uint256",
+										"nodeType": "ElementaryTypeName",
+										"src": "603:7:1",
+										"typeDescriptions": {
+											"typeIdentifier": "t_uint256",
+											"typeString": "uint256"
+										}
+									},
+									"visibility": "internal"
+								},
+								{
+									"constant": false,
+									"id": 76,
+									"mutability": "mutable",
+									"name": "B",
+									"nameLocation": "649:1:1",
+									"nodeType": "VariableDeclaration",
+									"scope": 77,
+									"src": "642:8:1",
+									"stateVariable": false,
+									"storageLocation": "default",
+									"typeDescriptions": {
+										"typeIdentifier": "t_string_storage_ptr",
+										"typeString": "string"
+									},
+									"typeName": {
+										"id": 75,
+										"name": "string",
+										"nodeType": "ElementaryTypeName",
+										"src": "642:6:1",
+										"typeDescriptions": {
+											"typeIdentifier": "t_string_storage_ptr",
+											"typeString": "string"
+										}
+									},
+									"visibility": "internal"
+								}
+							],
+							"name": "CandleRecord",
+							"nameLocation": "83:12:1",
+							"nodeType": "StructDefinition",
+							"scope": 88,
+							"src": "76:598:1",
+							"visibility": "public"
+						},
+						{
+							"canonicalName": "CandleResponse",
+							"id": 87,
+							"members": [
+								{
+									"constant": false,
+									"id": 79,
+									"mutability": "mutable",
+									"name": "e",
+									"nameLocation": "714:1:1",
+									"nodeType": "VariableDeclaration",
+									"scope": 87,
+									"src": "707:8:1",
+									"stateVariable": false,
+									"storageLocation": "default",
+									"typeDescriptions": {
+										"typeIdentifier": "t_string_storage_ptr",
+										"typeString": "string"
+									},
+									"typeName": {
+										"id": 78,
+										"name": "string",
+										"nodeType": "ElementaryTypeName",
+										"src": "707:6:1",
+										"typeDescriptions": {
+											"typeIdentifier": "t_string_storage_ptr",
+											"typeString": "string"
+										}
+									},
+									"visibility": "internal"
+								},
+								{
+									"constant": false,
+									"id": 81,
+									"mutability": "mutable",
+									"name": "E",
+									"nameLocation": "730:1:1",
+									"nodeType": "VariableDeclaration",
+									"scope": 87,
+									"src": "725:6:1",
+									"stateVariable": false,
+									"storageLocation": "default",
+									"typeDescriptions": {
+										"typeIdentifier": "t_uint256",
+										"typeString": "uint256"
+									},
+									"typeName": {
+										"id": 80,
+										"name": "uint",
+										"nodeType": "ElementaryTypeName",
+										"src": "725:4:1",
+										"typeDescriptions": {
+											"typeIdentifier": "t_uint256",
+											"typeString": "uint256"
+										}
+									},
+									"visibility": "internal"
+								},
+								{
+									"constant": false,
+									"id": 83,
+									"mutability": "mutable",
+									"name": "s",
+									"nameLocation": "745:1:1",
+									"nodeType": "VariableDeclaration",
+									"scope": 87,
+									"src": "738:8:1",
+									"stateVariable": false,
+									"storageLocation": "default",
+									"typeDescriptions": {
+										"typeIdentifier": "t_string_storage_ptr",
+										"typeString": "string"
+									},
+									"typeName": {
+										"id": 82,
+										"name": "string",
+										"nodeType": "ElementaryTypeName",
+										"src": "738:6:1",
+										"typeDescriptions": {
+											"typeIdentifier": "t_string_storage_ptr",
+											"typeString": "string"
+										}
+									},
+									"visibility": "internal"
+								},
+								{
+									"constant": false,
+									"id": 86,
+									"mutability": "mutable",
+									"name": "k",
+									"nameLocation": "777:1:1",
+									"nodeType": "VariableDeclaration",
+									"scope": 87,
+									"src": "764:14:1",
+									"stateVariable": false,
+									"storageLocation": "default",
+									"typeDescriptions": {
+										"typeIdentifier": "t_struct$_CandleRecord_$77_storage_ptr",
+										"typeString": "struct CandleRecord"
+									},
+									"typeName": {
+										"id": 85,
+										"nodeType": "UserDefinedTypeName",
+										"pathNode": {
+											"id": 84,
+											"name": "CandleRecord",
+											"nameLocations": [
+												"764:12:1"
+											],
+											"nodeType": "IdentifierPath",
+											"referencedDeclaration": 77,
+											"src": "764:12:1"
+										},
+										"referencedDeclaration": 77,
+										"src": "764:12:1",
+										"typeDescriptions": {
+											"typeIdentifier": "t_struct$_CandleRecord_$77_storage_ptr",
+											"typeString": "struct CandleRecord"
+										}
+									},
+									"visibility": "internal"
+								}
+							],
+							"name": "CandleResponse",
+							"nameLocation": "685:14:1",
+							"nodeType": "StructDefinition",
+							"scope": 88,
+							"src": "678:104:1",
+							"visibility": "public"
+						}
+					],
+					"src": "33:749:1"
+				},
+				"id": 1
+			}
+		}
+	}
+}
