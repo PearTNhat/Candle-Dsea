@@ -1,5 +1,23 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
+enum Interval {
+    OneSecond,
+    OneMinute,
+    ThreeMinutes,
+    FiveMinutes,
+    FifteenMinutes,
+    ThirtyMinutes,
+    OneHour,
+    TwoHours,
+    FourHours,
+    SixHours,
+    EightHours,
+    TwelveHours,
+    OneDay,
+    ThreeDays,
+    OneWeek,
+    OneMonth
+}
 
 struct CandleRecord {
     uint64 openTime;                  // 0: Kline open time (ms timestamp)

@@ -6,525 +6,228 @@
 	"output": {
 		"abi": [
 			{
-				"anonymous": false,
 				"inputs": [
-					{
-						"indexed": false,
-						"internalType": "uint256",
-						"name": "timestamp",
-						"type": "uint256"
-					},
-					{
-						"indexed": false,
-						"internalType": "string",
-						"name": "symbol",
-						"type": "string"
-					},
-					{
-						"indexed": false,
-						"internalType": "string",
-						"name": "open",
-						"type": "string"
-					},
-					{
-						"indexed": false,
-						"internalType": "string",
-						"name": "close",
-						"type": "string"
-					}
-				],
-				"name": "AddKlineRecord",
-				"type": "event"
-			},
-			{
-				"inputs": [],
-				"name": "getAllCandle",
-				"outputs": [
 					{
 						"components": [
 							{
-								"internalType": "string",
-								"name": "e",
-								"type": "string"
-							},
-							{
-								"internalType": "uint256",
-								"name": "E",
-								"type": "uint256"
+								"internalType": "uint64",
+								"name": "openTime",
+								"type": "uint64"
 							},
 							{
 								"internalType": "string",
-								"name": "s",
+								"name": "openPrice",
 								"type": "string"
 							},
 							{
-								"components": [
-									{
-										"internalType": "uint256",
-										"name": "t",
-										"type": "uint256"
-									},
-									{
-										"internalType": "uint256",
-										"name": "T",
-										"type": "uint256"
-									},
-									{
-										"internalType": "string",
-										"name": "s",
-										"type": "string"
-									},
-									{
-										"internalType": "string",
-										"name": "i",
-										"type": "string"
-									},
-									{
-										"internalType": "uint256",
-										"name": "f",
-										"type": "uint256"
-									},
-									{
-										"internalType": "uint256",
-										"name": "L",
-										"type": "uint256"
-									},
-									{
-										"internalType": "string",
-										"name": "o",
-										"type": "string"
-									},
-									{
-										"internalType": "string",
-										"name": "c",
-										"type": "string"
-									},
-									{
-										"internalType": "string",
-										"name": "h",
-										"type": "string"
-									},
-									{
-										"internalType": "string",
-										"name": "l",
-										"type": "string"
-									},
-									{
-										"internalType": "string",
-										"name": "v",
-										"type": "string"
-									},
-									{
-										"internalType": "uint256",
-										"name": "n",
-										"type": "uint256"
-									},
-									{
-										"internalType": "bool",
-										"name": "x",
-										"type": "bool"
-									},
-									{
-										"internalType": "string",
-										"name": "q",
-										"type": "string"
-									},
-									{
-										"internalType": "string",
-										"name": "V",
-										"type": "string"
-									},
-									{
-										"internalType": "string",
-										"name": "Q",
-										"type": "string"
-									},
-									{
-										"internalType": "string",
-										"name": "B",
-										"type": "string"
-									}
-								],
-								"internalType": "struct KlineRecord",
-								"name": "k",
-								"type": "tuple"
+								"internalType": "string",
+								"name": "highPrice",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "lowPrice",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "closePrice",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "volume",
+								"type": "string"
+							},
+							{
+								"internalType": "uint64",
+								"name": "closeTime",
+								"type": "uint64"
+							},
+							{
+								"internalType": "string",
+								"name": "quoteAssetVolume",
+								"type": "string"
+							},
+							{
+								"internalType": "uint32",
+								"name": "numberOfTrades",
+								"type": "uint32"
+							},
+							{
+								"internalType": "string",
+								"name": "takerBuyBaseVolume",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "takerBuyQuoteVolume",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "unused",
+								"type": "string"
 							}
 						],
-						"internalType": "struct KlineResponse[]",
-						"name": "",
-						"type": "tuple[]"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "uint256",
-						"name": "timestamp",
-						"type": "uint256"
-					}
-				],
-				"name": "getCandle",
-				"outputs": [
-					{
-						"components": [
-							{
-								"internalType": "string",
-								"name": "e",
-								"type": "string"
-							},
-							{
-								"internalType": "uint256",
-								"name": "E",
-								"type": "uint256"
-							},
-							{
-								"internalType": "string",
-								"name": "s",
-								"type": "string"
-							},
-							{
-								"components": [
-									{
-										"internalType": "uint256",
-										"name": "t",
-										"type": "uint256"
-									},
-									{
-										"internalType": "uint256",
-										"name": "T",
-										"type": "uint256"
-									},
-									{
-										"internalType": "string",
-										"name": "s",
-										"type": "string"
-									},
-									{
-										"internalType": "string",
-										"name": "i",
-										"type": "string"
-									},
-									{
-										"internalType": "uint256",
-										"name": "f",
-										"type": "uint256"
-									},
-									{
-										"internalType": "uint256",
-										"name": "L",
-										"type": "uint256"
-									},
-									{
-										"internalType": "string",
-										"name": "o",
-										"type": "string"
-									},
-									{
-										"internalType": "string",
-										"name": "c",
-										"type": "string"
-									},
-									{
-										"internalType": "string",
-										"name": "h",
-										"type": "string"
-									},
-									{
-										"internalType": "string",
-										"name": "l",
-										"type": "string"
-									},
-									{
-										"internalType": "string",
-										"name": "v",
-										"type": "string"
-									},
-									{
-										"internalType": "uint256",
-										"name": "n",
-										"type": "uint256"
-									},
-									{
-										"internalType": "bool",
-										"name": "x",
-										"type": "bool"
-									},
-									{
-										"internalType": "string",
-										"name": "q",
-										"type": "string"
-									},
-									{
-										"internalType": "string",
-										"name": "V",
-										"type": "string"
-									},
-									{
-										"internalType": "string",
-										"name": "Q",
-										"type": "string"
-									},
-									{
-										"internalType": "string",
-										"name": "B",
-										"type": "string"
-									}
-								],
-								"internalType": "struct KlineRecord",
-								"name": "k",
-								"type": "tuple"
-							}
-						],
-						"internalType": "struct KlineResponse",
-						"name": "",
+						"internalType": "struct CandleRecord",
+						"name": "candle",
 						"type": "tuple"
 					}
 				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "uint256",
-						"name": "fromTimestamp",
-						"type": "uint256"
-					}
-				],
-				"name": "getCandleFrom",
-				"outputs": [
-					{
-						"components": [
-							{
-								"internalType": "string",
-								"name": "e",
-								"type": "string"
-							},
-							{
-								"internalType": "uint256",
-								"name": "E",
-								"type": "uint256"
-							},
-							{
-								"internalType": "string",
-								"name": "s",
-								"type": "string"
-							},
-							{
-								"components": [
-									{
-										"internalType": "uint256",
-										"name": "t",
-										"type": "uint256"
-									},
-									{
-										"internalType": "uint256",
-										"name": "T",
-										"type": "uint256"
-									},
-									{
-										"internalType": "string",
-										"name": "s",
-										"type": "string"
-									},
-									{
-										"internalType": "string",
-										"name": "i",
-										"type": "string"
-									},
-									{
-										"internalType": "uint256",
-										"name": "f",
-										"type": "uint256"
-									},
-									{
-										"internalType": "uint256",
-										"name": "L",
-										"type": "uint256"
-									},
-									{
-										"internalType": "string",
-										"name": "o",
-										"type": "string"
-									},
-									{
-										"internalType": "string",
-										"name": "c",
-										"type": "string"
-									},
-									{
-										"internalType": "string",
-										"name": "h",
-										"type": "string"
-									},
-									{
-										"internalType": "string",
-										"name": "l",
-										"type": "string"
-									},
-									{
-										"internalType": "string",
-										"name": "v",
-										"type": "string"
-									},
-									{
-										"internalType": "uint256",
-										"name": "n",
-										"type": "uint256"
-									},
-									{
-										"internalType": "bool",
-										"name": "x",
-										"type": "bool"
-									},
-									{
-										"internalType": "string",
-										"name": "q",
-										"type": "string"
-									},
-									{
-										"internalType": "string",
-										"name": "V",
-										"type": "string"
-									},
-									{
-										"internalType": "string",
-										"name": "Q",
-										"type": "string"
-									},
-									{
-										"internalType": "string",
-										"name": "B",
-										"type": "string"
-									}
-								],
-								"internalType": "struct KlineRecord",
-								"name": "k",
-								"type": "tuple"
-							}
-						],
-						"internalType": "struct KlineResponse[]",
-						"name": "",
-						"type": "tuple[]"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [],
-				"name": "getLength",
-				"outputs": [
-					{
-						"internalType": "uint256",
-						"name": "",
-						"type": "uint256"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"components": [
-							{
-								"internalType": "uint256",
-								"name": "t",
-								"type": "uint256"
-							},
-							{
-								"internalType": "uint256",
-								"name": "T",
-								"type": "uint256"
-							},
-							{
-								"internalType": "string",
-								"name": "s",
-								"type": "string"
-							},
-							{
-								"internalType": "string",
-								"name": "i",
-								"type": "string"
-							},
-							{
-								"internalType": "uint256",
-								"name": "f",
-								"type": "uint256"
-							},
-							{
-								"internalType": "uint256",
-								"name": "L",
-								"type": "uint256"
-							},
-							{
-								"internalType": "string",
-								"name": "o",
-								"type": "string"
-							},
-							{
-								"internalType": "string",
-								"name": "c",
-								"type": "string"
-							},
-							{
-								"internalType": "string",
-								"name": "h",
-								"type": "string"
-							},
-							{
-								"internalType": "string",
-								"name": "l",
-								"type": "string"
-							},
-							{
-								"internalType": "string",
-								"name": "v",
-								"type": "string"
-							},
-							{
-								"internalType": "uint256",
-								"name": "n",
-								"type": "uint256"
-							},
-							{
-								"internalType": "bool",
-								"name": "x",
-								"type": "bool"
-							},
-							{
-								"internalType": "string",
-								"name": "q",
-								"type": "string"
-							},
-							{
-								"internalType": "string",
-								"name": "V",
-								"type": "string"
-							},
-							{
-								"internalType": "string",
-								"name": "Q",
-								"type": "string"
-							},
-							{
-								"internalType": "string",
-								"name": "B",
-								"type": "string"
-							}
-						],
-						"internalType": "struct KlineRecord",
-						"name": "kline",
-						"type": "tuple"
-					}
-				],
-				"name": "recordCandle",
+				"name": "addCandle",
 				"outputs": [],
 				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getAllCandles",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "uint64",
+								"name": "openTime",
+								"type": "uint64"
+							},
+							{
+								"internalType": "string",
+								"name": "openPrice",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "highPrice",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "lowPrice",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "closePrice",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "volume",
+								"type": "string"
+							},
+							{
+								"internalType": "uint64",
+								"name": "closeTime",
+								"type": "uint64"
+							},
+							{
+								"internalType": "string",
+								"name": "quoteAssetVolume",
+								"type": "string"
+							},
+							{
+								"internalType": "uint32",
+								"name": "numberOfTrades",
+								"type": "uint32"
+							},
+							{
+								"internalType": "string",
+								"name": "takerBuyBaseVolume",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "takerBuyQuoteVolume",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "unused",
+								"type": "string"
+							}
+						],
+						"internalType": "struct CandleRecord[]",
+						"name": "",
+						"type": "tuple[]"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getCandles",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "uint64",
+								"name": "openTime",
+								"type": "uint64"
+							},
+							{
+								"internalType": "string",
+								"name": "openPrice",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "highPrice",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "lowPrice",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "closePrice",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "volume",
+								"type": "string"
+							},
+							{
+								"internalType": "uint64",
+								"name": "closeTime",
+								"type": "uint64"
+							},
+							{
+								"internalType": "string",
+								"name": "quoteAssetVolume",
+								"type": "string"
+							},
+							{
+								"internalType": "uint32",
+								"name": "numberOfTrades",
+								"type": "uint32"
+							},
+							{
+								"internalType": "string",
+								"name": "takerBuyBaseVolume",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "takerBuyQuoteVolume",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "unused",
+								"type": "string"
+							}
+						],
+						"internalType": "struct CandleRecord[]",
+						"name": "",
+						"type": "tuple[]"
+					}
+				],
+				"stateMutability": "view",
 				"type": "function"
 			}
 		],
@@ -549,26 +252,26 @@
 			"bytecodeHash": "ipfs"
 		},
 		"optimizer": {
-			"enabled": true,
+			"enabled": false,
 			"runs": 200
 		},
 		"remappings": []
 	},
 	"sources": {
 		"contracts/interface/ICandleManager.sol": {
-			"keccak256": "0x7493b1a0d8f3640ae6c344b6539b575e51857c9bb4d941953cc08a0daaac3599",
+			"keccak256": "0x18e0ce84fbe349a2cc08dd50e2d7d11c0804e126cc1167f6785a16541b4007c7",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://a965611fc1b2fc69b7aeaef3387925afd7937578e65e629489b4102fe99ef4c8",
-				"dweb:/ipfs/QmTnpmTvQ1x2x5M3awd2Q71ZVyyE4VdUFydf1aKqL5pyLu"
+				"bzz-raw://a2d3c1bf18cd457cfc7bda054ed35111716b364e4ffffc44d87c2512fc0cc383",
+				"dweb:/ipfs/Qmd7TLFsgdGbKFDMRh1XToMzqor6P8Wz7MK2BZRLYxntX2"
 			]
 		},
 		"contracts/struct/CandleStruct.sol": {
-			"keccak256": "0x6d0d00fa4fb0a7c07dac4bcc16a23d8f9c46450e2194f30b7f4bf2b3814b47f2",
+			"keccak256": "0x2503e8759e272b49e7e0eab925d483a5202223af0487be68ccb6ab57cb24f746",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://e3ab2f75328ab7ed9c3b1c8d5ad2025a3d308ceed90a9b0cbb59f3f699d79727",
-				"dweb:/ipfs/QmPYRNAJL3njQcgtC6zHQ7yYkST1BddyfnvSWCtw28n8MJ"
+				"bzz-raw://a83bab05f0e8123354255367313527416cb168c56e105beef60166fd745424ed",
+				"dweb:/ipfs/QmPR6JC3CyfadAFmhtUZhro6hhHfUwjrxuFuWc5hXGDVCy"
 			]
 		}
 	},

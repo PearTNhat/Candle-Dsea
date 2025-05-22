@@ -25,6 +25,37 @@
 				"type": "event"
 			},
 			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "string",
+						"name": "symbol",
+						"type": "string"
+					},
+					{
+						"indexed": false,
+						"internalType": "string",
+						"name": "interval",
+						"type": "string"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint64",
+						"name": "timeKey",
+						"type": "uint64"
+					},
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "storageAddress",
+						"type": "address"
+					}
+				],
+				"name": "ShardCreated",
+				"type": "event"
+			},
+			{
 				"inputs": [
 					{
 						"components": [
@@ -119,12 +150,12 @@
 						"type": "tuple"
 					},
 					{
-						"internalType": "string",
-						"name": "_interval",
-						"type": "string"
+						"internalType": "uint64",
+						"name": "timestamp",
+						"type": "uint64"
 					}
 				],
-				"name": "addCandle",
+				"name": "addKline",
 				"outputs": [],
 				"stateMutability": "nonpayable",
 				"type": "function"
@@ -133,40 +164,21 @@
 				"inputs": [
 					{
 						"internalType": "string",
-						"name": "a",
+						"name": "_symbol",
 						"type": "string"
 					},
 					{
 						"internalType": "string",
-						"name": "b",
-						"type": "string"
-					}
-				],
-				"name": "compareStrings",
-				"outputs": [
-					{
-						"internalType": "bool",
-						"name": "",
-						"type": "bool"
-					}
-				],
-				"stateMutability": "pure",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "string",
-						"name": "interval",
+						"name": "_interval",
 						"type": "string"
 					},
 					{
-						"internalType": "uint256",
+						"internalType": "uint64",
 						"name": "timestime",
-						"type": "uint256"
+						"type": "uint64"
 					}
 				],
-				"name": "getAllKline",
+				"name": "getAllklineInTime",
 				"outputs": [
 					{
 						"components": [
@@ -290,32 +302,18 @@
 				"inputs": [
 					{
 						"internalType": "string",
-						"name": "interval",
+						"name": "_symbol",
 						"type": "string"
-					}
-				],
-				"name": "getKlineContract",
-				"outputs": [
-					{
-						"internalType": "address",
-						"name": "",
-						"type": "address"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [
+					},
 					{
 						"internalType": "string",
 						"name": "_interval",
 						"type": "string"
 					},
 					{
-						"internalType": "uint256",
+						"internalType": "uint64",
 						"name": "timestime",
-						"type": "uint256"
+						"type": "uint64"
 					}
 				],
 				"name": "getLengthKline",
@@ -332,17 +330,22 @@
 			{
 				"inputs": [
 					{
-						"internalType": "string",
-						"name": "str",
-						"type": "string"
+						"internalType": "enum Interval",
+						"name": "",
+						"type": "uint8"
+					},
+					{
+						"internalType": "uint64",
+						"name": "timestamp",
+						"type": "uint64"
 					}
 				],
-				"name": "getPrefix",
+				"name": "getTimeKey",
 				"outputs": [
 					{
-						"internalType": "string",
+						"internalType": "uint64",
 						"name": "",
-						"type": "string"
+						"type": "uint64"
 					}
 				],
 				"stateMutability": "pure",
@@ -352,16 +355,40 @@
 				"inputs": [
 					{
 						"internalType": "string",
-						"name": "",
+						"name": "s",
 						"type": "string"
-					},
-					{
-						"internalType": "uint256",
-						"name": "",
-						"type": "uint256"
 					}
 				],
-				"name": "klineContracts",
+				"name": "parseInterval",
+				"outputs": [
+					{
+						"internalType": "enum Interval",
+						"name": "",
+						"type": "uint8"
+					}
+				],
+				"stateMutability": "pure",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes32",
+						"name": "",
+						"type": "bytes32"
+					},
+					{
+						"internalType": "enum Interval",
+						"name": "",
+						"type": "uint8"
+					},
+					{
+						"internalType": "uint64",
+						"name": "",
+						"type": "uint64"
+					}
+				],
+				"name": "storages",
 				"outputs": [
 					{
 						"internalType": "address",
@@ -375,43 +402,18 @@
 		],
 		"devdoc": {
 			"kind": "dev",
-			"methods": {
-				"compareStrings(string,string)": {
-					"params": {
-						"a": "Chuỗi a",
-						"b": "Chuỗi b"
-					},
-					"returns": {
-						"_0": "true nếu 2 chuỗi bằng nhau"
-					}
-				},
-				"getPrefix(string)": {
-					"params": {
-						"str": "Chuỗi đầu vào"
-					},
-					"returns": {
-						"_0": "prefix Chuỗi con trước dấu '-'"
-					}
-				}
-			},
+			"methods": {},
 			"version": 1
 		},
 		"userdoc": {
 			"kind": "user",
-			"methods": {
-				"compareStrings(string,string)": {
-					"notice": "So sánh 2 chuỗi string có giống nhau không (dùng keccak256)"
-				},
-				"getPrefix(string)": {
-					"notice": "Tách phần chuỗi trước dấu '-' (nếu không có '-' trả về toàn bộ chuỗi)"
-				}
-			},
+			"methods": {},
 			"version": 1
 		}
 	},
 	"settings": {
 		"compilationTarget": {
-			"contracts/manager/Kline_1s/KlineFactory.sol": "KlineFactory"
+			"contracts/manager/Kline/KlineFactory.sol": "KlineFactory"
 		},
 		"evmVersion": "prague",
 		"libraries": {},
@@ -419,50 +421,50 @@
 			"bytecodeHash": "ipfs"
 		},
 		"optimizer": {
-			"enabled": true,
+			"enabled": false,
 			"runs": 200
 		},
 		"remappings": []
 	},
 	"sources": {
 		"contracts/interface/IKlineManager.sol": {
-			"keccak256": "0xcf621ac82c1968f33934c4e237b94a8ba2d394d4692ce6fa93c53fe28ec9cb72",
+			"keccak256": "0x7c9928fb781ee2d2811abba897b9a4efda584135f89b0ed765f8fc1b09777998",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://810130ed29402e351ad92c15a75d9cb6c7b652d5f5de7dfa98959367dbb6ddbb",
-				"dweb:/ipfs/QmekxEZDnvEUCEfYHKBXUmvSqsr9NFWsMYNn77e6pJkUFW"
+				"bzz-raw://ee4147fa7ad961cfacbdc9c8dfce810af62903722dc8d69c44d775105a6157df",
+				"dweb:/ipfs/QmQ1NqPXBH8yQDTUPeVsx1rjsxm8vPRUughDWZ63UZZQaJ"
 			]
 		},
-		"contracts/manager/Kline_1s/BaseKline.sol": {
-			"keccak256": "0xc076f0c64750585c9faf09715f5587b12ffafa3e6c792c8fd6200b7701e4993f",
+		"contracts/manager/Kline/BaseKline.sol": {
+			"keccak256": "0xf1cad3af21a09da239a5f56acc0c5e13f30b812e9390ef90d71cc3b8a9820f09",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://120458f208768a635a464afa4d7f790b8a0395d9ef12cc354c290d07f62db38d",
-				"dweb:/ipfs/QmYQU1qWdtierfRwRLKQYDUt4yAEYc9Wivfq1BvCCYgkvb"
+				"bzz-raw://c3048d7d2c111cb251f7b43c6d71614a3a40d0702e4b871267b3b41510450342",
+				"dweb:/ipfs/QmQB855yq3mmFUrug9fRBS9E4WMbif93uJtf5beNEwPHhv"
 			]
 		},
-		"contracts/manager/Kline_1s/KlineFactory.sol": {
-			"keccak256": "0x0cd7ecffa9194e2d0650983631f2f980f9b75b06cd0885f8a3b778c38a78bd0f",
+		"contracts/manager/Kline/KlineFactory.sol": {
+			"keccak256": "0x911b1aeeea2101935d5bb1d1e4a7342d865de7b63c8438d07f78c2c7e0e72333",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://e350d927c50709b2d84efa473e9a94c7aef5ae0b11aaeb537fdba7e069aa5d5e",
-				"dweb:/ipfs/QmcDHzJpxcbjfov6818jvSVuJaxYWGQWCbUiRohEQzKuqm"
+				"bzz-raw://0a8fd52f60207529f422cb9dcdeb302eddcdf1ae71c1fd45d7fda450549bc9e5",
+				"dweb:/ipfs/Qmchdsybd3RQRwD9osMTfSmst2U5xqusJarwG4yLsF87dc"
 			]
 		},
-		"contracts/struct/CandleStruct.sol": {
-			"keccak256": "0x6d0d00fa4fb0a7c07dac4bcc16a23d8f9c46450e2194f30b7f4bf2b3814b47f2",
+		"contracts/struct/KlineStruct.sol": {
+			"keccak256": "0x58ebd7593f1c8ffd2e4668c8ebbe5cf122222c08e0b668a53679ad93d800eb4d",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://e3ab2f75328ab7ed9c3b1c8d5ad2025a3d308ceed90a9b0cbb59f3f699d79727",
-				"dweb:/ipfs/QmPYRNAJL3njQcgtC6zHQ7yYkST1BddyfnvSWCtw28n8MJ"
+				"bzz-raw://6ed4d138cdb1db5a3f5cb9ceb7de3af4ce098ce5d8ef3135260ad629240cebda",
+				"dweb:/ipfs/QmQECqWEBswzAxtT1cFDrFh8PuiHa1rpKXBVz3obKBoJ7W"
 			]
 		},
 		"contracts/utils/StringUtils.sol": {
-			"keccak256": "0xd85b7f5e34d655dd65bb35a0e6ccbf1918cfe7d058388f096455164803248b8f",
+			"keccak256": "0x97c4526067a3d58facc39dde943e833113c9271137deab9a4f5a303604fff316",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://c7bd657ce28c677d7844240296e889caf2331437ed02d62c3d78d8b4fa0759fa",
-				"dweb:/ipfs/Qmc8CbTizkGhx7Rn7ZmBn8T4DUhdPfSktwiqKK6KE2XRWJ"
+				"bzz-raw://a008c7c52870fff7f15cbecbe9b1553c0ac098e2b330af70feb2f969a03930bf",
+				"dweb:/ipfs/QmY2aMNv8nJGULBzZN6px34kc7f8J6BbGbZGPbURorwebW"
 			]
 		},
 		"hardhat/console.sol": {

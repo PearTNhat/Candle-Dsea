@@ -1,6 +1,23 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
-// thiếu name 
+enum Interval {
+    OneSecond,
+    OneMinute,
+    ThreeMinutes,
+    FiveMinutes,
+    FifteenMinutes,
+    ThirtyMinutes,
+    OneHour,
+    TwoHours,
+    FourHours,
+    SixHours,
+    EightHours,
+    TwelveHours,
+    OneDay,
+    ThreeDays,
+    OneWeek,
+    OneMonth
+}
 struct KlineRecord {
     uint256 t;    // startTime
     uint256 T;    // endTime
