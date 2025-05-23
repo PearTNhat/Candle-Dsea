@@ -9,7 +9,8 @@ contract CandleFactory {
     // symbol => interval => timeKey => storage contract
     mapping(bytes32 => mapping(Interval => mapping(uint64 => address)))
         public storages;
-
+    // lưu các timekeys của 1 interval đẻ biết đã tạo bao nhiêu contract
+    mapping(bytes32 => mapping(Interval => uint64[])) public allTimekeys;
     event ShardCreated(
         string symbol,
         string interval,
@@ -31,7 +32,7 @@ contract CandleFactory {
     );
 
     function getTimeKey(Interval interval, uint64 timestamp)
-        public
+        internal
         pure
         returns (uint64)
     {
@@ -66,12 +67,51 @@ contract CandleFactory {
                 (90 * 24 * 60 * 60 * 1000); // quarterly (~90 days)
         if (interval == Interval.OneWeek || interval == Interval.OneMonth)
             return
-                (timestamp / (365 * 24 * 60 * 60 * 1000)) *
-                (365 * 24 * 60 * 60 * 1000); // yearly
+                (timestamp / (4 *365 * 24 * 60 * 60 * 1000)) *
+                (4 * 365 * 24 * 60 * 60 * 1000); // yearly
 
         revert("Unsupported interval");
     }
 
+    // function initCandle(
+    //     string memory _symbol,
+    //     string memory _interval,
+    //     uint256 limit
+    // ) public view returns (CandleRecord[] memory result) {
+    //     if (limit == 0) {
+    //         limit = 300;
+    //     }
+    //     Interval interval = parseInterval(_interval);
+    //     bytes32 symbolKey = keccak256(abi.encodePacked(_symbol));
+    //     uint64 nowTime = uint64(block.timestamp * 1000);
+    //     uint64 currentTimeKey = getTimeKey(interval, nowTime);
+    //     uint64 step = getStep(interval);
+    //     CandleRecord[] memory temp = new CandleRecord[](limit);
+    //     uint256 count = 0;
+
+    //     while (true) {
+    //         address storageAddr = storages[symbolKey][interval][currentTimeKey];
+    //         if (storageAddr != address(0)) {
+    //             CandleRecord[] memory records = ICandleManager(storageAddr)
+    //                 .getCandles();
+
+    //             for (uint256 j = records.length; j > 0; j--) {
+    //                 if (count == limit) break;
+    //                 temp[count++] = records[j - 1];
+    //             }
+    //         } else {
+    //             break;
+    //         }
+    //         if (count >= limit) break;
+    //         if (currentTimeKey < step) break;
+    //         currentTimeKey -= step;
+    //     }
+
+    //     result = new CandleRecord[](count);
+    //     for (uint256 i = 0; i < count; i++) {
+    //         result[i] = temp[i];
+    //     }
+    // }
     function initCandle(
         string memory _symbol,
         string memory _interval,
@@ -83,36 +123,31 @@ contract CandleFactory {
 
         Interval interval = parseInterval(_interval);
         bytes32 symbolKey = keccak256(abi.encodePacked(_symbol));
-        uint64 nowTime = uint64(block.timestamp * 1000);
-        uint64 currentTimeKey = getTimeKey(interval, nowTime);
-        uint64 step = getStep(interval);
+        uint64[] storage timeKeys = allTimekeys[symbolKey][interval];
 
         CandleRecord[] memory temp = new CandleRecord[](limit);
         uint256 count = 0;
 
-        while (true) {
-            address storageAddr = storages[symbolKey][interval][currentTimeKey];
+        // Duyệt từ cuối mảng về đầu (mới nhất đến cũ hơn)
+        for (uint256 i = timeKeys.length; i > 0; i--) {
+            if (count >= limit) break;
+
+            uint64 timeKey = timeKeys[i - 1];
+            address storageAddr = storages[symbolKey][interval][timeKey];
             if (storageAddr != address(0)) {
                 CandleRecord[] memory records = ICandleManager(storageAddr)
                     .getCandles();
 
                 for (uint256 j = records.length; j > 0; j--) {
-                    if (count == limit) break;
-                    temp[count++] = records[j - 1];
+                    if (count >= limit) break;
+                    temp[count++] = records[j - 1]; // mới nhất trong block nến
                 }
-            } else {
-                break;
             }
-
-            if (count >= limit) break;
-            if (currentTimeKey < step) break;
-
-            currentTimeKey -= step;
         }
 
         result = new CandleRecord[](count);
-        for (uint256 i = 0; i < count; i++) {
-            result[i] = temp[i];
+        for (uint256 i = count; i > 0; i--) {
+            result[count - i] = temp[i - 1];
         }
     }
 
@@ -129,6 +164,7 @@ contract CandleFactory {
         address storageAddr = storages[symbolKey][interval][key];
         if (storageAddr == address(0)) {
             console.log("Create new addrresss");
+            allTimekeys[symbolKey][interval].push(key);
             storageAddr = address(new CandleManager());
             storages[symbolKey][interval][key] = storageAddr;
             emit ShardCreated(_symbol, _interval, key, storageAddr);
@@ -161,6 +197,7 @@ contract CandleFactory {
         bytes32 symbolKey = keccak256(abi.encodePacked(_symbol));
 
         // Compute all possible timeKeys from endTime to startTime in reverse
+        // tính toán khoảng thời gian cần lấy nến
         uint64[] memory timeKeys = computeTimeKeys(
             interval,
             startTime,
@@ -195,8 +232,9 @@ contract CandleFactory {
         }
     }
 
-    function getStep(Interval interval) public pure returns (uint64) {
-        if (interval == Interval.OneSecond) return 60 * 60 * 1000;
+    function getStep(Interval interval) internal pure returns (uint64) {
+        if (interval == Interval.OneSecond) 
+        return 60 * 60 * 1000;
         else if (
             interval == Interval.OneMinute ||
             interval == Interval.ThreeMinutes ||
@@ -217,7 +255,7 @@ contract CandleFactory {
         else if (interval == Interval.OneDay || interval == Interval.ThreeDays)
             return 90 * 24 * 60 * 60 * 1000;
         else if (interval == Interval.OneWeek || interval == Interval.OneMonth)
-            return 365 * 24 * 60 * 60 * 1000;
+            return 4 * 365 * 24 * 60 * 60 * 1000;
         else revert("Unsupported interval");
     }
 
@@ -240,7 +278,7 @@ contract CandleFactory {
     }
 
     // get tất cả nến trong 1 móc thời gian
-    function getAllCandles(
+    function getAllCandlesInTime(
         string memory _symbol,
         string memory _interval,
         uint64 _timekey
@@ -252,7 +290,27 @@ contract CandleFactory {
         return ICandleManager(address(_address)).getAllCandles();
     }
 
-    function parseInterval(string memory s) public pure returns (Interval) {
+    function getAllTimeKeys(string memory _symbol, string memory _interval)
+        public
+        view
+        returns (uint64[] memory)
+    {
+        Interval interval = parseInterval(_interval);
+        bytes32 symbolKey = keccak256(abi.encodePacked(_symbol));
+        return allTimekeys[symbolKey][interval];
+    }
+
+    function getLengthTimeKeys(string memory _symbol, string memory _interval)
+        public
+        view
+        returns (uint256)
+    {
+        Interval interval = parseInterval(_interval);
+        bytes32 symbolKey = keccak256(abi.encodePacked(_symbol));
+        return allTimekeys[symbolKey][interval].length;
+    }
+
+    function parseInterval(string memory s) internal pure returns (Interval) {
         bytes32 h = keccak256(abi.encodePacked(s));
 
         if (h == keccak256("1s")) return Interval.OneSecond;

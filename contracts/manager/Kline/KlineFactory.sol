@@ -21,7 +21,7 @@ contract KlineFactory {
 
     // lưu trong 1 h
     function getTimeKey(Interval, uint64 timestamp)
-        public
+        internal 
         pure
         returns (uint64)
     {
@@ -38,12 +38,10 @@ contract KlineFactory {
 
         address storageAddr = storages[symbolKey][interval][key];
         if (storageAddr == address(0)) {
-            console.log("Creating new shard at", key);
             storageAddr = address(new BaseKline());
             storages[symbolKey][interval][key] = storageAddr;
             emit ShardCreated(record.s, record.i, key, storageAddr);
         }
-
         IKlineManager(storageAddr).recordKline(record);
         emit KlineCreated(record.t, record.T, record.x);
     }
@@ -64,10 +62,7 @@ contract KlineFactory {
         require(storageAddr != address(0), "Address is not found");
         return IKlineManager(storageAddr).getAllKline();
     }
-    function hello() public pure returns (string memory){
-        return "hello";
-    }
-    function parseInterval(string memory s) public pure returns (Interval) {
+    function parseInterval(string memory s) internal  pure returns (Interval) {
         bytes32 h = keccak256(abi.encodePacked(s));
         if (h == keccak256("1s")) return Interval.OneSecond;
         if (h == keccak256("1m")) return Interval.OneMinute;

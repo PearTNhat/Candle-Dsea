@@ -355,62 +355,6 @@
 			{
 				"inputs": [
 					{
-						"internalType": "enum Interval",
-						"name": "",
-						"type": "uint8"
-					},
-					{
-						"internalType": "uint64",
-						"name": "timestamp",
-						"type": "uint64"
-					}
-				],
-				"name": "getTimeKey",
-				"outputs": [
-					{
-						"internalType": "uint64",
-						"name": "",
-						"type": "uint64"
-					}
-				],
-				"stateMutability": "pure",
-				"type": "function"
-			},
-			{
-				"inputs": [],
-				"name": "hello",
-				"outputs": [
-					{
-						"internalType": "string",
-						"name": "",
-						"type": "string"
-					}
-				],
-				"stateMutability": "pure",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "string",
-						"name": "s",
-						"type": "string"
-					}
-				],
-				"name": "parseInterval",
-				"outputs": [
-					{
-						"internalType": "enum Interval",
-						"name": "",
-						"type": "uint8"
-					}
-				],
-				"stateMutability": "pure",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
 						"internalType": "bytes32",
 						"name": "",
 						"type": "bytes32"
@@ -482,11 +426,11 @@
 			]
 		},
 		"contracts/manager/Kline/KlineFactory.sol": {
-			"keccak256": "0xd9a15abf42d047a61a0aad26bd1dfd293b912934d9110f9fa6f2d910b9603176",
+			"keccak256": "0x63b7c18d3758814f4b2908e3c326a1f401c28f68a4e78bb303d213f48193e6d6",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://691fad94ca6637e91e397e32c04ee4c8965f12ee83e9ffa2c0d1eab6f32c36ab",
-				"dweb:/ipfs/QmXjM3s4mbKiMXZD1vBLA2P4KENcE3N6kubuK2dfkbP9yt"
+				"bzz-raw://db441467c36f8e586f63263a7601536b15ed1bb8764fdb4df054fe26742d8b94",
+				"dweb:/ipfs/QmYe3SDVRdmbn196CSUM2Uh6fLCXxnXvby8HA9ta5YwGLd"
 			]
 		},
 		"contracts/struct/KlineStruct.sol": {
