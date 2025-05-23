@@ -58,6 +58,48 @@ contract CandleFactory {
 
         revert("Unsupported interval");
     }
+    function initCandle(
+    string memory _symbol,
+    string memory _interval,
+    uint256 limit
+) public view returns (CandleRecord[] memory result) {
+    if (limit == 0) {
+        limit = 300;
+    }
+
+    Interval interval = parseInterval(_interval);
+    bytes32 symbolKey = keccak256(abi.encodePacked(_symbol));
+    uint64 nowTime = uint64(block.timestamp * 1000);
+    uint64 currentTimeKey = getTimeKey(interval, nowTime);
+    uint64 step = getStep(interval);
+
+    CandleRecord[] memory temp = new CandleRecord[](limit);
+    uint256 count = 0;
+
+    while (true) {
+        address storageAddr = storages[symbolKey][interval][currentTimeKey];
+        if (storageAddr != address(0)) {
+            CandleRecord[] memory records = ICandleManager(storageAddr).getCandles();
+
+            for (uint256 j = records.length; j > 0; j--) {
+                if (count == limit) break;
+                temp[count++] = records[j - 1];
+            }
+        }else{
+            break;
+        }
+
+        if (count >= limit) break;
+        if (currentTimeKey < step) break;
+
+        currentTimeKey -= step;
+    }
+
+    result = new CandleRecord[](count);
+    for (uint256 i = 0; i < count; i++) {
+        result[i] = temp[i];
+    }
+}
 
     function createCandle(
         string memory _symbol,
@@ -125,35 +167,38 @@ contract CandleFactory {
         }
     }
 
-    function computeTimeKeys(
-        Interval interval,
-        uint64 startTime,
-        uint64 endTime
-    ) internal pure returns (uint64[] memory keys) {
-        uint64 step;
-        if (interval == Interval.OneSecond) step = 60 * 60 * 1000;
+    function getStep(Interval interval) public pure returns (uint64) {
+        if (interval == Interval.OneSecond) return 60 * 60 * 1000;
         else if (
             interval == Interval.OneMinute ||
             interval == Interval.ThreeMinutes ||
             interval == Interval.FiveMinutes
-        ) step = 24 * 60 * 60 * 1000;
+        ) return 24 * 60 * 60 * 1000;
         else if (
             interval == Interval.FifteenMinutes ||
             interval == Interval.ThirtyMinutes ||
             interval == Interval.OneHour ||
             interval == Interval.TwoHours
-        ) step = 7 * 24 * 60 * 60 * 1000;
+        ) return 7 * 24 * 60 * 60 * 1000;
         else if (
             interval == Interval.FourHours ||
             interval == Interval.SixHours ||
             interval == Interval.EightHours ||
             interval == Interval.TwelveHours
-        ) step = 30 * 24 * 60 * 60 * 1000;
+        ) return 30 * 24 * 60 * 60 * 1000;
         else if (interval == Interval.OneDay || interval == Interval.ThreeDays)
-            step = 90 * 24 * 60 * 60 * 1000;
+            return 90 * 24 * 60 * 60 * 1000;
         else if (interval == Interval.OneWeek || interval == Interval.OneMonth)
-            step = 365 * 24 * 60 * 60 * 1000;
+            return 365 * 24 * 60 * 60 * 1000;
         else revert("Unsupported interval");
+    }
+
+    function computeTimeKeys(
+        Interval interval,
+        uint64 startTime,
+        uint64 endTime
+    ) internal pure returns (uint64[] memory keys) {
+        uint64 step = getStep(interval);
 
         uint64 from = getTimeKey(interval, startTime);
         uint64 to = getTimeKey(interval, endTime);

@@ -1,0 +1,802 @@
+{
+	"id": "7db14eacf57632a392fc9c1c1af747d5",
+	"_format": "hh-sol-build-info-1",
+	"solcVersion": "0.8.30",
+	"solcLongVersion": "0.8.30+commit.73712a01",
+	"input": {
+		"language": "Solidity",
+		"sources": {
+			"contracts/struct/KlineStruct.sol": {
+				"content": "// SPDX-License-Identifier: MIT\r\npragma solidity ^0.8.0;\r\nenum Interval {\r\n    OneSecond,\r\n    OneMinute,\r\n    ThreeMinutes,\r\n    FiveMinutes,\r\n    FifteenMinutes,\r\n    ThirtyMinutes,\r\n    OneHour,\r\n    TwoHours,\r\n    FourHours,\r\n    SixHours,\r\n    EightHours,\r\n    TwelveHours,\r\n    OneDay,\r\n    ThreeDays,\r\n    OneWeek,\r\n    OneMonth\r\n}\r\nstruct KlineRecord {\r\n    uint64 t;    // startTime\r\n    uint64 T;    // endTime\r\n    string s;    // symbol\r\n    string i;      // interval\r\n    uint256 f;    // firstTradeId\r\n    uint256 L;    // lastTradeId\r\n    string o;    // open\r\n    string c;    // close\r\n    string h;    // high\r\n    string l;    // low\r\n    string v;    // volume\r\n    uint256 n;    // trades\r\n    bool x;       // x (no change since name and comment are the same)\r\n    string q;    // quoteVolume\r\n    string V;    // takerBuyVolume\r\n    string Q;    // takerBuyQuoteVol\r\n    string B;     // ignoredField\r\n}\r\n\r\nstruct KlineResponse {\r\n    string e; //\r\n    uint E;\r\n    string s ; // symbol\r\n    KlineRecord k;\r\n}"
+			}
+		},
+		"settings": {
+			"optimizer": {
+				"enabled": false,
+				"runs": 200
+			},
+			"outputSelection": {
+				"*": {
+					"": [
+						"ast"
+					],
+					"*": [
+						"abi",
+						"metadata",
+						"devdoc",
+						"userdoc",
+						"storageLayout",
+						"evm.legacyAssembly",
+						"evm.bytecode",
+						"evm.deployedBytecode",
+						"evm.methodIdentifiers",
+						"evm.gasEstimates",
+						"evm.assembly"
+					]
+				}
+			},
+			"remappings": []
+		}
+	},
+	"output": {
+		"sources": {
+			"contracts/struct/KlineStruct.sol": {
+				"ast": {
+					"absolutePath": "contracts/struct/KlineStruct.sol",
+					"exportedSymbols": {
+						"Interval": [
+							18
+						],
+						"KlineRecord": [
+							53
+						],
+						"KlineResponse": [
+							63
+						]
+					},
+					"id": 64,
+					"license": "MIT",
+					"nodeType": "SourceUnit",
+					"nodes": [
+						{
+							"id": 1,
+							"literals": [
+								"solidity",
+								"^",
+								"0.8",
+								".0"
+							],
+							"nodeType": "PragmaDirective",
+							"src": "33:23:0"
+						},
+						{
+							"canonicalName": "Interval",
+							"id": 18,
+							"members": [
+								{
+									"id": 2,
+									"name": "OneSecond",
+									"nameLocation": "79:9:0",
+									"nodeType": "EnumValue",
+									"src": "79:9:0"
+								},
+								{
+									"id": 3,
+									"name": "OneMinute",
+									"nameLocation": "95:9:0",
+									"nodeType": "EnumValue",
+									"src": "95:9:0"
+								},
+								{
+									"id": 4,
+									"name": "ThreeMinutes",
+									"nameLocation": "111:12:0",
+									"nodeType": "EnumValue",
+									"src": "111:12:0"
+								},
+								{
+									"id": 5,
+									"name": "FiveMinutes",
+									"nameLocation": "130:11:0",
+									"nodeType": "EnumValue",
+									"src": "130:11:0"
+								},
+								{
+									"id": 6,
+									"name": "FifteenMinutes",
+									"nameLocation": "148:14:0",
+									"nodeType": "EnumValue",
+									"src": "148:14:0"
+								},
+								{
+									"id": 7,
+									"name": "ThirtyMinutes",
+									"nameLocation": "169:13:0",
+									"nodeType": "EnumValue",
+									"src": "169:13:0"
+								},
+								{
+									"id": 8,
+									"name": "OneHour",
+									"nameLocation": "189:7:0",
+									"nodeType": "EnumValue",
+									"src": "189:7:0"
+								},
+								{
+									"id": 9,
+									"name": "TwoHours",
+									"nameLocation": "203:8:0",
+									"nodeType": "EnumValue",
+									"src": "203:8:0"
+								},
+								{
+									"id": 10,
+									"name": "FourHours",
+									"nameLocation": "218:9:0",
+									"nodeType": "EnumValue",
+									"src": "218:9:0"
+								},
+								{
+									"id": 11,
+									"name": "SixHours",
+									"nameLocation": "234:8:0",
+									"nodeType": "EnumValue",
+									"src": "234:8:0"
+								},
+								{
+									"id": 12,
+									"name": "EightHours",
+									"nameLocation": "249:10:0",
+									"nodeType": "EnumValue",
+									"src": "249:10:0"
+								},
+								{
+									"id": 13,
+									"name": "TwelveHours",
+									"nameLocation": "266:11:0",
+									"nodeType": "EnumValue",
+									"src": "266:11:0"
+								},
+								{
+									"id": 14,
+									"name": "OneDay",
+									"nameLocation": "284:6:0",
+									"nodeType": "EnumValue",
+									"src": "284:6:0"
+								},
+								{
+									"id": 15,
+									"name": "ThreeDays",
+									"nameLocation": "297:9:0",
+									"nodeType": "EnumValue",
+									"src": "297:9:0"
+								},
+								{
+									"id": 16,
+									"name": "OneWeek",
+									"nameLocation": "313:7:0",
+									"nodeType": "EnumValue",
+									"src": "313:7:0"
+								},
+								{
+									"id": 17,
+									"name": "OneMonth",
+									"nameLocation": "327:8:0",
+									"nodeType": "EnumValue",
+									"src": "327:8:0"
+								}
+							],
+							"name": "Interval",
+							"nameLocation": "63:8:0",
+							"nodeType": "EnumDefinition",
+							"src": "58:280:0"
+						},
+						{
+							"canonicalName": "KlineRecord",
+							"id": 53,
+							"members": [
+								{
+									"constant": false,
+									"id": 20,
+									"mutability": "mutable",
+									"name": "t",
+									"nameLocation": "373:1:0",
+									"nodeType": "VariableDeclaration",
+									"scope": 53,
+									"src": "366:8:0",
+									"stateVariable": false,
+									"storageLocation": "default",
+									"typeDescriptions": {
+										"typeIdentifier": "t_uint64",
+										"typeString": "uint64"
+									},
+									"typeName": {
+										"id": 19,
+										"name": "uint64",
+										"nodeType": "ElementaryTypeName",
+										"src": "366:6:0",
+										"typeDescriptions": {
+											"typeIdentifier": "t_uint64",
+											"typeString": "uint64"
+										}
+									},
+									"visibility": "internal"
+								},
+								{
+									"constant": false,
+									"id": 22,
+									"mutability": "mutable",
+									"name": "T",
+									"nameLocation": "404:1:0",
+									"nodeType": "VariableDeclaration",
+									"scope": 53,
+									"src": "397:8:0",
+									"stateVariable": false,
+									"storageLocation": "default",
+									"typeDescriptions": {
+										"typeIdentifier": "t_uint64",
+										"typeString": "uint64"
+									},
+									"typeName": {
+										"id": 21,
+										"name": "uint64",
+										"nodeType": "ElementaryTypeName",
+										"src": "397:6:0",
+										"typeDescriptions": {
+											"typeIdentifier": "t_uint64",
+											"typeString": "uint64"
+										}
+									},
+									"visibility": "internal"
+								},
+								{
+									"constant": false,
+									"id": 24,
+									"mutability": "mutable",
+									"name": "s",
+									"nameLocation": "433:1:0",
+									"nodeType": "VariableDeclaration",
+									"scope": 53,
+									"src": "426:8:0",
+									"stateVariable": false,
+									"storageLocation": "default",
+									"typeDescriptions": {
+										"typeIdentifier": "t_string_storage_ptr",
+										"typeString": "string"
+									},
+									"typeName": {
+										"id": 23,
+										"name": "string",
+										"nodeType": "ElementaryTypeName",
+										"src": "426:6:0",
+										"typeDescriptions": {
+											"typeIdentifier": "t_string_storage_ptr",
+											"typeString": "string"
+										}
+									},
+									"visibility": "internal"
+								},
+								{
+									"constant": false,
+									"id": 26,
+									"mutability": "mutable",
+									"name": "i",
+									"nameLocation": "461:1:0",
+									"nodeType": "VariableDeclaration",
+									"scope": 53,
+									"src": "454:8:0",
+									"stateVariable": false,
+									"storageLocation": "default",
+									"typeDescriptions": {
+										"typeIdentifier": "t_string_storage_ptr",
+										"typeString": "string"
+									},
+									"typeName": {
+										"id": 25,
+										"name": "string",
+										"nodeType": "ElementaryTypeName",
+										"src": "454:6:0",
+										"typeDescriptions": {
+											"typeIdentifier": "t_string_storage_ptr",
+											"typeString": "string"
+										}
+									},
+									"visibility": "internal"
+								},
+								{
+									"constant": false,
+									"id": 28,
+									"mutability": "mutable",
+									"name": "f",
+									"nameLocation": "494:1:0",
+									"nodeType": "VariableDeclaration",
+									"scope": 53,
+									"src": "486:9:0",
+									"stateVariable": false,
+									"storageLocation": "default",
+									"typeDescriptions": {
+										"typeIdentifier": "t_uint256",
+										"typeString": "uint256"
+									},
+									"typeName": {
+										"id": 27,
+										"name": "uint256",
+										"nodeType": "ElementaryTypeName",
+										"src": "486:7:0",
+										"typeDescriptions": {
+											"typeIdentifier": "t_uint256",
+											"typeString": "uint256"
+										}
+									},
+									"visibility": "internal"
+								},
+								{
+									"constant": false,
+									"id": 30,
+									"mutability": "mutable",
+									"name": "L",
+									"nameLocation": "529:1:0",
+									"nodeType": "VariableDeclaration",
+									"scope": 53,
+									"src": "521:9:0",
+									"stateVariable": false,
+									"storageLocation": "default",
+									"typeDescriptions": {
+										"typeIdentifier": "t_uint256",
+										"typeString": "uint256"
+									},
+									"typeName": {
+										"id": 29,
+										"name": "uint256",
+										"nodeType": "ElementaryTypeName",
+										"src": "521:7:0",
+										"typeDescriptions": {
+											"typeIdentifier": "t_uint256",
+											"typeString": "uint256"
+										}
+									},
+									"visibility": "internal"
+								},
+								{
+									"constant": false,
+									"id": 32,
+									"mutability": "mutable",
+									"name": "o",
+									"nameLocation": "562:1:0",
+									"nodeType": "VariableDeclaration",
+									"scope": 53,
+									"src": "555:8:0",
+									"stateVariable": false,
+									"storageLocation": "default",
+									"typeDescriptions": {
+										"typeIdentifier": "t_string_storage_ptr",
+										"typeString": "string"
+									},
+									"typeName": {
+										"id": 31,
+										"name": "string",
+										"nodeType": "ElementaryTypeName",
+										"src": "555:6:0",
+										"typeDescriptions": {
+											"typeIdentifier": "t_string_storage_ptr",
+											"typeString": "string"
+										}
+									},
+									"visibility": "internal"
+								},
+								{
+									"constant": false,
+									"id": 34,
+									"mutability": "mutable",
+									"name": "c",
+									"nameLocation": "588:1:0",
+									"nodeType": "VariableDeclaration",
+									"scope": 53,
+									"src": "581:8:0",
+									"stateVariable": false,
+									"storageLocation": "default",
+									"typeDescriptions": {
+										"typeIdentifier": "t_string_storage_ptr",
+										"typeString": "string"
+									},
+									"typeName": {
+										"id": 33,
+										"name": "string",
+										"nodeType": "ElementaryTypeName",
+										"src": "581:6:0",
+										"typeDescriptions": {
+											"typeIdentifier": "t_string_storage_ptr",
+											"typeString": "string"
+										}
+									},
+									"visibility": "internal"
+								},
+								{
+									"constant": false,
+									"id": 36,
+									"mutability": "mutable",
+									"name": "h",
+									"nameLocation": "615:1:0",
+									"nodeType": "VariableDeclaration",
+									"scope": 53,
+									"src": "608:8:0",
+									"stateVariable": false,
+									"storageLocation": "default",
+									"typeDescriptions": {
+										"typeIdentifier": "t_string_storage_ptr",
+										"typeString": "string"
+									},
+									"typeName": {
+										"id": 35,
+										"name": "string",
+										"nodeType": "ElementaryTypeName",
+										"src": "608:6:0",
+										"typeDescriptions": {
+											"typeIdentifier": "t_string_storage_ptr",
+											"typeString": "string"
+										}
+									},
+									"visibility": "internal"
+								},
+								{
+									"constant": false,
+									"id": 38,
+									"mutability": "mutable",
+									"name": "l",
+									"nameLocation": "641:1:0",
+									"nodeType": "VariableDeclaration",
+									"scope": 53,
+									"src": "634:8:0",
+									"stateVariable": false,
+									"storageLocation": "default",
+									"typeDescriptions": {
+										"typeIdentifier": "t_string_storage_ptr",
+										"typeString": "string"
+									},
+									"typeName": {
+										"id": 37,
+										"name": "string",
+										"nodeType": "ElementaryTypeName",
+										"src": "634:6:0",
+										"typeDescriptions": {
+											"typeIdentifier": "t_string_storage_ptr",
+											"typeString": "string"
+										}
+									},
+									"visibility": "internal"
+								},
+								{
+									"constant": false,
+									"id": 40,
+									"mutability": "mutable",
+									"name": "v",
+									"nameLocation": "666:1:0",
+									"nodeType": "VariableDeclaration",
+									"scope": 53,
+									"src": "659:8:0",
+									"stateVariable": false,
+									"storageLocation": "default",
+									"typeDescriptions": {
+										"typeIdentifier": "t_string_storage_ptr",
+										"typeString": "string"
+									},
+									"typeName": {
+										"id": 39,
+										"name": "string",
+										"nodeType": "ElementaryTypeName",
+										"src": "659:6:0",
+										"typeDescriptions": {
+											"typeIdentifier": "t_string_storage_ptr",
+											"typeString": "string"
+										}
+									},
+									"visibility": "internal"
+								},
+								{
+									"constant": false,
+									"id": 42,
+									"mutability": "mutable",
+									"name": "n",
+									"nameLocation": "695:1:0",
+									"nodeType": "VariableDeclaration",
+									"scope": 53,
+									"src": "687:9:0",
+									"stateVariable": false,
+									"storageLocation": "default",
+									"typeDescriptions": {
+										"typeIdentifier": "t_uint256",
+										"typeString": "uint256"
+									},
+									"typeName": {
+										"id": 41,
+										"name": "uint256",
+										"nodeType": "ElementaryTypeName",
+										"src": "687:7:0",
+										"typeDescriptions": {
+											"typeIdentifier": "t_uint256",
+											"typeString": "uint256"
+										}
+									},
+									"visibility": "internal"
+								},
+								{
+									"constant": false,
+									"id": 44,
+									"mutability": "mutable",
+									"name": "x",
+									"nameLocation": "721:1:0",
+									"nodeType": "VariableDeclaration",
+									"scope": 53,
+									"src": "716:6:0",
+									"stateVariable": false,
+									"storageLocation": "default",
+									"typeDescriptions": {
+										"typeIdentifier": "t_bool",
+										"typeString": "bool"
+									},
+									"typeName": {
+										"id": 43,
+										"name": "bool",
+										"nodeType": "ElementaryTypeName",
+										"src": "716:4:0",
+										"typeDescriptions": {
+											"typeIdentifier": "t_bool",
+											"typeString": "bool"
+										}
+									},
+									"visibility": "internal"
+								},
+								{
+									"constant": false,
+									"id": 46,
+									"mutability": "mutable",
+									"name": "q",
+									"nameLocation": "795:1:0",
+									"nodeType": "VariableDeclaration",
+									"scope": 53,
+									"src": "788:8:0",
+									"stateVariable": false,
+									"storageLocation": "default",
+									"typeDescriptions": {
+										"typeIdentifier": "t_string_storage_ptr",
+										"typeString": "string"
+									},
+									"typeName": {
+										"id": 45,
+										"name": "string",
+										"nodeType": "ElementaryTypeName",
+										"src": "788:6:0",
+										"typeDescriptions": {
+											"typeIdentifier": "t_string_storage_ptr",
+											"typeString": "string"
+										}
+									},
+									"visibility": "internal"
+								},
+								{
+									"constant": false,
+									"id": 48,
+									"mutability": "mutable",
+									"name": "V",
+									"nameLocation": "828:1:0",
+									"nodeType": "VariableDeclaration",
+									"scope": 53,
+									"src": "821:8:0",
+									"stateVariable": false,
+									"storageLocation": "default",
+									"typeDescriptions": {
+										"typeIdentifier": "t_string_storage_ptr",
+										"typeString": "string"
+									},
+									"typeName": {
+										"id": 47,
+										"name": "string",
+										"nodeType": "ElementaryTypeName",
+										"src": "821:6:0",
+										"typeDescriptions": {
+											"typeIdentifier": "t_string_storage_ptr",
+											"typeString": "string"
+										}
+									},
+									"visibility": "internal"
+								},
+								{
+									"constant": false,
+									"id": 50,
+									"mutability": "mutable",
+									"name": "Q",
+									"nameLocation": "864:1:0",
+									"nodeType": "VariableDeclaration",
+									"scope": 53,
+									"src": "857:8:0",
+									"stateVariable": false,
+									"storageLocation": "default",
+									"typeDescriptions": {
+										"typeIdentifier": "t_string_storage_ptr",
+										"typeString": "string"
+									},
+									"typeName": {
+										"id": 49,
+										"name": "string",
+										"nodeType": "ElementaryTypeName",
+										"src": "857:6:0",
+										"typeDescriptions": {
+											"typeIdentifier": "t_string_storage_ptr",
+											"typeString": "string"
+										}
+									},
+									"visibility": "internal"
+								},
+								{
+									"constant": false,
+									"id": 52,
+									"mutability": "mutable",
+									"name": "B",
+									"nameLocation": "902:1:0",
+									"nodeType": "VariableDeclaration",
+									"scope": 53,
+									"src": "895:8:0",
+									"stateVariable": false,
+									"storageLocation": "default",
+									"typeDescriptions": {
+										"typeIdentifier": "t_string_storage_ptr",
+										"typeString": "string"
+									},
+									"typeName": {
+										"id": 51,
+										"name": "string",
+										"nodeType": "ElementaryTypeName",
+										"src": "895:6:0",
+										"typeDescriptions": {
+											"typeIdentifier": "t_string_storage_ptr",
+											"typeString": "string"
+										}
+									},
+									"visibility": "internal"
+								}
+							],
+							"name": "KlineRecord",
+							"nameLocation": "347:11:0",
+							"nodeType": "StructDefinition",
+							"scope": 64,
+							"src": "340:587:0",
+							"visibility": "public"
+						},
+						{
+							"canonicalName": "KlineResponse",
+							"id": 63,
+							"members": [
+								{
+									"constant": false,
+									"id": 55,
+									"mutability": "mutable",
+									"name": "e",
+									"nameLocation": "966:1:0",
+									"nodeType": "VariableDeclaration",
+									"scope": 63,
+									"src": "959:8:0",
+									"stateVariable": false,
+									"storageLocation": "default",
+									"typeDescriptions": {
+										"typeIdentifier": "t_string_storage_ptr",
+										"typeString": "string"
+									},
+									"typeName": {
+										"id": 54,
+										"name": "string",
+										"nodeType": "ElementaryTypeName",
+										"src": "959:6:0",
+										"typeDescriptions": {
+											"typeIdentifier": "t_string_storage_ptr",
+											"typeString": "string"
+										}
+									},
+									"visibility": "internal"
+								},
+								{
+									"constant": false,
+									"id": 57,
+									"mutability": "mutable",
+									"name": "E",
+									"nameLocation": "982:1:0",
+									"nodeType": "VariableDeclaration",
+									"scope": 63,
+									"src": "977:6:0",
+									"stateVariable": false,
+									"storageLocation": "default",
+									"typeDescriptions": {
+										"typeIdentifier": "t_uint256",
+										"typeString": "uint256"
+									},
+									"typeName": {
+										"id": 56,
+										"name": "uint",
+										"nodeType": "ElementaryTypeName",
+										"src": "977:4:0",
+										"typeDescriptions": {
+											"typeIdentifier": "t_uint256",
+											"typeString": "uint256"
+										}
+									},
+									"visibility": "internal"
+								},
+								{
+									"constant": false,
+									"id": 59,
+									"mutability": "mutable",
+									"name": "s",
+									"nameLocation": "997:1:0",
+									"nodeType": "VariableDeclaration",
+									"scope": 63,
+									"src": "990:8:0",
+									"stateVariable": false,
+									"storageLocation": "default",
+									"typeDescriptions": {
+										"typeIdentifier": "t_string_storage_ptr",
+										"typeString": "string"
+									},
+									"typeName": {
+										"id": 58,
+										"name": "string",
+										"nodeType": "ElementaryTypeName",
+										"src": "990:6:0",
+										"typeDescriptions": {
+											"typeIdentifier": "t_string_storage_ptr",
+											"typeString": "string"
+										}
+									},
+									"visibility": "internal"
+								},
+								{
+									"constant": false,
+									"id": 62,
+									"mutability": "mutable",
+									"name": "k",
+									"nameLocation": "1028:1:0",
+									"nodeType": "VariableDeclaration",
+									"scope": 63,
+									"src": "1016:13:0",
+									"stateVariable": false,
+									"storageLocation": "default",
+									"typeDescriptions": {
+										"typeIdentifier": "t_struct$_KlineRecord_$53_storage_ptr",
+										"typeString": "struct KlineRecord"
+									},
+									"typeName": {
+										"id": 61,
+										"nodeType": "UserDefinedTypeName",
+										"pathNode": {
+											"id": 60,
+											"name": "KlineRecord",
+											"nameLocations": [
+												"1016:11:0"
+											],
+											"nodeType": "IdentifierPath",
+											"referencedDeclaration": 53,
+											"src": "1016:11:0"
+										},
+										"referencedDeclaration": 53,
+										"src": "1016:11:0",
+										"typeDescriptions": {
+											"typeIdentifier": "t_struct$_KlineRecord_$53_storage_ptr",
+											"typeString": "struct KlineRecord"
+										}
+									},
+									"visibility": "internal"
+								}
+							],
+							"name": "KlineResponse",
+							"nameLocation": "938:13:0",
+							"nodeType": "StructDefinition",
+							"scope": 64,
+							"src": "931:102:0",
+							"visibility": "public"
+						}
+					],
+					"src": "33:1000:0"
+				},
+				"id": 0
+			}
+		}
+	}
+}

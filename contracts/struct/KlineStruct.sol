@@ -19,8 +19,8 @@ enum Interval {
     OneMonth
 }
 struct KlineRecord {
-    uint256 t;    // startTime
-    uint256 T;    // endTime
+    uint64 t;    // startTime
+    uint64 T;    // endTime
     string s;    // symbol
     string i;      // interval
     uint256 f;    // firstTradeId

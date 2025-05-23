@@ -7,7 +7,7 @@ import "../../interface/IKlineManager.sol";
 import "hardhat/console.sol";
 
 contract KlineFactory {
-    // time trong 1h -> interval -> data 
+    // symbol -> interval -> time -> data 
     mapping(bytes32 => mapping(Interval => mapping(uint64 => address))) public storages;
 
     event KlineContractCreated(uint key, address contractAddress);
@@ -17,10 +17,9 @@ contract KlineFactory {
         uint64 timeKey,
         address storageAddress
     );
+    event KlineCreated (uint64 t, uint T, bool isClose);
 
     // lưu trong 1 h
-    // sử lý lại interval có chỉ đc giới hạn từng đó thôi
-      // Calculate the shard key (hourly) for all intervals
     function getTimeKey(Interval, uint64 timestamp)
         public
         pure
@@ -46,6 +45,7 @@ contract KlineFactory {
         }
 
         IKlineManager(storageAddr).recordKline(record);
+        emit KlineCreated(record.t, record.T, record.x);
     }
 
     function getLengthKline(string memory _symbol, string memory _interval, uint64 timestime) public view returns (uint256) {

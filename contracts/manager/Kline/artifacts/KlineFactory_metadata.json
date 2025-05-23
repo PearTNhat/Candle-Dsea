@@ -29,6 +29,31 @@
 				"inputs": [
 					{
 						"indexed": false,
+						"internalType": "uint64",
+						"name": "t",
+						"type": "uint64"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "T",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "bool",
+						"name": "isClose",
+						"type": "bool"
+					}
+				],
+				"name": "KlineCreated",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
 						"internalType": "string",
 						"name": "symbol",
 						"type": "string"
@@ -60,14 +85,14 @@
 					{
 						"components": [
 							{
-								"internalType": "uint256",
+								"internalType": "uint64",
 								"name": "t",
-								"type": "uint256"
+								"type": "uint64"
 							},
 							{
-								"internalType": "uint256",
+								"internalType": "uint64",
 								"name": "T",
-								"type": "uint256"
+								"type": "uint64"
 							},
 							{
 								"internalType": "string",
@@ -200,14 +225,14 @@
 							{
 								"components": [
 									{
-										"internalType": "uint256",
+										"internalType": "uint64",
 										"name": "t",
-										"type": "uint256"
+										"type": "uint64"
 									},
 									{
-										"internalType": "uint256",
+										"internalType": "uint64",
 										"name": "T",
-										"type": "uint256"
+										"type": "uint64"
 									},
 									{
 										"internalType": "string",
@@ -444,19 +469,19 @@
 			]
 		},
 		"contracts/manager/Kline/KlineFactory.sol": {
-			"keccak256": "0x911b1aeeea2101935d5bb1d1e4a7342d865de7b63c8438d07f78c2c7e0e72333",
+			"keccak256": "0x8bbf0f174d9307c8d5bd582e917f990497b7ae11c64873ce46a7d658aac1ef08",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://0a8fd52f60207529f422cb9dcdeb302eddcdf1ae71c1fd45d7fda450549bc9e5",
-				"dweb:/ipfs/Qmchdsybd3RQRwD9osMTfSmst2U5xqusJarwG4yLsF87dc"
+				"bzz-raw://6f68b24ebbf67c33b6b1fc58be32687b599f84c295fed59a94993c22413cccf3",
+				"dweb:/ipfs/QmUN5T1UXXkUQ1iex5ckcoiA9zu5nHaAftJzCsLxBod3oa"
 			]
 		},
 		"contracts/struct/KlineStruct.sol": {
-			"keccak256": "0x58ebd7593f1c8ffd2e4668c8ebbe5cf122222c08e0b668a53679ad93d800eb4d",
+			"keccak256": "0x1eef4134dcd7da3e6b65635a6f9ec5ac43220758b725d6a406f22422b437bcca",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://6ed4d138cdb1db5a3f5cb9ceb7de3af4ce098ce5d8ef3135260ad629240cebda",
-				"dweb:/ipfs/QmQECqWEBswzAxtT1cFDrFh8PuiHa1rpKXBVz3obKBoJ7W"
+				"bzz-raw://cb1163c9e888f75dfed5be75303d87035317acdcacb94d145c8c6130884552bb",
+				"dweb:/ipfs/QmY7iqrs56ji75kcghRvFWcz8U2hZvMwRSWJTXXhNM4j4d"
 			]
 		},
 		"contracts/utils/StringUtils.sol": {
