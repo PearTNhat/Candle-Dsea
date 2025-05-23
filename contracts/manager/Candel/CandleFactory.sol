@@ -16,6 +16,19 @@ contract CandleFactory {
         uint64 timeKey,
         address storageAddress
     );
+    event CandleCreated(
+        uint64 openTime,
+        string openPrice,
+        string highPrice,
+        string lowPrice,
+        string closePrice,
+        string volume,
+        uint64 closeTime,
+        string quoteAssetVolume,
+        uint32 numberOfTrades,
+        string takerBuyBaseVolume,
+        string takerBuyQuoteVolume
+    );
 
     function getTimeKey(Interval interval, uint64 timestamp)
         public
@@ -58,49 +71,52 @@ contract CandleFactory {
 
         revert("Unsupported interval");
     }
+
     function initCandle(
-    string memory _symbol,
-    string memory _interval,
-    uint256 limit
-) public view returns (CandleRecord[] memory result) {
-    if (limit == 0) {
-        limit = 300;
-    }
-
-    Interval interval = parseInterval(_interval);
-    bytes32 symbolKey = keccak256(abi.encodePacked(_symbol));
-    uint64 nowTime = uint64(block.timestamp * 1000);
-    uint64 currentTimeKey = getTimeKey(interval, nowTime);
-    uint64 step = getStep(interval);
-
-    CandleRecord[] memory temp = new CandleRecord[](limit);
-    uint256 count = 0;
-
-    while (true) {
-        address storageAddr = storages[symbolKey][interval][currentTimeKey];
-        if (storageAddr != address(0)) {
-            CandleRecord[] memory records = ICandleManager(storageAddr).getCandles();
-
-            for (uint256 j = records.length; j > 0; j--) {
-                if (count == limit) break;
-                temp[count++] = records[j - 1];
-            }
-        }else{
-            break;
+        string memory _symbol,
+        string memory _interval,
+        uint256 limit
+    ) public view returns (CandleRecord[] memory result) {
+        if (limit == 0) {
+            limit = 300;
         }
 
-        if (count >= limit) break;
-        if (currentTimeKey < step) break;
+        Interval interval = parseInterval(_interval);
+        bytes32 symbolKey = keccak256(abi.encodePacked(_symbol));
+        uint64 nowTime = uint64(block.timestamp * 1000);
+        uint64 currentTimeKey = getTimeKey(interval, nowTime);
+        uint64 step = getStep(interval);
 
-        currentTimeKey -= step;
+        CandleRecord[] memory temp = new CandleRecord[](limit);
+        uint256 count = 0;
+
+        while (true) {
+            address storageAddr = storages[symbolKey][interval][currentTimeKey];
+            if (storageAddr != address(0)) {
+                CandleRecord[] memory records = ICandleManager(storageAddr)
+                    .getCandles();
+
+                for (uint256 j = records.length; j > 0; j--) {
+                    if (count == limit) break;
+                    temp[count++] = records[j - 1];
+                }
+            } else {
+                break;
+            }
+
+            if (count >= limit) break;
+            if (currentTimeKey < step) break;
+
+            currentTimeKey -= step;
+        }
+
+        result = new CandleRecord[](count);
+        for (uint256 i = 0; i < count; i++) {
+            result[i] = temp[i];
+        }
     }
 
-    result = new CandleRecord[](count);
-    for (uint256 i = 0; i < count; i++) {
-        result[i] = temp[i];
-    }
-}
-
+    // tạo nến mới
     function createCandle(
         string memory _symbol,
         string memory _interval,
@@ -108,7 +124,6 @@ contract CandleFactory {
     ) public {
         Interval interval = parseInterval(_interval);
         // tùy loại nến sẻ có khoảng thời gian để lưu
-
         bytes32 symbolKey = keccak256(abi.encodePacked(_symbol));
         uint64 key = getTimeKey(interval, _candleRecord.openTime);
         address storageAddr = storages[symbolKey][interval][key];
@@ -118,10 +133,23 @@ contract CandleFactory {
             storages[symbolKey][interval][key] = storageAddr;
             emit ShardCreated(_symbol, _interval, key, storageAddr);
         }
-
+        emit CandleCreated(
+            _candleRecord.openTime,
+            _candleRecord.openPrice,
+            _candleRecord.highPrice,
+            _candleRecord.lowPrice,
+            _candleRecord.closePrice,
+            _candleRecord.volume,
+            _candleRecord.closeTime,
+            _candleRecord.quoteAssetVolume,
+            _candleRecord.numberOfTrades,
+            _candleRecord.takerBuyBaseVolume,
+            _candleRecord.takerBuyQuoteVolume
+        );
         ICandleManager(storageAddr).addCandle(_candleRecord);
     }
 
+    // get theo starttime và endtime
     function getAllRecords(
         string memory _symbol,
         string memory _interval,
@@ -211,6 +239,7 @@ contract CandleFactory {
         }
     }
 
+    // get tất cả nến trong 1 móc thời gian
     function getAllCandles(
         string memory _symbol,
         string memory _interval,

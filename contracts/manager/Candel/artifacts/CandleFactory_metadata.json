@@ -10,6 +10,79 @@
 				"inputs": [
 					{
 						"indexed": false,
+						"internalType": "uint64",
+						"name": "openTime",
+						"type": "uint64"
+					},
+					{
+						"indexed": false,
+						"internalType": "string",
+						"name": "openPrice",
+						"type": "string"
+					},
+					{
+						"indexed": false,
+						"internalType": "string",
+						"name": "highPrice",
+						"type": "string"
+					},
+					{
+						"indexed": false,
+						"internalType": "string",
+						"name": "lowPrice",
+						"type": "string"
+					},
+					{
+						"indexed": false,
+						"internalType": "string",
+						"name": "closePrice",
+						"type": "string"
+					},
+					{
+						"indexed": false,
+						"internalType": "string",
+						"name": "volume",
+						"type": "string"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint64",
+						"name": "closeTime",
+						"type": "uint64"
+					},
+					{
+						"indexed": false,
+						"internalType": "string",
+						"name": "quoteAssetVolume",
+						"type": "string"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint32",
+						"name": "numberOfTrades",
+						"type": "uint32"
+					},
+					{
+						"indexed": false,
+						"internalType": "string",
+						"name": "takerBuyBaseVolume",
+						"type": "string"
+					},
+					{
+						"indexed": false,
+						"internalType": "string",
+						"name": "takerBuyQuoteVolume",
+						"type": "string"
+					}
+				],
+				"name": "CandleCreated",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
 						"internalType": "string",
 						"name": "symbol",
 						"type": "string"
@@ -532,11 +605,11 @@
 			]
 		},
 		"contracts/manager/Candel/CandleFactory.sol": {
-			"keccak256": "0x42f8c57c5595984c4c2abe5300812ddbd7a2cab81d75c0e64089a87c3eb83c0b",
+			"keccak256": "0xba2fb71f59504a677a77cbaabda5c74ba99039a508ed4d2d8a595ed0e5757db3",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://fe2e7472278e77d756b39f88246b65415342816de3f6a969e7f0b435e020cb21",
-				"dweb:/ipfs/QmX4wyFSdYB1vdCCRBjwQcSkExgr9YWZY3V7Y1YJPUq9PR"
+				"bzz-raw://d64cd5dbbe9d0de49adf916f9e9ecff956d969520e0eac8363b8d085c51f7a42",
+				"dweb:/ipfs/QmdYsmERtojnbEZjkHM7iJo4xvJA1k5Y7uWAfh138iy63C"
 			]
 		},
 		"contracts/manager/Candel/CandleManager.sol": {

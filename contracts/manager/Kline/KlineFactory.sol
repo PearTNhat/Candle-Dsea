@@ -60,9 +60,12 @@ contract KlineFactory {
         Interval interval = parseInterval(_interval);
         bytes32 symbolKey = keccak256(abi.encodePacked(_symbol));
         uint64 key = getTimeKey(interval, timestime);
-
         address storageAddr = storages[symbolKey][interval][key];
+        require(storageAddr != address(0), "Address is not found");
         return IKlineManager(storageAddr).getAllKline();
+    }
+    function hello() public pure returns (string memory){
+        return "hello";
     }
     function parseInterval(string memory s) public pure returns (Interval) {
         bytes32 h = keccak256(abi.encodePacked(s));

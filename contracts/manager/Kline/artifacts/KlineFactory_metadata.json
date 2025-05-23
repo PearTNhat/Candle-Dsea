@@ -377,6 +377,19 @@
 				"type": "function"
 			},
 			{
+				"inputs": [],
+				"name": "hello",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					}
+				],
+				"stateMutability": "pure",
+				"type": "function"
+			},
+			{
 				"inputs": [
 					{
 						"internalType": "string",
@@ -469,11 +482,11 @@
 			]
 		},
 		"contracts/manager/Kline/KlineFactory.sol": {
-			"keccak256": "0x8bbf0f174d9307c8d5bd582e917f990497b7ae11c64873ce46a7d658aac1ef08",
+			"keccak256": "0xd9a15abf42d047a61a0aad26bd1dfd293b912934d9110f9fa6f2d910b9603176",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://6f68b24ebbf67c33b6b1fc58be32687b599f84c295fed59a94993c22413cccf3",
-				"dweb:/ipfs/QmUN5T1UXXkUQ1iex5ckcoiA9zu5nHaAftJzCsLxBod3oa"
+				"bzz-raw://691fad94ca6637e91e397e32c04ee4c8965f12ee83e9ffa2c0d1eab6f32c36ab",
+				"dweb:/ipfs/QmXjM3s4mbKiMXZD1vBLA2P4KENcE3N6kubuK2dfkbP9yt"
 			]
 		},
 		"contracts/struct/KlineStruct.sol": {
