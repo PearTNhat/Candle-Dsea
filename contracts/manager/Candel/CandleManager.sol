@@ -27,9 +27,6 @@ contract CandleManager is ICandleManager {
     function getCandles () external override onlyFactory view returns  (CandleRecord [] memory ){
         return candles;
     }
-    function getAllCandles() external override   view onlyFactory returns (CandleRecord[] memory) {
-        return candles;
-    }
     function candleCount() external view returns (uint256) {
         return candles.length;
     }

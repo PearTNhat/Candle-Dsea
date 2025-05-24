@@ -50,7 +50,6 @@
 		"gasEstimates": null,
 		"methodIdentifiers": {
 			"addCandle((uint64,string,string,string,string,string,uint64,string,uint32,string,string,string))": "a8f9b0af",
-			"getAllCandles()": "fb34b3a9",
 			"getCandles()": "ea6c8353"
 		}
 	},
@@ -128,81 +127,6 @@
 			"name": "addCandle",
 			"outputs": [],
 			"stateMutability": "nonpayable",
-			"type": "function"
-		},
-		{
-			"inputs": [],
-			"name": "getAllCandles",
-			"outputs": [
-				{
-					"components": [
-						{
-							"internalType": "uint64",
-							"name": "openTime",
-							"type": "uint64"
-						},
-						{
-							"internalType": "string",
-							"name": "openPrice",
-							"type": "string"
-						},
-						{
-							"internalType": "string",
-							"name": "highPrice",
-							"type": "string"
-						},
-						{
-							"internalType": "string",
-							"name": "lowPrice",
-							"type": "string"
-						},
-						{
-							"internalType": "string",
-							"name": "closePrice",
-							"type": "string"
-						},
-						{
-							"internalType": "string",
-							"name": "volume",
-							"type": "string"
-						},
-						{
-							"internalType": "uint64",
-							"name": "closeTime",
-							"type": "uint64"
-						},
-						{
-							"internalType": "string",
-							"name": "quoteAssetVolume",
-							"type": "string"
-						},
-						{
-							"internalType": "uint32",
-							"name": "numberOfTrades",
-							"type": "uint32"
-						},
-						{
-							"internalType": "string",
-							"name": "takerBuyBaseVolume",
-							"type": "string"
-						},
-						{
-							"internalType": "string",
-							"name": "takerBuyQuoteVolume",
-							"type": "string"
-						},
-						{
-							"internalType": "string",
-							"name": "unused",
-							"type": "string"
-						}
-					],
-					"internalType": "struct CandleRecord[]",
-					"name": "",
-					"type": "tuple[]"
-				}
-			],
-			"stateMutability": "view",
 			"type": "function"
 		},
 		{

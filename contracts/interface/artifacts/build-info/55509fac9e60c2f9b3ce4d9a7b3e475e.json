@@ -1,0 +1,942 @@
+{
+	"id": "55509fac9e60c2f9b3ce4d9a7b3e475e",
+	"_format": "hh-sol-build-info-1",
+	"solcVersion": "0.8.30",
+	"solcLongVersion": "0.8.30+commit.73712a01",
+	"input": {
+		"language": "Solidity",
+		"sources": {
+			"contracts/interface/ICandleManager.sol": {
+				"content": "// SPDX-License-Identifier: MIT\r\npragma solidity ^0.8.0;\r\nimport \"../struct/CandleStruct.sol\";\r\n// Interface for CandleManager\r\ninterface ICandleManager {\r\n    // function initData() external;\r\n    function addCandle(CandleRecord memory candle) external ;\r\n    function getCandles () external  view  returns (CandleRecord [] memory );\r\n    // function getLength() external view returns (uint256);\r\n}"
+			},
+			"contracts/struct/CandleStruct.sol": {
+				"content": "// SPDX-License-Identifier: MIT\r\npragma solidity ^0.8.0;\r\nenum Interval {\r\n    OneSecond,\r\n    OneMinute,\r\n    ThreeMinutes,\r\n    FiveMinutes,\r\n    FifteenMinutes,\r\n    ThirtyMinutes,\r\n    OneHour,\r\n    TwoHours,\r\n    FourHours,\r\n    SixHours,\r\n    EightHours,\r\n    TwelveHours,\r\n    OneDay,\r\n    ThreeDays,\r\n    OneWeek,\r\n    OneMonth\r\n}\r\n\r\nstruct CandleRecord {\r\n    uint64 openTime;                  // 0: Kline open time (ms timestamp)\r\n    string openPrice;                // 1: Open price\r\n    string highPrice;                // 2: High price\r\n    string lowPrice;                 // 3: Low price\r\n    string closePrice;               // 4: Close price\r\n    string volume;                   // 5: Volume\r\n    uint64 closeTime;                // 6: Kline close time (ms timestamp)\r\n    string quoteAssetVolume;        // 7: Quote asset volume\r\n    uint32 numberOfTrades;          // 8: Number of trades\r\n    string takerBuyBaseVolume;      // 9: Taker buy base asset volume\r\n    string takerBuyQuoteVolume;     // 10: Taker buy quote asset volume\r\n    string unused;                  // 11: Unused field (ignore)\r\n}"
+			}
+		},
+		"settings": {
+			"optimizer": {
+				"enabled": false,
+				"runs": 200
+			},
+			"outputSelection": {
+				"*": {
+					"": [
+						"ast"
+					],
+					"*": [
+						"abi",
+						"metadata",
+						"devdoc",
+						"userdoc",
+						"storageLayout",
+						"evm.legacyAssembly",
+						"evm.bytecode",
+						"evm.deployedBytecode",
+						"evm.methodIdentifiers",
+						"evm.gasEstimates",
+						"evm.assembly"
+					]
+				}
+			},
+			"remappings": []
+		}
+	},
+	"output": {
+		"contracts": {
+			"contracts/interface/ICandleManager.sol": {
+				"ICandleManager": {
+					"abi": [
+						{
+							"inputs": [
+								{
+									"components": [
+										{
+											"internalType": "uint64",
+											"name": "openTime",
+											"type": "uint64"
+										},
+										{
+											"internalType": "string",
+											"name": "openPrice",
+											"type": "string"
+										},
+										{
+											"internalType": "string",
+											"name": "highPrice",
+											"type": "string"
+										},
+										{
+											"internalType": "string",
+											"name": "lowPrice",
+											"type": "string"
+										},
+										{
+											"internalType": "string",
+											"name": "closePrice",
+											"type": "string"
+										},
+										{
+											"internalType": "string",
+											"name": "volume",
+											"type": "string"
+										},
+										{
+											"internalType": "uint64",
+											"name": "closeTime",
+											"type": "uint64"
+										},
+										{
+											"internalType": "string",
+											"name": "quoteAssetVolume",
+											"type": "string"
+										},
+										{
+											"internalType": "uint32",
+											"name": "numberOfTrades",
+											"type": "uint32"
+										},
+										{
+											"internalType": "string",
+											"name": "takerBuyBaseVolume",
+											"type": "string"
+										},
+										{
+											"internalType": "string",
+											"name": "takerBuyQuoteVolume",
+											"type": "string"
+										},
+										{
+											"internalType": "string",
+											"name": "unused",
+											"type": "string"
+										}
+									],
+									"internalType": "struct CandleRecord",
+									"name": "candle",
+									"type": "tuple"
+								}
+							],
+							"name": "addCandle",
+							"outputs": [],
+							"stateMutability": "nonpayable",
+							"type": "function"
+						},
+						{
+							"inputs": [],
+							"name": "getCandles",
+							"outputs": [
+								{
+									"components": [
+										{
+											"internalType": "uint64",
+											"name": "openTime",
+											"type": "uint64"
+										},
+										{
+											"internalType": "string",
+											"name": "openPrice",
+											"type": "string"
+										},
+										{
+											"internalType": "string",
+											"name": "highPrice",
+											"type": "string"
+										},
+										{
+											"internalType": "string",
+											"name": "lowPrice",
+											"type": "string"
+										},
+										{
+											"internalType": "string",
+											"name": "closePrice",
+											"type": "string"
+										},
+										{
+											"internalType": "string",
+											"name": "volume",
+											"type": "string"
+										},
+										{
+											"internalType": "uint64",
+											"name": "closeTime",
+											"type": "uint64"
+										},
+										{
+											"internalType": "string",
+											"name": "quoteAssetVolume",
+											"type": "string"
+										},
+										{
+											"internalType": "uint32",
+											"name": "numberOfTrades",
+											"type": "uint32"
+										},
+										{
+											"internalType": "string",
+											"name": "takerBuyBaseVolume",
+											"type": "string"
+										},
+										{
+											"internalType": "string",
+											"name": "takerBuyQuoteVolume",
+											"type": "string"
+										},
+										{
+											"internalType": "string",
+											"name": "unused",
+											"type": "string"
+										}
+									],
+									"internalType": "struct CandleRecord[]",
+									"name": "",
+									"type": "tuple[]"
+								}
+							],
+							"stateMutability": "view",
+							"type": "function"
+						}
+					],
+					"devdoc": {
+						"kind": "dev",
+						"methods": {},
+						"version": 1
+					},
+					"evm": {
+						"assembly": "",
+						"bytecode": {
+							"functionDebugData": {},
+							"generatedSources": [],
+							"linkReferences": {},
+							"object": "",
+							"opcodes": "",
+							"sourceMap": ""
+						},
+						"deployedBytecode": {
+							"functionDebugData": {},
+							"generatedSources": [],
+							"immutableReferences": {},
+							"linkReferences": {},
+							"object": "",
+							"opcodes": "",
+							"sourceMap": ""
+						},
+						"gasEstimates": null,
+						"legacyAssembly": null,
+						"methodIdentifiers": {
+							"addCandle((uint64,string,string,string,string,string,uint64,string,uint32,string,string,string))": "a8f9b0af",
+							"getCandles()": "ea6c8353"
+						}
+					},
+					"metadata": "{\"compiler\":{\"version\":\"0.8.30+commit.73712a01\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"components\":[{\"internalType\":\"uint64\",\"name\":\"openTime\",\"type\":\"uint64\"},{\"internalType\":\"string\",\"name\":\"openPrice\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"highPrice\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"lowPrice\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"closePrice\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"volume\",\"type\":\"string\"},{\"internalType\":\"uint64\",\"name\":\"closeTime\",\"type\":\"uint64\"},{\"internalType\":\"string\",\"name\":\"quoteAssetVolume\",\"type\":\"string\"},{\"internalType\":\"uint32\",\"name\":\"numberOfTrades\",\"type\":\"uint32\"},{\"internalType\":\"string\",\"name\":\"takerBuyBaseVolume\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"takerBuyQuoteVolume\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"unused\",\"type\":\"string\"}],\"internalType\":\"struct CandleRecord\",\"name\":\"candle\",\"type\":\"tuple\"}],\"name\":\"addCandle\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getCandles\",\"outputs\":[{\"components\":[{\"internalType\":\"uint64\",\"name\":\"openTime\",\"type\":\"uint64\"},{\"internalType\":\"string\",\"name\":\"openPrice\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"highPrice\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"lowPrice\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"closePrice\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"volume\",\"type\":\"string\"},{\"internalType\":\"uint64\",\"name\":\"closeTime\",\"type\":\"uint64\"},{\"internalType\":\"string\",\"name\":\"quoteAssetVolume\",\"type\":\"string\"},{\"internalType\":\"uint32\",\"name\":\"numberOfTrades\",\"type\":\"uint32\"},{\"internalType\":\"string\",\"name\":\"takerBuyBaseVolume\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"takerBuyQuoteVolume\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"unused\",\"type\":\"string\"}],\"internalType\":\"struct CandleRecord[]\",\"name\":\"\",\"type\":\"tuple[]\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"contracts/interface/ICandleManager.sol\":\"ICandleManager\"},\"evmVersion\":\"prague\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"contracts/interface/ICandleManager.sol\":{\"keccak256\":\"0xfc571038e65fcbc7c17a89f90152841eb162460257dd07230c3a5cd47a8a1a64\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://633ef0b8755fbd0ac841fa3ce96b0890450e6809acab56921ef8c9b5db6f091a\",\"dweb:/ipfs/QmdFg9J6d8uiJ9EEWNxHQs2j2NpT2Cg69PztXxCYLtDfdm\"]},\"contracts/struct/CandleStruct.sol\":{\"keccak256\":\"0x2503e8759e272b49e7e0eab925d483a5202223af0487be68ccb6ab57cb24f746\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://a83bab05f0e8123354255367313527416cb168c56e105beef60166fd745424ed\",\"dweb:/ipfs/QmPR6JC3CyfadAFmhtUZhro6hhHfUwjrxuFuWc5hXGDVCy\"]}},\"version\":1}",
+					"storageLayout": {
+						"storage": [],
+						"types": null
+					},
+					"userdoc": {
+						"kind": "user",
+						"methods": {},
+						"version": 1
+					}
+				}
+			}
+		},
+		"sources": {
+			"contracts/interface/ICandleManager.sol": {
+				"ast": {
+					"absolutePath": "contracts/interface/ICandleManager.sol",
+					"exportedSymbols": {
+						"CandleRecord": [
+							60
+						],
+						"ICandleManager": [
+							16
+						],
+						"Interval": [
+							35
+						]
+					},
+					"id": 17,
+					"license": "MIT",
+					"nodeType": "SourceUnit",
+					"nodes": [
+						{
+							"id": 1,
+							"literals": [
+								"solidity",
+								"^",
+								"0.8",
+								".0"
+							],
+							"nodeType": "PragmaDirective",
+							"src": "33:23:0"
+						},
+						{
+							"absolutePath": "contracts/struct/CandleStruct.sol",
+							"file": "../struct/CandleStruct.sol",
+							"id": 2,
+							"nameLocation": "-1:-1:-1",
+							"nodeType": "ImportDirective",
+							"scope": 17,
+							"sourceUnit": 61,
+							"src": "58:36:0",
+							"symbolAliases": [],
+							"unitAlias": ""
+						},
+						{
+							"abstract": false,
+							"baseContracts": [],
+							"canonicalName": "ICandleManager",
+							"contractDependencies": [],
+							"contractKind": "interface",
+							"fullyImplemented": false,
+							"id": 16,
+							"linearizedBaseContracts": [
+								16
+							],
+							"name": "ICandleManager",
+							"nameLocation": "138:14:0",
+							"nodeType": "ContractDefinition",
+							"nodes": [
+								{
+									"functionSelector": "a8f9b0af",
+									"id": 8,
+									"implemented": false,
+									"kind": "function",
+									"modifiers": [],
+									"name": "addCandle",
+									"nameLocation": "207:9:0",
+									"nodeType": "FunctionDefinition",
+									"parameters": {
+										"id": 6,
+										"nodeType": "ParameterList",
+										"parameters": [
+											{
+												"constant": false,
+												"id": 5,
+												"mutability": "mutable",
+												"name": "candle",
+												"nameLocation": "237:6:0",
+												"nodeType": "VariableDeclaration",
+												"scope": 8,
+												"src": "217:26:0",
+												"stateVariable": false,
+												"storageLocation": "memory",
+												"typeDescriptions": {
+													"typeIdentifier": "t_struct$_CandleRecord_$60_memory_ptr",
+													"typeString": "struct CandleRecord"
+												},
+												"typeName": {
+													"id": 4,
+													"nodeType": "UserDefinedTypeName",
+													"pathNode": {
+														"id": 3,
+														"name": "CandleRecord",
+														"nameLocations": [
+															"217:12:0"
+														],
+														"nodeType": "IdentifierPath",
+														"referencedDeclaration": 60,
+														"src": "217:12:0"
+													},
+													"referencedDeclaration": 60,
+													"src": "217:12:0",
+													"typeDescriptions": {
+														"typeIdentifier": "t_struct$_CandleRecord_$60_storage_ptr",
+														"typeString": "struct CandleRecord"
+													}
+												},
+												"visibility": "internal"
+											}
+										],
+										"src": "216:28:0"
+									},
+									"returnParameters": {
+										"id": 7,
+										"nodeType": "ParameterList",
+										"parameters": [],
+										"src": "254:0:0"
+									},
+									"scope": 16,
+									"src": "198:57:0",
+									"stateMutability": "nonpayable",
+									"virtual": false,
+									"visibility": "external"
+								},
+								{
+									"functionSelector": "ea6c8353",
+									"id": 15,
+									"implemented": false,
+									"kind": "function",
+									"modifiers": [],
+									"name": "getCandles",
+									"nameLocation": "270:10:0",
+									"nodeType": "FunctionDefinition",
+									"parameters": {
+										"id": 9,
+										"nodeType": "ParameterList",
+										"parameters": [],
+										"src": "281:2:0"
+									},
+									"returnParameters": {
+										"id": 14,
+										"nodeType": "ParameterList",
+										"parameters": [
+											{
+												"constant": false,
+												"id": 13,
+												"mutability": "mutable",
+												"name": "",
+												"nameLocation": "-1:-1:-1",
+												"nodeType": "VariableDeclaration",
+												"scope": 15,
+												"src": "309:22:0",
+												"stateVariable": false,
+												"storageLocation": "memory",
+												"typeDescriptions": {
+													"typeIdentifier": "t_array$_t_struct$_CandleRecord_$60_memory_ptr_$dyn_memory_ptr",
+													"typeString": "struct CandleRecord[]"
+												},
+												"typeName": {
+													"baseType": {
+														"id": 11,
+														"nodeType": "UserDefinedTypeName",
+														"pathNode": {
+															"id": 10,
+															"name": "CandleRecord",
+															"nameLocations": [
+																"309:12:0"
+															],
+															"nodeType": "IdentifierPath",
+															"referencedDeclaration": 60,
+															"src": "309:12:0"
+														},
+														"referencedDeclaration": 60,
+														"src": "309:12:0",
+														"typeDescriptions": {
+															"typeIdentifier": "t_struct$_CandleRecord_$60_storage_ptr",
+															"typeString": "struct CandleRecord"
+														}
+													},
+													"id": 12,
+													"nodeType": "ArrayTypeName",
+													"src": "309:15:0",
+													"typeDescriptions": {
+														"typeIdentifier": "t_array$_t_struct$_CandleRecord_$60_storage_$dyn_storage_ptr",
+														"typeString": "struct CandleRecord[]"
+													}
+												},
+												"visibility": "internal"
+											}
+										],
+										"src": "308:25:0"
+									},
+									"scope": 16,
+									"src": "261:73:0",
+									"stateMutability": "view",
+									"virtual": false,
+									"visibility": "external"
+								}
+							],
+							"scope": 17,
+							"src": "128:271:0",
+							"usedErrors": [],
+							"usedEvents": []
+						}
+					],
+					"src": "33:366:0"
+				},
+				"id": 0
+			},
+			"contracts/struct/CandleStruct.sol": {
+				"ast": {
+					"absolutePath": "contracts/struct/CandleStruct.sol",
+					"exportedSymbols": {
+						"CandleRecord": [
+							60
+						],
+						"Interval": [
+							35
+						]
+					},
+					"id": 61,
+					"license": "MIT",
+					"nodeType": "SourceUnit",
+					"nodes": [
+						{
+							"id": 18,
+							"literals": [
+								"solidity",
+								"^",
+								"0.8",
+								".0"
+							],
+							"nodeType": "PragmaDirective",
+							"src": "33:23:1"
+						},
+						{
+							"canonicalName": "Interval",
+							"id": 35,
+							"members": [
+								{
+									"id": 19,
+									"name": "OneSecond",
+									"nameLocation": "79:9:1",
+									"nodeType": "EnumValue",
+									"src": "79:9:1"
+								},
+								{
+									"id": 20,
+									"name": "OneMinute",
+									"nameLocation": "95:9:1",
+									"nodeType": "EnumValue",
+									"src": "95:9:1"
+								},
+								{
+									"id": 21,
+									"name": "ThreeMinutes",
+									"nameLocation": "111:12:1",
+									"nodeType": "EnumValue",
+									"src": "111:12:1"
+								},
+								{
+									"id": 22,
+									"name": "FiveMinutes",
+									"nameLocation": "130:11:1",
+									"nodeType": "EnumValue",
+									"src": "130:11:1"
+								},
+								{
+									"id": 23,
+									"name": "FifteenMinutes",
+									"nameLocation": "148:14:1",
+									"nodeType": "EnumValue",
+									"src": "148:14:1"
+								},
+								{
+									"id": 24,
+									"name": "ThirtyMinutes",
+									"nameLocation": "169:13:1",
+									"nodeType": "EnumValue",
+									"src": "169:13:1"
+								},
+								{
+									"id": 25,
+									"name": "OneHour",
+									"nameLocation": "189:7:1",
+									"nodeType": "EnumValue",
+									"src": "189:7:1"
+								},
+								{
+									"id": 26,
+									"name": "TwoHours",
+									"nameLocation": "203:8:1",
+									"nodeType": "EnumValue",
+									"src": "203:8:1"
+								},
+								{
+									"id": 27,
+									"name": "FourHours",
+									"nameLocation": "218:9:1",
+									"nodeType": "EnumValue",
+									"src": "218:9:1"
+								},
+								{
+									"id": 28,
+									"name": "SixHours",
+									"nameLocation": "234:8:1",
+									"nodeType": "EnumValue",
+									"src": "234:8:1"
+								},
+								{
+									"id": 29,
+									"name": "EightHours",
+									"nameLocation": "249:10:1",
+									"nodeType": "EnumValue",
+									"src": "249:10:1"
+								},
+								{
+									"id": 30,
+									"name": "TwelveHours",
+									"nameLocation": "266:11:1",
+									"nodeType": "EnumValue",
+									"src": "266:11:1"
+								},
+								{
+									"id": 31,
+									"name": "OneDay",
+									"nameLocation": "284:6:1",
+									"nodeType": "EnumValue",
+									"src": "284:6:1"
+								},
+								{
+									"id": 32,
+									"name": "ThreeDays",
+									"nameLocation": "297:9:1",
+									"nodeType": "EnumValue",
+									"src": "297:9:1"
+								},
+								{
+									"id": 33,
+									"name": "OneWeek",
+									"nameLocation": "313:7:1",
+									"nodeType": "EnumValue",
+									"src": "313:7:1"
+								},
+								{
+									"id": 34,
+									"name": "OneMonth",
+									"nameLocation": "327:8:1",
+									"nodeType": "EnumValue",
+									"src": "327:8:1"
+								}
+							],
+							"name": "Interval",
+							"nameLocation": "63:8:1",
+							"nodeType": "EnumDefinition",
+							"src": "58:280:1"
+						},
+						{
+							"canonicalName": "CandleRecord",
+							"id": 60,
+							"members": [
+								{
+									"constant": false,
+									"id": 37,
+									"mutability": "mutable",
+									"name": "openTime",
+									"nameLocation": "376:8:1",
+									"nodeType": "VariableDeclaration",
+									"scope": 60,
+									"src": "369:15:1",
+									"stateVariable": false,
+									"storageLocation": "default",
+									"typeDescriptions": {
+										"typeIdentifier": "t_uint64",
+										"typeString": "uint64"
+									},
+									"typeName": {
+										"id": 36,
+										"name": "uint64",
+										"nodeType": "ElementaryTypeName",
+										"src": "369:6:1",
+										"typeDescriptions": {
+											"typeIdentifier": "t_uint64",
+											"typeString": "uint64"
+										}
+									},
+									"visibility": "internal"
+								},
+								{
+									"constant": false,
+									"id": 39,
+									"mutability": "mutable",
+									"name": "openPrice",
+									"nameLocation": "452:9:1",
+									"nodeType": "VariableDeclaration",
+									"scope": 60,
+									"src": "445:16:1",
+									"stateVariable": false,
+									"storageLocation": "default",
+									"typeDescriptions": {
+										"typeIdentifier": "t_string_storage_ptr",
+										"typeString": "string"
+									},
+									"typeName": {
+										"id": 38,
+										"name": "string",
+										"nodeType": "ElementaryTypeName",
+										"src": "445:6:1",
+										"typeDescriptions": {
+											"typeIdentifier": "t_string_storage_ptr",
+											"typeString": "string"
+										}
+									},
+									"visibility": "internal"
+								},
+								{
+									"constant": false,
+									"id": 41,
+									"mutability": "mutable",
+									"name": "highPrice",
+									"nameLocation": "507:9:1",
+									"nodeType": "VariableDeclaration",
+									"scope": 60,
+									"src": "500:16:1",
+									"stateVariable": false,
+									"storageLocation": "default",
+									"typeDescriptions": {
+										"typeIdentifier": "t_string_storage_ptr",
+										"typeString": "string"
+									},
+									"typeName": {
+										"id": 40,
+										"name": "string",
+										"nodeType": "ElementaryTypeName",
+										"src": "500:6:1",
+										"typeDescriptions": {
+											"typeIdentifier": "t_string_storage_ptr",
+											"typeString": "string"
+										}
+									},
+									"visibility": "internal"
+								},
+								{
+									"constant": false,
+									"id": 43,
+									"mutability": "mutable",
+									"name": "lowPrice",
+									"nameLocation": "562:8:1",
+									"nodeType": "VariableDeclaration",
+									"scope": 60,
+									"src": "555:15:1",
+									"stateVariable": false,
+									"storageLocation": "default",
+									"typeDescriptions": {
+										"typeIdentifier": "t_string_storage_ptr",
+										"typeString": "string"
+									},
+									"typeName": {
+										"id": 42,
+										"name": "string",
+										"nodeType": "ElementaryTypeName",
+										"src": "555:6:1",
+										"typeDescriptions": {
+											"typeIdentifier": "t_string_storage_ptr",
+											"typeString": "string"
+										}
+									},
+									"visibility": "internal"
+								},
+								{
+									"constant": false,
+									"id": 45,
+									"mutability": "mutable",
+									"name": "closePrice",
+									"nameLocation": "616:10:1",
+									"nodeType": "VariableDeclaration",
+									"scope": 60,
+									"src": "609:17:1",
+									"stateVariable": false,
+									"storageLocation": "default",
+									"typeDescriptions": {
+										"typeIdentifier": "t_string_storage_ptr",
+										"typeString": "string"
+									},
+									"typeName": {
+										"id": 44,
+										"name": "string",
+										"nodeType": "ElementaryTypeName",
+										"src": "609:6:1",
+										"typeDescriptions": {
+											"typeIdentifier": "t_string_storage_ptr",
+											"typeString": "string"
+										}
+									},
+									"visibility": "internal"
+								},
+								{
+									"constant": false,
+									"id": 47,
+									"mutability": "mutable",
+									"name": "volume",
+									"nameLocation": "672:6:1",
+									"nodeType": "VariableDeclaration",
+									"scope": 60,
+									"src": "665:13:1",
+									"stateVariable": false,
+									"storageLocation": "default",
+									"typeDescriptions": {
+										"typeIdentifier": "t_string_storage_ptr",
+										"typeString": "string"
+									},
+									"typeName": {
+										"id": 46,
+										"name": "string",
+										"nodeType": "ElementaryTypeName",
+										"src": "665:6:1",
+										"typeDescriptions": {
+											"typeIdentifier": "t_string_storage_ptr",
+											"typeString": "string"
+										}
+									},
+									"visibility": "internal"
+								},
+								{
+									"constant": false,
+									"id": 49,
+									"mutability": "mutable",
+									"name": "closeTime",
+									"nameLocation": "723:9:1",
+									"nodeType": "VariableDeclaration",
+									"scope": 60,
+									"src": "716:16:1",
+									"stateVariable": false,
+									"storageLocation": "default",
+									"typeDescriptions": {
+										"typeIdentifier": "t_uint64",
+										"typeString": "uint64"
+									},
+									"typeName": {
+										"id": 48,
+										"name": "uint64",
+										"nodeType": "ElementaryTypeName",
+										"src": "716:6:1",
+										"typeDescriptions": {
+											"typeIdentifier": "t_uint64",
+											"typeString": "uint64"
+										}
+									},
+									"visibility": "internal"
+								},
+								{
+									"constant": false,
+									"id": 51,
+									"mutability": "mutable",
+									"name": "quoteAssetVolume",
+									"nameLocation": "799:16:1",
+									"nodeType": "VariableDeclaration",
+									"scope": 60,
+									"src": "792:23:1",
+									"stateVariable": false,
+									"storageLocation": "default",
+									"typeDescriptions": {
+										"typeIdentifier": "t_string_storage_ptr",
+										"typeString": "string"
+									},
+									"typeName": {
+										"id": 50,
+										"name": "string",
+										"nodeType": "ElementaryTypeName",
+										"src": "792:6:1",
+										"typeDescriptions": {
+											"typeIdentifier": "t_string_storage_ptr",
+											"typeString": "string"
+										}
+									},
+									"visibility": "internal"
+								},
+								{
+									"constant": false,
+									"id": 53,
+									"mutability": "mutable",
+									"name": "numberOfTrades",
+									"nameLocation": "861:14:1",
+									"nodeType": "VariableDeclaration",
+									"scope": 60,
+									"src": "854:21:1",
+									"stateVariable": false,
+									"storageLocation": "default",
+									"typeDescriptions": {
+										"typeIdentifier": "t_uint32",
+										"typeString": "uint32"
+									},
+									"typeName": {
+										"id": 52,
+										"name": "uint32",
+										"nodeType": "ElementaryTypeName",
+										"src": "854:6:1",
+										"typeDescriptions": {
+											"typeIdentifier": "t_uint32",
+											"typeString": "uint32"
+										}
+									},
+									"visibility": "internal"
+								},
+								{
+									"constant": false,
+									"id": 55,
+									"mutability": "mutable",
+									"name": "takerBuyBaseVolume",
+									"nameLocation": "921:18:1",
+									"nodeType": "VariableDeclaration",
+									"scope": 60,
+									"src": "914:25:1",
+									"stateVariable": false,
+									"storageLocation": "default",
+									"typeDescriptions": {
+										"typeIdentifier": "t_string_storage_ptr",
+										"typeString": "string"
+									},
+									"typeName": {
+										"id": 54,
+										"name": "string",
+										"nodeType": "ElementaryTypeName",
+										"src": "914:6:1",
+										"typeDescriptions": {
+											"typeIdentifier": "t_string_storage_ptr",
+											"typeString": "string"
+										}
+									},
+									"visibility": "internal"
+								},
+								{
+									"constant": false,
+									"id": 57,
+									"mutability": "mutable",
+									"name": "takerBuyQuoteVolume",
+									"nameLocation": "992:19:1",
+									"nodeType": "VariableDeclaration",
+									"scope": 60,
+									"src": "985:26:1",
+									"stateVariable": false,
+									"storageLocation": "default",
+									"typeDescriptions": {
+										"typeIdentifier": "t_string_storage_ptr",
+										"typeString": "string"
+									},
+									"typeName": {
+										"id": 56,
+										"name": "string",
+										"nodeType": "ElementaryTypeName",
+										"src": "985:6:1",
+										"typeDescriptions": {
+											"typeIdentifier": "t_string_storage_ptr",
+											"typeString": "string"
+										}
+									},
+									"visibility": "internal"
+								},
+								{
+									"constant": false,
+									"id": 59,
+									"mutability": "mutable",
+									"name": "unused",
+									"nameLocation": "1065:6:1",
+									"nodeType": "VariableDeclaration",
+									"scope": 60,
+									"src": "1058:13:1",
+									"stateVariable": false,
+									"storageLocation": "default",
+									"typeDescriptions": {
+										"typeIdentifier": "t_string_storage_ptr",
+										"typeString": "string"
+									},
+									"typeName": {
+										"id": 58,
+										"name": "string",
+										"nodeType": "ElementaryTypeName",
+										"src": "1058:6:1",
+										"typeDescriptions": {
+											"typeIdentifier": "t_string_storage_ptr",
+											"typeString": "string"
+										}
+									},
+									"visibility": "internal"
+								}
+							],
+							"name": "CandleRecord",
+							"nameLocation": "349:12:1",
+							"nodeType": "StructDefinition",
+							"scope": 61,
+							"src": "342:779:1",
+							"visibility": "public"
+						}
+					],
+					"src": "33:1088:1"
+				},
+				"id": 1
+			}
+		}
+	}
+}

@@ -82,81 +82,6 @@
 			},
 			{
 				"inputs": [],
-				"name": "getAllCandles",
-				"outputs": [
-					{
-						"components": [
-							{
-								"internalType": "uint64",
-								"name": "openTime",
-								"type": "uint64"
-							},
-							{
-								"internalType": "string",
-								"name": "openPrice",
-								"type": "string"
-							},
-							{
-								"internalType": "string",
-								"name": "highPrice",
-								"type": "string"
-							},
-							{
-								"internalType": "string",
-								"name": "lowPrice",
-								"type": "string"
-							},
-							{
-								"internalType": "string",
-								"name": "closePrice",
-								"type": "string"
-							},
-							{
-								"internalType": "string",
-								"name": "volume",
-								"type": "string"
-							},
-							{
-								"internalType": "uint64",
-								"name": "closeTime",
-								"type": "uint64"
-							},
-							{
-								"internalType": "string",
-								"name": "quoteAssetVolume",
-								"type": "string"
-							},
-							{
-								"internalType": "uint32",
-								"name": "numberOfTrades",
-								"type": "uint32"
-							},
-							{
-								"internalType": "string",
-								"name": "takerBuyBaseVolume",
-								"type": "string"
-							},
-							{
-								"internalType": "string",
-								"name": "takerBuyQuoteVolume",
-								"type": "string"
-							},
-							{
-								"internalType": "string",
-								"name": "unused",
-								"type": "string"
-							}
-						],
-						"internalType": "struct CandleRecord[]",
-						"name": "",
-						"type": "tuple[]"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [],
 				"name": "getCandles",
 				"outputs": [
 					{
@@ -259,11 +184,11 @@
 	},
 	"sources": {
 		"contracts/interface/ICandleManager.sol": {
-			"keccak256": "0x18e0ce84fbe349a2cc08dd50e2d7d11c0804e126cc1167f6785a16541b4007c7",
+			"keccak256": "0xfc571038e65fcbc7c17a89f90152841eb162460257dd07230c3a5cd47a8a1a64",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://a2d3c1bf18cd457cfc7bda054ed35111716b364e4ffffc44d87c2512fc0cc383",
-				"dweb:/ipfs/Qmd7TLFsgdGbKFDMRh1XToMzqor6P8Wz7MK2BZRLYxntX2"
+				"bzz-raw://633ef0b8755fbd0ac841fa3ce96b0890450e6809acab56921ef8c9b5db6f091a",
+				"dweb:/ipfs/QmdFg9J6d8uiJ9EEWNxHQs2j2NpT2Cg69PztXxCYLtDfdm"
 			]
 		},
 		"contracts/struct/CandleStruct.sol": {
