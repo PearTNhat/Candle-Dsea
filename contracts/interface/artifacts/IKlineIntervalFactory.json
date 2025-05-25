@@ -1,0 +1,505 @@
+{
+	"deploy": {
+		"VM:-": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		},
+		"main:1": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		},
+		"ropsten:3": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		},
+		"rinkeby:4": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		},
+		"kovan:42": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		},
+		"goerli:5": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		},
+		"Custom": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		}
+	},
+	"data": {
+		"bytecode": {
+			"functionDebugData": {},
+			"generatedSources": [],
+			"linkReferences": {},
+			"object": "",
+			"opcodes": "",
+			"sourceMap": ""
+		},
+		"deployedBytecode": {
+			"functionDebugData": {},
+			"generatedSources": [],
+			"immutableReferences": {},
+			"linkReferences": {},
+			"object": "",
+			"opcodes": "",
+			"sourceMap": ""
+		},
+		"gasEstimates": null,
+		"methodIdentifiers": {
+			"addKline((uint64,uint64,string,string,uint256,uint256,string,string,string,string,string,uint256,bool,string,string,string,string),uint8)": "7c2aea23",
+			"getAllRecords(uint8,uint64,uint64,uint256)": "5a29f4b8",
+			"getAllTimeKeys(uint8)": "af20e380",
+			"getAllklineInTime(uint8,uint64)": "c742739d",
+			"getLengthKline(uint8,uint64)": "0d5c8562",
+			"getLengthTimeKeys(uint8)": "ea626d8d"
+		}
+	},
+	"abi": [
+		{
+			"inputs": [
+				{
+					"components": [
+						{
+							"internalType": "uint64",
+							"name": "t",
+							"type": "uint64"
+						},
+						{
+							"internalType": "uint64",
+							"name": "T",
+							"type": "uint64"
+						},
+						{
+							"internalType": "string",
+							"name": "s",
+							"type": "string"
+						},
+						{
+							"internalType": "string",
+							"name": "i",
+							"type": "string"
+						},
+						{
+							"internalType": "uint256",
+							"name": "f",
+							"type": "uint256"
+						},
+						{
+							"internalType": "uint256",
+							"name": "L",
+							"type": "uint256"
+						},
+						{
+							"internalType": "string",
+							"name": "o",
+							"type": "string"
+						},
+						{
+							"internalType": "string",
+							"name": "c",
+							"type": "string"
+						},
+						{
+							"internalType": "string",
+							"name": "h",
+							"type": "string"
+						},
+						{
+							"internalType": "string",
+							"name": "l",
+							"type": "string"
+						},
+						{
+							"internalType": "string",
+							"name": "v",
+							"type": "string"
+						},
+						{
+							"internalType": "uint256",
+							"name": "n",
+							"type": "uint256"
+						},
+						{
+							"internalType": "bool",
+							"name": "x",
+							"type": "bool"
+						},
+						{
+							"internalType": "string",
+							"name": "q",
+							"type": "string"
+						},
+						{
+							"internalType": "string",
+							"name": "V",
+							"type": "string"
+						},
+						{
+							"internalType": "string",
+							"name": "Q",
+							"type": "string"
+						},
+						{
+							"internalType": "string",
+							"name": "B",
+							"type": "string"
+						}
+					],
+					"internalType": "struct KlineRecord",
+					"name": "record",
+					"type": "tuple"
+				},
+				{
+					"internalType": "enum Interval",
+					"name": "interval",
+					"type": "uint8"
+				}
+			],
+			"name": "addKline",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "enum Interval",
+					"name": "interval",
+					"type": "uint8"
+				},
+				{
+					"internalType": "uint64",
+					"name": "startTime",
+					"type": "uint64"
+				},
+				{
+					"internalType": "uint64",
+					"name": "endTime",
+					"type": "uint64"
+				},
+				{
+					"internalType": "uint256",
+					"name": "limit",
+					"type": "uint256"
+				}
+			],
+			"name": "getAllRecords",
+			"outputs": [
+				{
+					"components": [
+						{
+							"internalType": "string",
+							"name": "e",
+							"type": "string"
+						},
+						{
+							"internalType": "uint256",
+							"name": "E",
+							"type": "uint256"
+						},
+						{
+							"internalType": "string",
+							"name": "s",
+							"type": "string"
+						},
+						{
+							"components": [
+								{
+									"internalType": "uint64",
+									"name": "t",
+									"type": "uint64"
+								},
+								{
+									"internalType": "uint64",
+									"name": "T",
+									"type": "uint64"
+								},
+								{
+									"internalType": "string",
+									"name": "s",
+									"type": "string"
+								},
+								{
+									"internalType": "string",
+									"name": "i",
+									"type": "string"
+								},
+								{
+									"internalType": "uint256",
+									"name": "f",
+									"type": "uint256"
+								},
+								{
+									"internalType": "uint256",
+									"name": "L",
+									"type": "uint256"
+								},
+								{
+									"internalType": "string",
+									"name": "o",
+									"type": "string"
+								},
+								{
+									"internalType": "string",
+									"name": "c",
+									"type": "string"
+								},
+								{
+									"internalType": "string",
+									"name": "h",
+									"type": "string"
+								},
+								{
+									"internalType": "string",
+									"name": "l",
+									"type": "string"
+								},
+								{
+									"internalType": "string",
+									"name": "v",
+									"type": "string"
+								},
+								{
+									"internalType": "uint256",
+									"name": "n",
+									"type": "uint256"
+								},
+								{
+									"internalType": "bool",
+									"name": "x",
+									"type": "bool"
+								},
+								{
+									"internalType": "string",
+									"name": "q",
+									"type": "string"
+								},
+								{
+									"internalType": "string",
+									"name": "V",
+									"type": "string"
+								},
+								{
+									"internalType": "string",
+									"name": "Q",
+									"type": "string"
+								},
+								{
+									"internalType": "string",
+									"name": "B",
+									"type": "string"
+								}
+							],
+							"internalType": "struct KlineRecord",
+							"name": "k",
+							"type": "tuple"
+						}
+					],
+					"internalType": "struct KlineResponse[]",
+					"name": "",
+					"type": "tuple[]"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "enum Interval",
+					"name": "interval",
+					"type": "uint8"
+				}
+			],
+			"name": "getAllTimeKeys",
+			"outputs": [
+				{
+					"internalType": "uint64[]",
+					"name": "",
+					"type": "uint64[]"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "enum Interval",
+					"name": "interval",
+					"type": "uint8"
+				},
+				{
+					"internalType": "uint64",
+					"name": "timestamp",
+					"type": "uint64"
+				}
+			],
+			"name": "getAllklineInTime",
+			"outputs": [
+				{
+					"components": [
+						{
+							"internalType": "string",
+							"name": "e",
+							"type": "string"
+						},
+						{
+							"internalType": "uint256",
+							"name": "E",
+							"type": "uint256"
+						},
+						{
+							"internalType": "string",
+							"name": "s",
+							"type": "string"
+						},
+						{
+							"components": [
+								{
+									"internalType": "uint64",
+									"name": "t",
+									"type": "uint64"
+								},
+								{
+									"internalType": "uint64",
+									"name": "T",
+									"type": "uint64"
+								},
+								{
+									"internalType": "string",
+									"name": "s",
+									"type": "string"
+								},
+								{
+									"internalType": "string",
+									"name": "i",
+									"type": "string"
+								},
+								{
+									"internalType": "uint256",
+									"name": "f",
+									"type": "uint256"
+								},
+								{
+									"internalType": "uint256",
+									"name": "L",
+									"type": "uint256"
+								},
+								{
+									"internalType": "string",
+									"name": "o",
+									"type": "string"
+								},
+								{
+									"internalType": "string",
+									"name": "c",
+									"type": "string"
+								},
+								{
+									"internalType": "string",
+									"name": "h",
+									"type": "string"
+								},
+								{
+									"internalType": "string",
+									"name": "l",
+									"type": "string"
+								},
+								{
+									"internalType": "string",
+									"name": "v",
+									"type": "string"
+								},
+								{
+									"internalType": "uint256",
+									"name": "n",
+									"type": "uint256"
+								},
+								{
+									"internalType": "bool",
+									"name": "x",
+									"type": "bool"
+								},
+								{
+									"internalType": "string",
+									"name": "q",
+									"type": "string"
+								},
+								{
+									"internalType": "string",
+									"name": "V",
+									"type": "string"
+								},
+								{
+									"internalType": "string",
+									"name": "Q",
+									"type": "string"
+								},
+								{
+									"internalType": "string",
+									"name": "B",
+									"type": "string"
+								}
+							],
+							"internalType": "struct KlineRecord",
+							"name": "k",
+							"type": "tuple"
+						}
+					],
+					"internalType": "struct KlineResponse[]",
+					"name": "",
+					"type": "tuple[]"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "enum Interval",
+					"name": "interval",
+					"type": "uint8"
+				},
+				{
+					"internalType": "uint64",
+					"name": "timestamp",
+					"type": "uint64"
+				}
+			],
+			"name": "getLengthKline",
+			"outputs": [
+				{
+					"internalType": "uint256",
+					"name": "",
+					"type": "uint256"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "enum Interval",
+					"name": "interval",
+					"type": "uint8"
+				}
+			],
+			"name": "getLengthTimeKeys",
+			"outputs": [
+				{
+					"internalType": "uint256",
+					"name": "",
+					"type": "uint256"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		}
+	]
+}

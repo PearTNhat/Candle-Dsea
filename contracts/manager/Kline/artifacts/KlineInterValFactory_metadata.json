@@ -6,6 +6,56 @@
 	"output": {
 		"abi": [
 			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "key",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "contractAddress",
+						"type": "address"
+					}
+				],
+				"name": "KlineContractCreated",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "string",
+						"name": "symbol",
+						"type": "string"
+					},
+					{
+						"indexed": false,
+						"internalType": "string",
+						"name": "interval",
+						"type": "string"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint64",
+						"name": "timeKey",
+						"type": "uint64"
+					},
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "storageAddress",
+						"type": "address"
+					}
+				],
+				"name": "ShardCreated",
+				"type": "event"
+			},
+			{
 				"inputs": [
 					{
 						"components": [
@@ -98,6 +148,11 @@
 						"internalType": "struct KlineRecord",
 						"name": "record",
 						"type": "tuple"
+					},
+					{
+						"internalType": "enum Interval",
+						"name": "interval",
+						"type": "uint8"
 					}
 				],
 				"name": "addKline",
@@ -107,11 +162,6 @@
 			},
 			{
 				"inputs": [
-					{
-						"internalType": "bytes32",
-						"name": "",
-						"type": "bytes32"
-					},
 					{
 						"internalType": "enum Interval",
 						"name": "",
@@ -137,14 +187,9 @@
 			{
 				"inputs": [
 					{
-						"internalType": "string",
-						"name": "_symbol",
-						"type": "string"
-					},
-					{
-						"internalType": "string",
-						"name": "_interval",
-						"type": "string"
+						"internalType": "enum Interval",
+						"name": "interval",
+						"type": "uint8"
 					},
 					{
 						"internalType": "uint64",
@@ -285,14 +330,9 @@
 			{
 				"inputs": [
 					{
-						"internalType": "string",
-						"name": "_symbol",
-						"type": "string"
-					},
-					{
-						"internalType": "string",
-						"name": "_interval",
-						"type": "string"
+						"internalType": "enum Interval",
+						"name": "interval",
+						"type": "uint8"
 					}
 				],
 				"name": "getAllTimeKeys",
@@ -309,14 +349,9 @@
 			{
 				"inputs": [
 					{
-						"internalType": "string",
-						"name": "_symbol",
-						"type": "string"
-					},
-					{
-						"internalType": "string",
-						"name": "_interval",
-						"type": "string"
+						"internalType": "enum Interval",
+						"name": "interval",
+						"type": "uint8"
 					},
 					{
 						"internalType": "uint64",
@@ -447,18 +482,13 @@
 			{
 				"inputs": [
 					{
-						"internalType": "string",
-						"name": "_symbol",
-						"type": "string"
-					},
-					{
-						"internalType": "string",
-						"name": "_interval",
-						"type": "string"
+						"internalType": "enum Interval",
+						"name": "interval",
+						"type": "uint8"
 					},
 					{
 						"internalType": "uint64",
-						"name": "timestime",
+						"name": "timestamp",
 						"type": "uint64"
 					}
 				],
@@ -476,14 +506,9 @@
 			{
 				"inputs": [
 					{
-						"internalType": "string",
-						"name": "_symbol",
-						"type": "string"
-					},
-					{
-						"internalType": "string",
-						"name": "_interval",
-						"type": "string"
+						"internalType": "enum Interval",
+						"name": "interval",
+						"type": "uint8"
 					}
 				],
 				"name": "getLengthTimeKeys",
@@ -499,11 +524,6 @@
 			},
 			{
 				"inputs": [
-					{
-						"internalType": "bytes32",
-						"name": "",
-						"type": "bytes32"
-					},
 					{
 						"internalType": "enum Interval",
 						"name": "",
@@ -540,7 +560,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"contracts/manager/Kline/KlineFactoryV1.sol": "KlineFactory"
+			"contracts/manager/Kline/KlineIntervalFactory.sol": "KlineInterValFactory"
 		},
 		"evmVersion": "prague",
 		"libraries": {},
@@ -570,12 +590,12 @@
 				"dweb:/ipfs/QmQB855yq3mmFUrug9fRBS9E4WMbif93uJtf5beNEwPHhv"
 			]
 		},
-		"contracts/manager/Kline/KlineFactoryV1.sol": {
-			"keccak256": "0xb32a8eadc9ea3b3d883b03592aa2422ac26750b6b931958d953714a62edfbdaa",
+		"contracts/manager/Kline/KlineIntervalFactory.sol": {
+			"keccak256": "0x5617bfa383b8a69cf2d917df42b76271d7ecf6720f25799f7cd6b607cb1f733b",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://b3114e5e70a184b9a59d54cea38c1bfbbd1a5328c1ad531bbf715dfb41aaed5d",
-				"dweb:/ipfs/QmTMb9wN3F4ExkGFsxqyF5bVRrH4GVfbdaqHBuXAcMfhPU"
+				"bzz-raw://e2d34081514960d16cffc2a946ca5c1cd0d9b563bf2e5fbc638a9fd22bbb7218",
+				"dweb:/ipfs/Qmcg814K9e1hG4Gxvo3EgW1yJofgW7PnAtz2zRVRrbY2bv"
 			]
 		},
 		"contracts/struct/KlineStruct.sol": {

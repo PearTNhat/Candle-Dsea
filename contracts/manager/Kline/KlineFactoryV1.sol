@@ -4,9 +4,10 @@ pragma solidity ^0.8.0;
 import "./BaseKline.sol";
 import "../../utils/StringUtils.sol";
 import "../../interface/IKlineManager.sol";
+import "../../utils/Constance.sol";
 import "hardhat/console.sol";
 
-contract KlineFactory {
+contract KlineFactoryV1 {
     // symbol -> interval -> time -> data
     mapping(bytes32 => mapping(Interval => mapping(uint64 => address)))
         public storages;
@@ -27,16 +28,15 @@ contract KlineFactory {
         pure
         returns (uint64)
     {
-        return (timestamp / (2 * 60 * 60 * 1000)) * (2 * 60 * 60 * 1000);
+        return (timestamp / Constance.STEP_1S) * (Constance.STEP_1S);
     }
 
-    function addKline(KlineRecord memory record, uint64 timestamp) public {
+    function addKline(KlineRecord memory record) public {
         // parse interval
         Interval interval = parseInterval(record.i);
         bytes32 symbolKey = keccak256(abi.encodePacked(record.s));
-        // uint64 key = getTimeKey(interval, uint64(block.timestamp * 1000));
         //test
-        uint64 key = getTimeKey(interval, uint64(timestamp));
+        uint64 key = getTimeKey(interval, record.t);
 
         address storageAddr = storages[symbolKey][interval][key];
         if (storageAddr == address(0)) {
@@ -107,10 +107,10 @@ contract KlineFactory {
                 .getAllKline();
             for (uint256 j = records.length; j > 0; j--) {
                 KlineResponse memory c = records[j - 1];
-                if (c.E < startTime) continue;
-                if (c.E > endTime) continue;
-                temp[count++] = c;
-                if (count == limit) break;
+                if (c.k.t >= startTime && c.k.T <= endTime) {
+                    temp[count++] = c;
+                    if (count == limit) break;
+                }
             }
             if (count == limit) break;
         }
@@ -168,22 +168,23 @@ contract KlineFactory {
 
     function parseInterval(string memory s) internal pure returns (Interval) {
         bytes32 h = keccak256(abi.encodePacked(s));
-        if (h == keccak256("1s")) return Interval.OneSecond;
-        if (h == keccak256("1m")) return Interval.OneMinute;
-        if (h == keccak256("3m")) return Interval.ThreeMinutes;
-        if (h == keccak256("5m")) return Interval.FiveMinutes;
-        if (h == keccak256("15m")) return Interval.FifteenMinutes;
-        if (h == keccak256("30m")) return Interval.ThirtyMinutes;
-        if (h == keccak256("1h")) return Interval.OneHour;
-        if (h == keccak256("2h")) return Interval.TwoHours;
-        if (h == keccak256("4h")) return Interval.FourHours;
-        if (h == keccak256("6h")) return Interval.SixHours;
-        if (h == keccak256("8h")) return Interval.EightHours;
-        if (h == keccak256("12h")) return Interval.TwelveHours;
-        if (h == keccak256("1d")) return Interval.OneDay;
-        if (h == keccak256("3d")) return Interval.ThreeDays;
-        if (h == keccak256("1w")) return Interval.OneWeek;
-        if (h == keccak256("1M")) return Interval.OneMonth;
-        revert("Invalid interval string");
+
+        if (h == Constance.INTERVAL_1S) return Interval.OneSecond;
+        else if (h == Constance.INTERVAL_1M) return Interval.OneMinute;
+        else if (h == Constance.INTERVAL_3M) return Interval.ThreeMinutes;
+        else if (h == Constance.INTERVAL_5M) return Interval.FiveMinutes;
+        else if (h == Constance.INTERVAL_15M) return Interval.FifteenMinutes;
+        else if (h == Constance.INTERVAL_30M) return Interval.ThirtyMinutes;
+        else if (h == Constance.INTERVAL_1H) return Interval.OneHour;
+        else if (h == Constance.INTERVAL_2H) return Interval.TwoHours;
+        else if (h == Constance.INTERVAL_4H) return Interval.FourHours;
+        else if (h == Constance.INTERVAL_6H) return Interval.SixHours;
+        else if (h == Constance.INTERVAL_8H) return Interval.EightHours;
+        else if (h == Constance.INTERVAL_12H) return Interval.TwelveHours;
+        else if (h == Constance.INTERVAL_1D) return Interval.OneDay;
+        else if (h == Constance.INTERVAL_3D) return Interval.ThreeDays;
+        else if (h == Constance.INTERVAL_1W) return Interval.OneWeek;
+        else if (h == Constance.INTERVAL_1MO) return Interval.OneMonth;
+        else revert("Unsupported interval");
     }
 }

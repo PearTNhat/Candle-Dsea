@@ -3,9 +3,10 @@ pragma solidity ^0.8.0;
 
 import "./CandleManager.sol";
 import "../../interface/ICandleManager.sol";
+import "../../utils/Constance.sol";
 import "hardhat/console.sol";
-
-contract CandleFactory {
+// version 1 , interval lưu trong factory
+contract CandleFactoryV1 {
     // symbol => interval => timeKey => storage contract
     mapping(bytes32 => mapping(Interval => mapping(uint64 => address)))
         public storages;
@@ -32,46 +33,45 @@ contract CandleFactory {
     );
 
     function getTimeKey(Interval interval, uint64 timestamp)
-        internal
-        pure
-        returns (uint64)
-    {
-        if (interval == Interval.OneSecond)
-            return (timestamp / (2 * 60 * 60 * 1000)) * (2 * 60 * 60 * 1000); // hourly
-        if (
-            interval == Interval.OneMinute ||
-            interval == Interval.ThreeMinutes ||
-            interval == Interval.FiveMinutes
-        ) return (timestamp / (7 * 24 * 60 * 60 * 1000)) * (7 * 24 * 60 * 60 * 1000); // 1 week
-        if (
-            interval == Interval.FifteenMinutes ||
-            interval == Interval.ThirtyMinutes ||
-            interval == Interval.OneHour ||
-            interval == Interval.TwoHours
-        )
-            return
-                (timestamp / (14 * 24 * 60 * 60 * 1000)) *
-                (14 * 24 * 60 * 60 * 1000); //2 weekly
-        if (
-            interval == Interval.FourHours ||
-            interval == Interval.SixHours ||
-            interval == Interval.EightHours ||
-            interval == Interval.TwelveHours
-        )
-            return
-                (timestamp / (60 * 24 * 60 * 60 * 1000)) *
-                (60 * 24 * 60 * 60 * 1000); // monthly (~60 days)
-        if (interval == Interval.OneDay || interval == Interval.ThreeDays)
-            return
-                (timestamp / (120 * 24 * 60 * 60 * 1000)) *
-                (120 * 24 * 60 * 60 * 1000); //  (120 days)
-        if (interval == Interval.OneWeek || interval == Interval.OneMonth)
-            return
-                (timestamp / (20 *365 * 24 * 60 * 60 * 1000)) *
-                (20 * 365 * 24 * 60 * 60 * 1000); // yearly
-
-        revert("Unsupported interval");
-    }
+            internal
+            pure
+            returns (uint64)
+        {
+            if (interval == Interval.OneSecond)
+                return (timestamp / Constance.STEP_1S) * Constance.STEP_1S; // 4 hours
+            else if (interval == Interval.OneMinute)
+                return (timestamp / Constance.STEP_1M) * Constance.STEP_1M; // 10 days
+            else if (interval == Interval.ThreeMinutes)
+                return (timestamp / Constance.STEP_3M) * Constance.STEP_3M; // 25 days
+            else if (interval == Interval.FiveMinutes)
+                return (timestamp / Constance.STEP_5M) * Constance.STEP_5M; // 35 days
+            else if (interval == Interval.FifteenMinutes)
+                return (timestamp / Constance.STEP_15M) * Constance.STEP_15M; // 90 days
+            else if (interval == Interval.ThirtyMinutes)
+                return (timestamp / Constance.STEP_30M) * Constance.STEP_30M; // 200 days
+            else if (interval == Interval.OneHour)
+                return (timestamp / Constance.STEP_1H) * Constance.STEP_1H; // 1 year
+            else if (interval == Interval.TwoHours)
+                return (timestamp / Constance.STEP_2H) * Constance.STEP_2H; // 2 years
+            else if (interval == Interval.FourHours)
+                return (timestamp / Constance.STEP_4H) * Constance.STEP_4H; // 4 years
+            else if (interval == Interval.SixHours)
+                return (timestamp / Constance.STEP_6H) * Constance.STEP_6H; // 6 years
+            else if (interval == Interval.EightHours)
+                return (timestamp / Constance.STEP_8H) * Constance.STEP_8H; // 8 years
+            else if (interval == Interval.TwelveHours)
+                return (timestamp / Constance.STEP_12H) * Constance.STEP_12H; // 12 years
+            else if (interval == Interval.OneDay)
+                return (timestamp / Constance.STEP_1D) * Constance.STEP_1D; // 24 years
+            else if (interval == Interval.ThreeDays)
+                return (timestamp / Constance.STEP_3D) * Constance.STEP_3D; // 72 years
+            else if (interval == Interval.OneWeek)
+                return (timestamp / Constance.STEP_1W) * Constance.STEP_1W; // 50 years
+            else if (interval == Interval.OneMonth)
+                return (timestamp / Constance.STEP_1MO) * Constance.STEP_1MO; // 100 years
+            else
+                revert("Unsupported interval");
+        }
 
     function initCandle(
         string memory _symbol,
@@ -124,7 +124,6 @@ contract CandleFactory {
         uint64 key = getTimeKey(interval, _candleRecord.openTime);
         address storageAddr = storages[symbolKey][interval][key];
         if (storageAddr == address(0)) {
-            console.log("Create new addrresss");
             allTimekeys[symbolKey][interval].push(key);
             storageAddr = address(new CandleManager());
             storages[symbolKey][interval][key] = storageAddr;
@@ -169,7 +168,7 @@ contract CandleFactory {
         CandleRecord[] memory temp = new CandleRecord[](limit);
         // lặp ngược lại vì nó là 12h 13h ,
         for (uint256 i = timeKeys.length ; i > 0 ; i--) {
-             console.log("Time key",timeKeys[i]);
+             console.log("Time key",timeKeys[i-1]);
             address storageAddr = storages[symbolKey][interval][timeKeys[i - 1]];
             if (storageAddr == address(0)) continue;
             // cần tối ưu đoạn này nếu k tối ưu được time key
@@ -194,33 +193,42 @@ contract CandleFactory {
         }
     }
 
-    function getStep(Interval interval) internal pure returns (uint64) {
-        if (interval == Interval.OneSecond) 
-        return (2 * 60 * 60 * 1000);
-        else if (
-            interval == Interval.OneMinute ||
-            interval == Interval.ThreeMinutes ||
-            interval == Interval.FiveMinutes
-        ) return 7 * 24 * 60 * 60 * 1000;
-        else if (
-            interval == Interval.FifteenMinutes ||
-            interval == Interval.ThirtyMinutes ||
-            interval == Interval.OneHour ||
-            interval == Interval.TwoHours
-        ) return 14 * 24 * 60 * 60 * 1000;
-        else if (
-            interval == Interval.FourHours ||
-            interval == Interval.SixHours ||
-            interval == Interval.EightHours ||
-            interval == Interval.TwelveHours
-        ) return 60 * 24 * 60 * 60 * 1000;
-        else if (interval == Interval.OneDay || interval == Interval.ThreeDays)
-            return 120 * 24 * 60 * 60 * 1000;
-        else if (interval == Interval.OneWeek || interval == Interval.OneMonth)
-            return 20 * 365 * 24 * 60 * 60 * 1000;
-        else revert("Unsupported interval");
+     function getStep(Interval interval) internal pure returns (uint64) {
+            if (interval == Interval.OneSecond)
+                return Constance.STEP_1S; // 4 hours
+            else if (interval == Interval.OneMinute)
+                return Constance.STEP_1M; // 10 days
+            else if (interval == Interval.ThreeMinutes)
+                return Constance.STEP_3M; // 25 days
+            else if (interval == Interval.FiveMinutes)
+                return Constance.STEP_5M; // 35 days
+            else if (interval == Interval.FifteenMinutes)
+                return Constance.STEP_15M; // 90 days
+            else if (interval == Interval.ThirtyMinutes)
+                return Constance.STEP_30M; // 200 days
+            else if (interval == Interval.OneHour)
+                return Constance.STEP_1H; // 1 year
+            else if (interval == Interval.TwoHours)
+                return Constance.STEP_2H; // 2 years
+            else if (interval == Interval.FourHours)
+                return Constance.STEP_4H; // 4 years
+            else if (interval == Interval.SixHours)
+                return Constance.STEP_6H; // 6 years
+            else if (interval == Interval.EightHours)
+                return Constance.STEP_8H; // 8 years
+            else if (interval == Interval.TwelveHours)
+                return Constance.STEP_12H; // 12 years
+            else if (interval == Interval.OneDay)
+                return Constance.STEP_1D; // 24 years
+            else if (interval == Interval.ThreeDays)
+                return Constance.STEP_3D; // 72 years
+            else if (interval == Interval.OneWeek)
+                return Constance.STEP_1W; // 50 years
+            else if (interval == Interval.OneMonth)
+                return Constance.STEP_1MO; // 100 years
+            else
+                revert("Unsupported interval");
     }
-
     function computeTimeKeys(
         Interval interval,
         uint64 startTime,
@@ -279,24 +287,24 @@ contract CandleFactory {
     }
 
     function parseInterval(string memory s) internal pure returns (Interval) {
-        bytes32 h = keccak256(abi.encodePacked(s));
+            bytes32 h = keccak256(abi.encodePacked(s));
 
-        if (h == keccak256("1s")) return Interval.OneSecond;
-        else if (h == keccak256("1m")) return Interval.OneMinute;
-        else if (h == keccak256("3m")) return Interval.ThreeMinutes;
-        else if (h == keccak256("5m")) return Interval.FiveMinutes;
-        else if (h == keccak256("15m")) return Interval.FifteenMinutes;
-        else if (h == keccak256("30m")) return Interval.ThirtyMinutes;
-        else if (h == keccak256("1h")) return Interval.OneHour;
-        else if (h == keccak256("2h")) return Interval.TwoHours;
-        else if (h == keccak256("4h")) return Interval.FourHours;
-        else if (h == keccak256("6h")) return Interval.SixHours;
-        else if (h == keccak256("8h")) return Interval.EightHours;
-        else if (h == keccak256("12h")) return Interval.TwelveHours;
-        else if (h == keccak256("1d")) return Interval.OneDay;
-        else if (h == keccak256("3d")) return Interval.ThreeDays;
-        else if (h == keccak256("1w")) return Interval.OneWeek;
-        else if (h == keccak256("1M")) return Interval.OneMonth;
-        else revert("Invalid interval string");
-    }
+            if (h == Constance.INTERVAL_1S) return Interval.OneSecond;
+            else if (h == Constance.INTERVAL_1M) return Interval.OneMinute;
+            else if (h == Constance.INTERVAL_3M) return Interval.ThreeMinutes;
+            else if (h == Constance.INTERVAL_5M) return Interval.FiveMinutes;
+            else if (h == Constance.INTERVAL_15M) return Interval.FifteenMinutes;
+            else if (h == Constance.INTERVAL_30M) return Interval.ThirtyMinutes;
+            else if (h == Constance.INTERVAL_1H) return Interval.OneHour;
+            else if (h == Constance.INTERVAL_2H) return Interval.TwoHours;
+            else if (h == Constance.INTERVAL_4H) return Interval.FourHours;
+            else if (h == Constance.INTERVAL_6H) return Interval.SixHours;
+            else if (h == Constance.INTERVAL_8H) return Interval.EightHours;
+            else if (h == Constance.INTERVAL_12H) return Interval.TwelveHours;
+            else if (h == Constance.INTERVAL_1D) return Interval.OneDay;
+            else if (h == Constance.INTERVAL_3D) return Interval.ThreeDays;
+            else if (h == Constance.INTERVAL_1W) return Interval.OneWeek;
+            else if (h == Constance.INTERVAL_1MO) return Interval.OneMonth;
+            else revert("Invalid interval string");
+        }
 }

@@ -3,10 +3,6 @@ pragma solidity ^0.8.0;
 import "../../interface/ICandleManager.sol";
 
 contract CandleManager is ICandleManager {
-    // string public symbol;
-    // string public interval;
-    // uint64 public timeKey; // shard timestamp
-
     CandleRecord[] private candles;
 
     address public factory;

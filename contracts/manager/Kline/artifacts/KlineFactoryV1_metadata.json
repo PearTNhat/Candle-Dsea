@@ -6,6 +6,81 @@
 	"output": {
 		"abi": [
 			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "key",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "contractAddress",
+						"type": "address"
+					}
+				],
+				"name": "KlineContractCreated",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "uint64",
+						"name": "t",
+						"type": "uint64"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "T",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "bool",
+						"name": "isClose",
+						"type": "bool"
+					}
+				],
+				"name": "KlineCreated",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "string",
+						"name": "symbol",
+						"type": "string"
+					},
+					{
+						"indexed": false,
+						"internalType": "string",
+						"name": "interval",
+						"type": "string"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint64",
+						"name": "timeKey",
+						"type": "uint64"
+					},
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "storageAddress",
+						"type": "address"
+					}
+				],
+				"name": "ShardCreated",
+				"type": "event"
+			},
+			{
 				"inputs": [
 					{
 						"components": [
@@ -540,7 +615,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"contracts/manager/Kline/KlineFactoryV1.sol": "KlineFactory"
+			"contracts/manager/Kline/KlineFactoryV1.sol": "KlineFactoryV1"
 		},
 		"evmVersion": "prague",
 		"libraries": {},
@@ -571,11 +646,11 @@
 			]
 		},
 		"contracts/manager/Kline/KlineFactoryV1.sol": {
-			"keccak256": "0xb32a8eadc9ea3b3d883b03592aa2422ac26750b6b931958d953714a62edfbdaa",
+			"keccak256": "0x17574dc014731c9fe971e0550f854e7039d6f9dcbe9ac6d045ba9076fcc77300",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://b3114e5e70a184b9a59d54cea38c1bfbbd1a5328c1ad531bbf715dfb41aaed5d",
-				"dweb:/ipfs/QmTMb9wN3F4ExkGFsxqyF5bVRrH4GVfbdaqHBuXAcMfhPU"
+				"bzz-raw://11aa6f618c2972f60a5576b00940b8c183da9b5138320d3fd3ab2b48f07bd6cb",
+				"dweb:/ipfs/Qmd6LkpeUMWnnMKsNt5zcytWSisX1JPRLvWqdYPSXQHrgw"
 			]
 		},
 		"contracts/struct/KlineStruct.sol": {

@@ -98,6 +98,11 @@
 						"internalType": "struct KlineRecord",
 						"name": "record",
 						"type": "tuple"
+					},
+					{
+						"internalType": "enum Interval",
+						"name": "interval",
+						"type": "uint8"
 					}
 				],
 				"name": "addKline",
@@ -108,43 +113,9 @@
 			{
 				"inputs": [
 					{
-						"internalType": "bytes32",
-						"name": "",
-						"type": "bytes32"
-					},
-					{
 						"internalType": "enum Interval",
-						"name": "",
+						"name": "interval",
 						"type": "uint8"
-					},
-					{
-						"internalType": "uint256",
-						"name": "",
-						"type": "uint256"
-					}
-				],
-				"name": "allTimekeys",
-				"outputs": [
-					{
-						"internalType": "uint64",
-						"name": "",
-						"type": "uint64"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "string",
-						"name": "_symbol",
-						"type": "string"
-					},
-					{
-						"internalType": "string",
-						"name": "_interval",
-						"type": "string"
 					},
 					{
 						"internalType": "uint64",
@@ -275,7 +246,7 @@
 							}
 						],
 						"internalType": "struct KlineResponse[]",
-						"name": "result",
+						"name": "",
 						"type": "tuple[]"
 					}
 				],
@@ -285,14 +256,9 @@
 			{
 				"inputs": [
 					{
-						"internalType": "string",
-						"name": "_symbol",
-						"type": "string"
-					},
-					{
-						"internalType": "string",
-						"name": "_interval",
-						"type": "string"
+						"internalType": "enum Interval",
+						"name": "interval",
+						"type": "uint8"
 					}
 				],
 				"name": "getAllTimeKeys",
@@ -309,18 +275,13 @@
 			{
 				"inputs": [
 					{
-						"internalType": "string",
-						"name": "_symbol",
-						"type": "string"
-					},
-					{
-						"internalType": "string",
-						"name": "_interval",
-						"type": "string"
+						"internalType": "enum Interval",
+						"name": "interval",
+						"type": "uint8"
 					},
 					{
 						"internalType": "uint64",
-						"name": "timestime",
+						"name": "timestamp",
 						"type": "uint64"
 					}
 				],
@@ -447,18 +408,13 @@
 			{
 				"inputs": [
 					{
-						"internalType": "string",
-						"name": "_symbol",
-						"type": "string"
-					},
-					{
-						"internalType": "string",
-						"name": "_interval",
-						"type": "string"
+						"internalType": "enum Interval",
+						"name": "interval",
+						"type": "uint8"
 					},
 					{
 						"internalType": "uint64",
-						"name": "timestime",
+						"name": "timestamp",
 						"type": "uint64"
 					}
 				],
@@ -476,14 +432,9 @@
 			{
 				"inputs": [
 					{
-						"internalType": "string",
-						"name": "_symbol",
-						"type": "string"
-					},
-					{
-						"internalType": "string",
-						"name": "_interval",
-						"type": "string"
+						"internalType": "enum Interval",
+						"name": "interval",
+						"type": "uint8"
 					}
 				],
 				"name": "getLengthTimeKeys",
@@ -492,35 +443,6 @@
 						"internalType": "uint256",
 						"name": "",
 						"type": "uint256"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "bytes32",
-						"name": "",
-						"type": "bytes32"
-					},
-					{
-						"internalType": "enum Interval",
-						"name": "",
-						"type": "uint8"
-					},
-					{
-						"internalType": "uint64",
-						"name": "",
-						"type": "uint64"
-					}
-				],
-				"name": "storages",
-				"outputs": [
-					{
-						"internalType": "address",
-						"name": "",
-						"type": "address"
 					}
 				],
 				"stateMutability": "view",
@@ -540,7 +462,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"contracts/manager/Kline/KlineFactoryV1.sol": "KlineFactory"
+			"contracts/interface/IKlineIntervalFactory.sol": "IKlineIntervalFactory"
 		},
 		"evmVersion": "prague",
 		"libraries": {},
@@ -554,28 +476,12 @@
 		"remappings": []
 	},
 	"sources": {
-		"contracts/interface/IKlineManager.sol": {
-			"keccak256": "0x7c9928fb781ee2d2811abba897b9a4efda584135f89b0ed765f8fc1b09777998",
+		"contracts/interface/IKlineIntervalFactory.sol": {
+			"keccak256": "0x08b5244174be3d57be22216f516478eccaa6f5476932fe235a66bcb262388736",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://ee4147fa7ad961cfacbdc9c8dfce810af62903722dc8d69c44d775105a6157df",
-				"dweb:/ipfs/QmQ1NqPXBH8yQDTUPeVsx1rjsxm8vPRUughDWZ63UZZQaJ"
-			]
-		},
-		"contracts/manager/Kline/BaseKline.sol": {
-			"keccak256": "0xf1cad3af21a09da239a5f56acc0c5e13f30b812e9390ef90d71cc3b8a9820f09",
-			"license": "MIT",
-			"urls": [
-				"bzz-raw://c3048d7d2c111cb251f7b43c6d71614a3a40d0702e4b871267b3b41510450342",
-				"dweb:/ipfs/QmQB855yq3mmFUrug9fRBS9E4WMbif93uJtf5beNEwPHhv"
-			]
-		},
-		"contracts/manager/Kline/KlineFactoryV1.sol": {
-			"keccak256": "0xb32a8eadc9ea3b3d883b03592aa2422ac26750b6b931958d953714a62edfbdaa",
-			"license": "MIT",
-			"urls": [
-				"bzz-raw://b3114e5e70a184b9a59d54cea38c1bfbbd1a5328c1ad531bbf715dfb41aaed5d",
-				"dweb:/ipfs/QmTMb9wN3F4ExkGFsxqyF5bVRrH4GVfbdaqHBuXAcMfhPU"
+				"bzz-raw://664eb8cdae3b454c3e052d8fb8c124219e4dabd15b6272bcfead6821b91d655f",
+				"dweb:/ipfs/QmRv64EqiRhiSDJMGuXzUmyAARfz46kqioETq4431AW9zL"
 			]
 		},
 		"contracts/struct/KlineStruct.sol": {
@@ -584,30 +490,6 @@
 			"urls": [
 				"bzz-raw://cb1163c9e888f75dfed5be75303d87035317acdcacb94d145c8c6130884552bb",
 				"dweb:/ipfs/QmY7iqrs56ji75kcghRvFWcz8U2hZvMwRSWJTXXhNM4j4d"
-			]
-		},
-		"contracts/utils/Constance.sol": {
-			"keccak256": "0x897c308d8549ebf6cb2ba6cc69eb1e2ab4d85ebd8d72b1e5bfb5cc3c1abc8e37",
-			"license": "MIT",
-			"urls": [
-				"bzz-raw://2eee7b730fc8660d53b364aeff729c78706bf7d665629db2bb6e309a53d36580",
-				"dweb:/ipfs/QmfCBbhFBGNcNHbgGxUx77KkPo1EAdCPA9tVKe6RcYEi5x"
-			]
-		},
-		"contracts/utils/StringUtils.sol": {
-			"keccak256": "0x97c4526067a3d58facc39dde943e833113c9271137deab9a4f5a303604fff316",
-			"license": "MIT",
-			"urls": [
-				"bzz-raw://a008c7c52870fff7f15cbecbe9b1553c0ac098e2b330af70feb2f969a03930bf",
-				"dweb:/ipfs/QmY2aMNv8nJGULBzZN6px34kc7f8J6BbGbZGPbURorwebW"
-			]
-		},
-		"hardhat/console.sol": {
-			"keccak256": "0xf2560b5386574153057104d19a9e68a32ee912cf23c0c8df1fe9a0607f42d543",
-			"license": "MIT",
-			"urls": [
-				"bzz-raw://a63166e036b040826baa513772451a79925daa304b38749100efb089ac07cdc2",
-				"dweb:/ipfs/QmUtMTxUFKU6a5oFXsEJnTPvb3QPb7GDDmSv5yZ1jFHDwR"
 			]
 		}
 	},
