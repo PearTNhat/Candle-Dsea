@@ -71,7 +71,7 @@ contract CandleFactoryV2 {
         );
     }
 
-    function getLatestCandles(
+    function initCandle(
         string memory symbol,
         string memory intervalStr,
         uint256 limit
