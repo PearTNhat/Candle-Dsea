@@ -1,0 +1,386 @@
+{
+	"compiler": {
+		"version": "0.8.30+commit.73712a01"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "enum Interval",
+						"name": "interval",
+						"type": "uint8"
+					},
+					{
+						"indexed": true,
+						"internalType": "uint64",
+						"name": "timeKey",
+						"type": "uint64"
+					},
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "storageAddress",
+						"type": "address"
+					}
+				],
+				"name": "NetFlowStorageCreated",
+				"type": "event"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "enum Interval",
+						"name": "",
+						"type": "uint8"
+					},
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "allTimekeys",
+				"outputs": [
+					{
+						"internalType": "uint64",
+						"name": "",
+						"type": "uint64"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "_interval",
+						"type": "string"
+					},
+					{
+						"components": [
+							{
+								"internalType": "uint64",
+								"name": "startTime",
+								"type": "uint64"
+							},
+							{
+								"internalType": "uint64",
+								"name": "endTime",
+								"type": "uint64"
+							},
+							{
+								"internalType": "uint256",
+								"name": "inflow",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "outflow",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "price",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "volume",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "marketCap",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "aum",
+								"type": "uint256"
+							}
+						],
+						"internalType": "struct BTCNetFlowStruct",
+						"name": "data",
+						"type": "tuple"
+					}
+				],
+				"name": "createBTCNetflow",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "enum Interval",
+						"name": "interval",
+						"type": "uint8"
+					}
+				],
+				"name": "getAllTimekeys",
+				"outputs": [
+					{
+						"internalType": "uint64[]",
+						"name": "",
+						"type": "uint64[]"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "enum Interval",
+						"name": "interval",
+						"type": "uint8"
+					},
+					{
+						"internalType": "uint64",
+						"name": "timeKey",
+						"type": "uint64"
+					}
+				],
+				"name": "getNetFlowCount",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "enum Interval",
+						"name": "interval",
+						"type": "uint8"
+					},
+					{
+						"internalType": "uint64",
+						"name": "timeKey",
+						"type": "uint64"
+					}
+				],
+				"name": "getNetFlows",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "uint64",
+								"name": "startTime",
+								"type": "uint64"
+							},
+							{
+								"internalType": "uint64",
+								"name": "endTime",
+								"type": "uint64"
+							},
+							{
+								"internalType": "uint256",
+								"name": "inflow",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "outflow",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "price",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "volume",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "marketCap",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "aum",
+								"type": "uint256"
+							}
+						],
+						"internalType": "struct BTCNetFlowStruct[]",
+						"name": "",
+						"type": "tuple[]"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "_interval",
+						"type": "string"
+					},
+					{
+						"internalType": "uint256",
+						"name": "limit",
+						"type": "uint256"
+					}
+				],
+				"name": "initBTCNetflow",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "uint64",
+								"name": "startTime",
+								"type": "uint64"
+							},
+							{
+								"internalType": "uint64",
+								"name": "endTime",
+								"type": "uint64"
+							},
+							{
+								"internalType": "uint256",
+								"name": "inflow",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "outflow",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "price",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "volume",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "marketCap",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "aum",
+								"type": "uint256"
+							}
+						],
+						"internalType": "struct BTCNetFlowStruct[]",
+						"name": "result",
+						"type": "tuple[]"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "enum Interval",
+						"name": "",
+						"type": "uint8"
+					},
+					{
+						"internalType": "uint64",
+						"name": "",
+						"type": "uint64"
+					}
+				],
+				"name": "storages",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/manager/BTCNetFlow/BTCNetflowFactory.sol": "BTCNetflowFactory"
+		},
+		"evmVersion": "prague",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": true,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/interface/IBTCNetFlow.sol": {
+			"keccak256": "0xcb2d6a7ef26db5d9228c727fe64cbbedeba7294a53aacce2d901667fa1bfdb26",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://89ad1db4676748ff13c0abe569f1d9b5872095c8f1200d102034238ce87f7c1e",
+				"dweb:/ipfs/QmbMTP1txuEsjyQ5q9HkX2HQnspNBBZWyuWqCZeQbaWWzD"
+			]
+		},
+		"contracts/manager/BTCNetFlow/BTCNeflowManager.sol": {
+			"keccak256": "0xccc4cd433791fea88490f293ad9f2e7eb5ad0a1624ce1556796d5025f3e173ee",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://9c1a5e7303c8f80d3c441ef092ea8645dcf3845a37cbc6752df69fff2066823e",
+				"dweb:/ipfs/QmSRdp2N3Dhf854E9JwS1Jtp9FEWN3J35B2xgBtbvfJYGZ"
+			]
+		},
+		"contracts/manager/BTCNetFlow/BTCNetflowFactory.sol": {
+			"keccak256": "0x32b0c4012c6ac8bb8bfeceb37330840644db6beda1d5e1bca4c7a76a5f9887b1",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://ae2020277151d6d95968c19480e37bca472595bfe762bf9fff147214a1173d68",
+				"dweb:/ipfs/QmNqDq6gPRuHUcH7vEm5bUK1wS7rxJn5rdbCMNSMQd51zs"
+			]
+		},
+		"contracts/struct/BTCNetFlowStruct.sol": {
+			"keccak256": "0xc57c45874586b2216f4380c5cd4fd7aa32289e03c54269860ba6eff3a46dfb55",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://40c8387c8aff278e8a43a6c7be0f463a3f8b5835a643151bec3ddfdb48052087",
+				"dweb:/ipfs/QmcPsvkHgiMwgskt48sCTLvLdFmCvd8KCAFz9aMKRdYS8C"
+			]
+		},
+		"contracts/utils/Constance.sol": {
+			"keccak256": "0x897c308d8549ebf6cb2ba6cc69eb1e2ab4d85ebd8d72b1e5bfb5cc3c1abc8e37",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://2eee7b730fc8660d53b364aeff729c78706bf7d665629db2bb6e309a53d36580",
+				"dweb:/ipfs/QmfCBbhFBGNcNHbgGxUx77KkPo1EAdCPA9tVKe6RcYEi5x"
+			]
+		}
+	},
+	"version": 1
+}

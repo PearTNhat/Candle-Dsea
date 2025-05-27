@@ -31,6 +31,67 @@
 				"type": "event"
 			},
 			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "string",
+						"name": "symbol",
+						"type": "string"
+					},
+					{
+						"indexed": true,
+						"internalType": "string",
+						"name": "interval",
+						"type": "string"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint64",
+						"name": "startTime",
+						"type": "uint64"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint64",
+						"name": "endTime",
+						"type": "uint64"
+					},
+					{
+						"indexed": false,
+						"internalType": "string",
+						"name": "open",
+						"type": "string"
+					},
+					{
+						"indexed": false,
+						"internalType": "string",
+						"name": "close",
+						"type": "string"
+					},
+					{
+						"indexed": false,
+						"internalType": "string",
+						"name": "high",
+						"type": "string"
+					},
+					{
+						"indexed": false,
+						"internalType": "string",
+						"name": "low",
+						"type": "string"
+					},
+					{
+						"indexed": false,
+						"internalType": "string",
+						"name": "volume",
+						"type": "string"
+					}
+				],
+				"name": "KlineAdded",
+				"type": "event"
+			},
+			{
 				"inputs": [
 					{
 						"internalType": "string",
@@ -580,11 +641,11 @@
 			]
 		},
 		"contracts/manager/Kline/KlineFactoryV2.sol": {
-			"keccak256": "0xef424a8b572cf6b2fbfeaaa39d2e53cad582d4a22fc0fefdf9609b8ec2e549df",
+			"keccak256": "0x43164bacb7df24c5b4b468dbfe9a496e8bdefdc394261331bdf9e16fe5c1be63",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://46e53e35b9d935b79367668431ab5a8d90991257e68f7a98145c9f7d7602556d",
-				"dweb:/ipfs/QmQfLLgkTeC4R8vBjCrb6eZBTqa6EjiBjhw5UaUgnzJNbH"
+				"bzz-raw://79c1c8524e2f80e6ae36e8e8835afd9ca66636e6d2d65a5ac3e3884f1701347d",
+				"dweb:/ipfs/QmaRrzYx7yoZdSSDYnjcBaGhpyN8tCWMRR9rCRmKTcQ7uK"
 			]
 		},
 		"contracts/manager/Kline/KlineIntervalFactory.sol": {

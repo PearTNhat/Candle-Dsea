@@ -1,0 +1,534 @@
+{
+	"id": "908d44ad14b49e9b1d889baac98c88fd",
+	"_format": "hh-sol-build-info-1",
+	"solcVersion": "0.8.30",
+	"solcLongVersion": "0.8.30+commit.73712a01",
+	"input": {
+		"language": "Solidity",
+		"sources": {
+			"contracts/struct/CandleStruct.sol": {
+				"content": "// SPDX-License-Identifier: MIT\r\npragma solidity ^0.8.0;\r\nenum Interval {\r\n    OneSecond,\r\n    OneMinute,\r\n    ThreeMinutes,\r\n    FiveMinutes,\r\n    FifteenMinutes,\r\n    ThirtyMinutes,\r\n    OneHour,\r\n    TwoHours,\r\n    FourHours,\r\n    SixHours,\r\n    EightHours,\r\n    TwelveHours,\r\n    OneDay,\r\n    ThreeDays,\r\n    OneWeek,\r\n    OneMonth\r\n}\r\n\r\nstruct CandleRecord {\r\n    uint64 openTime;                  // 0: Kline open time (ms timestamp)\r\n    string openPrice;                // 1: Open price\r\n    string highPrice;                // 2: High price\r\n    string lowPrice;                 // 3: Low price\r\n    string closePrice;               // 4: Close price\r\n    string volume;                   // 5: Volume\r\n    uint64 closeTime;                // 6: Kline close time (ms timestamp)\r\n    string quoteAssetVolume;        // 7: Quote asset volume\r\n    uint32 numberOfTrades;          // 8: Number of trades\r\n    string takerBuyBaseVolume;      // 9: Taker buy base asset volume\r\n    string takerBuyQuoteVolume;     // 10: Taker buy quote asset volume\r\n    string unused;                  // 11: Unused field (ignore)\r\n}"
+			}
+		},
+		"settings": {
+			"optimizer": {
+				"enabled": true,
+				"runs": 200
+			},
+			"outputSelection": {
+				"*": {
+					"": [
+						"ast"
+					],
+					"*": [
+						"abi",
+						"metadata",
+						"devdoc",
+						"userdoc",
+						"storageLayout",
+						"evm.legacyAssembly",
+						"evm.bytecode",
+						"evm.deployedBytecode",
+						"evm.methodIdentifiers",
+						"evm.gasEstimates",
+						"evm.assembly"
+					]
+				}
+			},
+			"remappings": []
+		}
+	},
+	"output": {
+		"sources": {
+			"contracts/struct/CandleStruct.sol": {
+				"ast": {
+					"absolutePath": "contracts/struct/CandleStruct.sol",
+					"exportedSymbols": {
+						"CandleRecord": [
+							43
+						],
+						"Interval": [
+							18
+						]
+					},
+					"id": 44,
+					"license": "MIT",
+					"nodeType": "SourceUnit",
+					"nodes": [
+						{
+							"id": 1,
+							"literals": [
+								"solidity",
+								"^",
+								"0.8",
+								".0"
+							],
+							"nodeType": "PragmaDirective",
+							"src": "33:23:0"
+						},
+						{
+							"canonicalName": "Interval",
+							"id": 18,
+							"members": [
+								{
+									"id": 2,
+									"name": "OneSecond",
+									"nameLocation": "79:9:0",
+									"nodeType": "EnumValue",
+									"src": "79:9:0"
+								},
+								{
+									"id": 3,
+									"name": "OneMinute",
+									"nameLocation": "95:9:0",
+									"nodeType": "EnumValue",
+									"src": "95:9:0"
+								},
+								{
+									"id": 4,
+									"name": "ThreeMinutes",
+									"nameLocation": "111:12:0",
+									"nodeType": "EnumValue",
+									"src": "111:12:0"
+								},
+								{
+									"id": 5,
+									"name": "FiveMinutes",
+									"nameLocation": "130:11:0",
+									"nodeType": "EnumValue",
+									"src": "130:11:0"
+								},
+								{
+									"id": 6,
+									"name": "FifteenMinutes",
+									"nameLocation": "148:14:0",
+									"nodeType": "EnumValue",
+									"src": "148:14:0"
+								},
+								{
+									"id": 7,
+									"name": "ThirtyMinutes",
+									"nameLocation": "169:13:0",
+									"nodeType": "EnumValue",
+									"src": "169:13:0"
+								},
+								{
+									"id": 8,
+									"name": "OneHour",
+									"nameLocation": "189:7:0",
+									"nodeType": "EnumValue",
+									"src": "189:7:0"
+								},
+								{
+									"id": 9,
+									"name": "TwoHours",
+									"nameLocation": "203:8:0",
+									"nodeType": "EnumValue",
+									"src": "203:8:0"
+								},
+								{
+									"id": 10,
+									"name": "FourHours",
+									"nameLocation": "218:9:0",
+									"nodeType": "EnumValue",
+									"src": "218:9:0"
+								},
+								{
+									"id": 11,
+									"name": "SixHours",
+									"nameLocation": "234:8:0",
+									"nodeType": "EnumValue",
+									"src": "234:8:0"
+								},
+								{
+									"id": 12,
+									"name": "EightHours",
+									"nameLocation": "249:10:0",
+									"nodeType": "EnumValue",
+									"src": "249:10:0"
+								},
+								{
+									"id": 13,
+									"name": "TwelveHours",
+									"nameLocation": "266:11:0",
+									"nodeType": "EnumValue",
+									"src": "266:11:0"
+								},
+								{
+									"id": 14,
+									"name": "OneDay",
+									"nameLocation": "284:6:0",
+									"nodeType": "EnumValue",
+									"src": "284:6:0"
+								},
+								{
+									"id": 15,
+									"name": "ThreeDays",
+									"nameLocation": "297:9:0",
+									"nodeType": "EnumValue",
+									"src": "297:9:0"
+								},
+								{
+									"id": 16,
+									"name": "OneWeek",
+									"nameLocation": "313:7:0",
+									"nodeType": "EnumValue",
+									"src": "313:7:0"
+								},
+								{
+									"id": 17,
+									"name": "OneMonth",
+									"nameLocation": "327:8:0",
+									"nodeType": "EnumValue",
+									"src": "327:8:0"
+								}
+							],
+							"name": "Interval",
+							"nameLocation": "63:8:0",
+							"nodeType": "EnumDefinition",
+							"src": "58:280:0"
+						},
+						{
+							"canonicalName": "CandleRecord",
+							"id": 43,
+							"members": [
+								{
+									"constant": false,
+									"id": 20,
+									"mutability": "mutable",
+									"name": "openTime",
+									"nameLocation": "376:8:0",
+									"nodeType": "VariableDeclaration",
+									"scope": 43,
+									"src": "369:15:0",
+									"stateVariable": false,
+									"storageLocation": "default",
+									"typeDescriptions": {
+										"typeIdentifier": "t_uint64",
+										"typeString": "uint64"
+									},
+									"typeName": {
+										"id": 19,
+										"name": "uint64",
+										"nodeType": "ElementaryTypeName",
+										"src": "369:6:0",
+										"typeDescriptions": {
+											"typeIdentifier": "t_uint64",
+											"typeString": "uint64"
+										}
+									},
+									"visibility": "internal"
+								},
+								{
+									"constant": false,
+									"id": 22,
+									"mutability": "mutable",
+									"name": "openPrice",
+									"nameLocation": "452:9:0",
+									"nodeType": "VariableDeclaration",
+									"scope": 43,
+									"src": "445:16:0",
+									"stateVariable": false,
+									"storageLocation": "default",
+									"typeDescriptions": {
+										"typeIdentifier": "t_string_storage_ptr",
+										"typeString": "string"
+									},
+									"typeName": {
+										"id": 21,
+										"name": "string",
+										"nodeType": "ElementaryTypeName",
+										"src": "445:6:0",
+										"typeDescriptions": {
+											"typeIdentifier": "t_string_storage_ptr",
+											"typeString": "string"
+										}
+									},
+									"visibility": "internal"
+								},
+								{
+									"constant": false,
+									"id": 24,
+									"mutability": "mutable",
+									"name": "highPrice",
+									"nameLocation": "507:9:0",
+									"nodeType": "VariableDeclaration",
+									"scope": 43,
+									"src": "500:16:0",
+									"stateVariable": false,
+									"storageLocation": "default",
+									"typeDescriptions": {
+										"typeIdentifier": "t_string_storage_ptr",
+										"typeString": "string"
+									},
+									"typeName": {
+										"id": 23,
+										"name": "string",
+										"nodeType": "ElementaryTypeName",
+										"src": "500:6:0",
+										"typeDescriptions": {
+											"typeIdentifier": "t_string_storage_ptr",
+											"typeString": "string"
+										}
+									},
+									"visibility": "internal"
+								},
+								{
+									"constant": false,
+									"id": 26,
+									"mutability": "mutable",
+									"name": "lowPrice",
+									"nameLocation": "562:8:0",
+									"nodeType": "VariableDeclaration",
+									"scope": 43,
+									"src": "555:15:0",
+									"stateVariable": false,
+									"storageLocation": "default",
+									"typeDescriptions": {
+										"typeIdentifier": "t_string_storage_ptr",
+										"typeString": "string"
+									},
+									"typeName": {
+										"id": 25,
+										"name": "string",
+										"nodeType": "ElementaryTypeName",
+										"src": "555:6:0",
+										"typeDescriptions": {
+											"typeIdentifier": "t_string_storage_ptr",
+											"typeString": "string"
+										}
+									},
+									"visibility": "internal"
+								},
+								{
+									"constant": false,
+									"id": 28,
+									"mutability": "mutable",
+									"name": "closePrice",
+									"nameLocation": "616:10:0",
+									"nodeType": "VariableDeclaration",
+									"scope": 43,
+									"src": "609:17:0",
+									"stateVariable": false,
+									"storageLocation": "default",
+									"typeDescriptions": {
+										"typeIdentifier": "t_string_storage_ptr",
+										"typeString": "string"
+									},
+									"typeName": {
+										"id": 27,
+										"name": "string",
+										"nodeType": "ElementaryTypeName",
+										"src": "609:6:0",
+										"typeDescriptions": {
+											"typeIdentifier": "t_string_storage_ptr",
+											"typeString": "string"
+										}
+									},
+									"visibility": "internal"
+								},
+								{
+									"constant": false,
+									"id": 30,
+									"mutability": "mutable",
+									"name": "volume",
+									"nameLocation": "672:6:0",
+									"nodeType": "VariableDeclaration",
+									"scope": 43,
+									"src": "665:13:0",
+									"stateVariable": false,
+									"storageLocation": "default",
+									"typeDescriptions": {
+										"typeIdentifier": "t_string_storage_ptr",
+										"typeString": "string"
+									},
+									"typeName": {
+										"id": 29,
+										"name": "string",
+										"nodeType": "ElementaryTypeName",
+										"src": "665:6:0",
+										"typeDescriptions": {
+											"typeIdentifier": "t_string_storage_ptr",
+											"typeString": "string"
+										}
+									},
+									"visibility": "internal"
+								},
+								{
+									"constant": false,
+									"id": 32,
+									"mutability": "mutable",
+									"name": "closeTime",
+									"nameLocation": "723:9:0",
+									"nodeType": "VariableDeclaration",
+									"scope": 43,
+									"src": "716:16:0",
+									"stateVariable": false,
+									"storageLocation": "default",
+									"typeDescriptions": {
+										"typeIdentifier": "t_uint64",
+										"typeString": "uint64"
+									},
+									"typeName": {
+										"id": 31,
+										"name": "uint64",
+										"nodeType": "ElementaryTypeName",
+										"src": "716:6:0",
+										"typeDescriptions": {
+											"typeIdentifier": "t_uint64",
+											"typeString": "uint64"
+										}
+									},
+									"visibility": "internal"
+								},
+								{
+									"constant": false,
+									"id": 34,
+									"mutability": "mutable",
+									"name": "quoteAssetVolume",
+									"nameLocation": "799:16:0",
+									"nodeType": "VariableDeclaration",
+									"scope": 43,
+									"src": "792:23:0",
+									"stateVariable": false,
+									"storageLocation": "default",
+									"typeDescriptions": {
+										"typeIdentifier": "t_string_storage_ptr",
+										"typeString": "string"
+									},
+									"typeName": {
+										"id": 33,
+										"name": "string",
+										"nodeType": "ElementaryTypeName",
+										"src": "792:6:0",
+										"typeDescriptions": {
+											"typeIdentifier": "t_string_storage_ptr",
+											"typeString": "string"
+										}
+									},
+									"visibility": "internal"
+								},
+								{
+									"constant": false,
+									"id": 36,
+									"mutability": "mutable",
+									"name": "numberOfTrades",
+									"nameLocation": "861:14:0",
+									"nodeType": "VariableDeclaration",
+									"scope": 43,
+									"src": "854:21:0",
+									"stateVariable": false,
+									"storageLocation": "default",
+									"typeDescriptions": {
+										"typeIdentifier": "t_uint32",
+										"typeString": "uint32"
+									},
+									"typeName": {
+										"id": 35,
+										"name": "uint32",
+										"nodeType": "ElementaryTypeName",
+										"src": "854:6:0",
+										"typeDescriptions": {
+											"typeIdentifier": "t_uint32",
+											"typeString": "uint32"
+										}
+									},
+									"visibility": "internal"
+								},
+								{
+									"constant": false,
+									"id": 38,
+									"mutability": "mutable",
+									"name": "takerBuyBaseVolume",
+									"nameLocation": "921:18:0",
+									"nodeType": "VariableDeclaration",
+									"scope": 43,
+									"src": "914:25:0",
+									"stateVariable": false,
+									"storageLocation": "default",
+									"typeDescriptions": {
+										"typeIdentifier": "t_string_storage_ptr",
+										"typeString": "string"
+									},
+									"typeName": {
+										"id": 37,
+										"name": "string",
+										"nodeType": "ElementaryTypeName",
+										"src": "914:6:0",
+										"typeDescriptions": {
+											"typeIdentifier": "t_string_storage_ptr",
+											"typeString": "string"
+										}
+									},
+									"visibility": "internal"
+								},
+								{
+									"constant": false,
+									"id": 40,
+									"mutability": "mutable",
+									"name": "takerBuyQuoteVolume",
+									"nameLocation": "992:19:0",
+									"nodeType": "VariableDeclaration",
+									"scope": 43,
+									"src": "985:26:0",
+									"stateVariable": false,
+									"storageLocation": "default",
+									"typeDescriptions": {
+										"typeIdentifier": "t_string_storage_ptr",
+										"typeString": "string"
+									},
+									"typeName": {
+										"id": 39,
+										"name": "string",
+										"nodeType": "ElementaryTypeName",
+										"src": "985:6:0",
+										"typeDescriptions": {
+											"typeIdentifier": "t_string_storage_ptr",
+											"typeString": "string"
+										}
+									},
+									"visibility": "internal"
+								},
+								{
+									"constant": false,
+									"id": 42,
+									"mutability": "mutable",
+									"name": "unused",
+									"nameLocation": "1065:6:0",
+									"nodeType": "VariableDeclaration",
+									"scope": 43,
+									"src": "1058:13:0",
+									"stateVariable": false,
+									"storageLocation": "default",
+									"typeDescriptions": {
+										"typeIdentifier": "t_string_storage_ptr",
+										"typeString": "string"
+									},
+									"typeName": {
+										"id": 41,
+										"name": "string",
+										"nodeType": "ElementaryTypeName",
+										"src": "1058:6:0",
+										"typeDescriptions": {
+											"typeIdentifier": "t_string_storage_ptr",
+											"typeString": "string"
+										}
+									},
+									"visibility": "internal"
+								}
+							],
+							"name": "CandleRecord",
+							"nameLocation": "349:12:0",
+							"nodeType": "StructDefinition",
+							"scope": 44,
+							"src": "342:779:0",
+							"visibility": "public"
+						}
+					],
+					"src": "33:1088:0"
+				},
+				"id": 0
+			}
+		}
+	}
+}

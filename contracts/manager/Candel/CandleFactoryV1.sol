@@ -285,7 +285,7 @@ contract CandleFactoryV1 {
         bytes32 symbolKey = keccak256(abi.encodePacked(_symbol));
         return allTimekeys[symbolKey][interval].length;
     }
-
+    
     function parseInterval(string memory s) internal pure returns (Interval) {
             bytes32 h = keccak256(abi.encodePacked(s));
 

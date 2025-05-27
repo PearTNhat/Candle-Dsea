@@ -14,6 +14,17 @@ contract KlineFactoryV2 {
         string indexed interval,
         address factoryAddress
     );
+    event KlineAdded(
+        string indexed symbol,
+        string indexed interval,
+        uint64 startTime,
+        uint64 endTime,
+        string open,
+        string close,
+        string high,
+        string low,
+        string volume
+    );
 
     // Hàm để lấy hoặc tạo mới một KlineInterValFactory cho symbol và interval
     function _getOrCreateFactory(string memory symbol, string memory interval)
@@ -40,6 +51,17 @@ contract KlineFactoryV2 {
         address factoryAddr = _getOrCreateFactory(symbol, interval);
         Interval intervalEnum = parseInterval(interval);
         IKlineIntervalFactory(factoryAddr).addKline(record, intervalEnum);
+        emit KlineAdded(
+            symbol,
+            interval,
+            record.t,
+            record.T,
+            record.o,
+            record.c,
+            record.h,
+            record.l,
+            record.v
+        );
     }
 
     // Lấy số lượng Kline trong một time key

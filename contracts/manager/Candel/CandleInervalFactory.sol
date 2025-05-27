@@ -7,7 +7,7 @@ import "../../utils/Constance.sol";
 import "../../interface/ICandleIntervalFactory.sol";
 import "hardhat/console.sol";
 contract CandleIntervalFactory {
-    // symbol => interval => timeKey => storage contract
+    // interval => timeKey => storage contract
     mapping(Interval => mapping(uint64 => address))
         public storages;
     // lưu các timekeys của 1 interval đẻ biết đã tạo bao nhiêu contract
@@ -130,10 +130,9 @@ contract CandleIntervalFactory {
         CandleRecord[] memory temp = new CandleRecord[](limit);
         // lặp ngược lại vì nó là 12h 13h ,
         for (uint256 i = timeKeys.length ; i > 0 ; i--) {
-             console.log("Time key",timeKeys[i-1]);
+            //  console.log("Time key",timeKeys[i-1]);
             address storageAddr = storages[interval][timeKeys[i - 1]];
             if (storageAddr == address(0)) continue;
-            // cần tối ưu đoạn này nếu k tối ưu được time key
             CandleRecord[] memory records = ICandleManager(storageAddr)
                 .getCandles();
             for (uint256 j = records.length; j > 0; j--) {
@@ -216,7 +215,7 @@ contract CandleIntervalFactory {
 
     // get tất cả nến trong 1 móc thời gian
     function getAllCandlesInTime(
-          Interval interval,
+        Interval interval,
         uint64 _timekey
     ) public view returns (CandleRecord[] memory) {
         uint64 key = getTimeKey(interval, _timekey);

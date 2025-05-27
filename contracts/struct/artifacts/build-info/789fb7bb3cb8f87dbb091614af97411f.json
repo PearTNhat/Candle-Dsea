@@ -1,0 +1,399 @@
+{
+	"id": "789fb7bb3cb8f87dbb091614af97411f",
+	"_format": "hh-sol-build-info-1",
+	"solcVersion": "0.8.30",
+	"solcLongVersion": "0.8.30+commit.73712a01",
+	"input": {
+		"language": "Solidity",
+		"sources": {
+			"contracts/struct/BTCNetFlowStruct.sol": {
+				"content": "// SPDX-License-Identifier: MIT\r\npragma solidity ^0.8.0;\r\nenum Interval {\r\n    OneSecond,\r\n    OneMinute,\r\n    ThreeMinutes,\r\n    FiveMinutes,\r\n    FifteenMinutes,\r\n    ThirtyMinutes,\r\n    OneHour,\r\n    TwoHours,\r\n    FourHours,\r\n    SixHours,\r\n    EightHours,\r\n    TwelveHours,\r\n    OneDay,\r\n    ThreeDays,\r\n    OneWeek,\r\n    OneMonth\r\n}\r\n\r\nstruct BTCNetFlowStruct{\r\n    uint64 timestamp;\r\n    uint inflow;\r\n    uint outflow;\r\n    uint price;\r\n    uint volume;\r\n    uint marketCap;\r\n    uint aum;            // Net Assets/AUM (thêm để khớp với biểu đồ)\r\n}"
+			}
+		},
+		"settings": {
+			"optimizer": {
+				"enabled": true,
+				"runs": 200
+			},
+			"outputSelection": {
+				"*": {
+					"": [
+						"ast"
+					],
+					"*": [
+						"abi",
+						"metadata",
+						"devdoc",
+						"userdoc",
+						"storageLayout",
+						"evm.legacyAssembly",
+						"evm.bytecode",
+						"evm.deployedBytecode",
+						"evm.methodIdentifiers",
+						"evm.gasEstimates",
+						"evm.assembly"
+					]
+				}
+			},
+			"remappings": []
+		}
+	},
+	"output": {
+		"sources": {
+			"contracts/struct/BTCNetFlowStruct.sol": {
+				"ast": {
+					"absolutePath": "contracts/struct/BTCNetFlowStruct.sol",
+					"exportedSymbols": {
+						"BTCNetFlowStruct": [
+							33
+						],
+						"Interval": [
+							18
+						]
+					},
+					"id": 34,
+					"license": "MIT",
+					"nodeType": "SourceUnit",
+					"nodes": [
+						{
+							"id": 1,
+							"literals": [
+								"solidity",
+								"^",
+								"0.8",
+								".0"
+							],
+							"nodeType": "PragmaDirective",
+							"src": "33:23:0"
+						},
+						{
+							"canonicalName": "Interval",
+							"id": 18,
+							"members": [
+								{
+									"id": 2,
+									"name": "OneSecond",
+									"nameLocation": "79:9:0",
+									"nodeType": "EnumValue",
+									"src": "79:9:0"
+								},
+								{
+									"id": 3,
+									"name": "OneMinute",
+									"nameLocation": "95:9:0",
+									"nodeType": "EnumValue",
+									"src": "95:9:0"
+								},
+								{
+									"id": 4,
+									"name": "ThreeMinutes",
+									"nameLocation": "111:12:0",
+									"nodeType": "EnumValue",
+									"src": "111:12:0"
+								},
+								{
+									"id": 5,
+									"name": "FiveMinutes",
+									"nameLocation": "130:11:0",
+									"nodeType": "EnumValue",
+									"src": "130:11:0"
+								},
+								{
+									"id": 6,
+									"name": "FifteenMinutes",
+									"nameLocation": "148:14:0",
+									"nodeType": "EnumValue",
+									"src": "148:14:0"
+								},
+								{
+									"id": 7,
+									"name": "ThirtyMinutes",
+									"nameLocation": "169:13:0",
+									"nodeType": "EnumValue",
+									"src": "169:13:0"
+								},
+								{
+									"id": 8,
+									"name": "OneHour",
+									"nameLocation": "189:7:0",
+									"nodeType": "EnumValue",
+									"src": "189:7:0"
+								},
+								{
+									"id": 9,
+									"name": "TwoHours",
+									"nameLocation": "203:8:0",
+									"nodeType": "EnumValue",
+									"src": "203:8:0"
+								},
+								{
+									"id": 10,
+									"name": "FourHours",
+									"nameLocation": "218:9:0",
+									"nodeType": "EnumValue",
+									"src": "218:9:0"
+								},
+								{
+									"id": 11,
+									"name": "SixHours",
+									"nameLocation": "234:8:0",
+									"nodeType": "EnumValue",
+									"src": "234:8:0"
+								},
+								{
+									"id": 12,
+									"name": "EightHours",
+									"nameLocation": "249:10:0",
+									"nodeType": "EnumValue",
+									"src": "249:10:0"
+								},
+								{
+									"id": 13,
+									"name": "TwelveHours",
+									"nameLocation": "266:11:0",
+									"nodeType": "EnumValue",
+									"src": "266:11:0"
+								},
+								{
+									"id": 14,
+									"name": "OneDay",
+									"nameLocation": "284:6:0",
+									"nodeType": "EnumValue",
+									"src": "284:6:0"
+								},
+								{
+									"id": 15,
+									"name": "ThreeDays",
+									"nameLocation": "297:9:0",
+									"nodeType": "EnumValue",
+									"src": "297:9:0"
+								},
+								{
+									"id": 16,
+									"name": "OneWeek",
+									"nameLocation": "313:7:0",
+									"nodeType": "EnumValue",
+									"src": "313:7:0"
+								},
+								{
+									"id": 17,
+									"name": "OneMonth",
+									"nameLocation": "327:8:0",
+									"nodeType": "EnumValue",
+									"src": "327:8:0"
+								}
+							],
+							"name": "Interval",
+							"nameLocation": "63:8:0",
+							"nodeType": "EnumDefinition",
+							"src": "58:280:0"
+						},
+						{
+							"canonicalName": "BTCNetFlowStruct",
+							"id": 33,
+							"members": [
+								{
+									"constant": false,
+									"id": 20,
+									"mutability": "mutable",
+									"name": "timestamp",
+									"nameLocation": "379:9:0",
+									"nodeType": "VariableDeclaration",
+									"scope": 33,
+									"src": "372:16:0",
+									"stateVariable": false,
+									"storageLocation": "default",
+									"typeDescriptions": {
+										"typeIdentifier": "t_uint64",
+										"typeString": "uint64"
+									},
+									"typeName": {
+										"id": 19,
+										"name": "uint64",
+										"nodeType": "ElementaryTypeName",
+										"src": "372:6:0",
+										"typeDescriptions": {
+											"typeIdentifier": "t_uint64",
+											"typeString": "uint64"
+										}
+									},
+									"visibility": "internal"
+								},
+								{
+									"constant": false,
+									"id": 22,
+									"mutability": "mutable",
+									"name": "inflow",
+									"nameLocation": "400:6:0",
+									"nodeType": "VariableDeclaration",
+									"scope": 33,
+									"src": "395:11:0",
+									"stateVariable": false,
+									"storageLocation": "default",
+									"typeDescriptions": {
+										"typeIdentifier": "t_uint256",
+										"typeString": "uint256"
+									},
+									"typeName": {
+										"id": 21,
+										"name": "uint",
+										"nodeType": "ElementaryTypeName",
+										"src": "395:4:0",
+										"typeDescriptions": {
+											"typeIdentifier": "t_uint256",
+											"typeString": "uint256"
+										}
+									},
+									"visibility": "internal"
+								},
+								{
+									"constant": false,
+									"id": 24,
+									"mutability": "mutable",
+									"name": "outflow",
+									"nameLocation": "418:7:0",
+									"nodeType": "VariableDeclaration",
+									"scope": 33,
+									"src": "413:12:0",
+									"stateVariable": false,
+									"storageLocation": "default",
+									"typeDescriptions": {
+										"typeIdentifier": "t_uint256",
+										"typeString": "uint256"
+									},
+									"typeName": {
+										"id": 23,
+										"name": "uint",
+										"nodeType": "ElementaryTypeName",
+										"src": "413:4:0",
+										"typeDescriptions": {
+											"typeIdentifier": "t_uint256",
+											"typeString": "uint256"
+										}
+									},
+									"visibility": "internal"
+								},
+								{
+									"constant": false,
+									"id": 26,
+									"mutability": "mutable",
+									"name": "price",
+									"nameLocation": "437:5:0",
+									"nodeType": "VariableDeclaration",
+									"scope": 33,
+									"src": "432:10:0",
+									"stateVariable": false,
+									"storageLocation": "default",
+									"typeDescriptions": {
+										"typeIdentifier": "t_uint256",
+										"typeString": "uint256"
+									},
+									"typeName": {
+										"id": 25,
+										"name": "uint",
+										"nodeType": "ElementaryTypeName",
+										"src": "432:4:0",
+										"typeDescriptions": {
+											"typeIdentifier": "t_uint256",
+											"typeString": "uint256"
+										}
+									},
+									"visibility": "internal"
+								},
+								{
+									"constant": false,
+									"id": 28,
+									"mutability": "mutable",
+									"name": "volume",
+									"nameLocation": "454:6:0",
+									"nodeType": "VariableDeclaration",
+									"scope": 33,
+									"src": "449:11:0",
+									"stateVariable": false,
+									"storageLocation": "default",
+									"typeDescriptions": {
+										"typeIdentifier": "t_uint256",
+										"typeString": "uint256"
+									},
+									"typeName": {
+										"id": 27,
+										"name": "uint",
+										"nodeType": "ElementaryTypeName",
+										"src": "449:4:0",
+										"typeDescriptions": {
+											"typeIdentifier": "t_uint256",
+											"typeString": "uint256"
+										}
+									},
+									"visibility": "internal"
+								},
+								{
+									"constant": false,
+									"id": 30,
+									"mutability": "mutable",
+									"name": "marketCap",
+									"nameLocation": "472:9:0",
+									"nodeType": "VariableDeclaration",
+									"scope": 33,
+									"src": "467:14:0",
+									"stateVariable": false,
+									"storageLocation": "default",
+									"typeDescriptions": {
+										"typeIdentifier": "t_uint256",
+										"typeString": "uint256"
+									},
+									"typeName": {
+										"id": 29,
+										"name": "uint",
+										"nodeType": "ElementaryTypeName",
+										"src": "467:4:0",
+										"typeDescriptions": {
+											"typeIdentifier": "t_uint256",
+											"typeString": "uint256"
+										}
+									},
+									"visibility": "internal"
+								},
+								{
+									"constant": false,
+									"id": 32,
+									"mutability": "mutable",
+									"name": "aum",
+									"nameLocation": "493:3:0",
+									"nodeType": "VariableDeclaration",
+									"scope": 33,
+									"src": "488:8:0",
+									"stateVariable": false,
+									"storageLocation": "default",
+									"typeDescriptions": {
+										"typeIdentifier": "t_uint256",
+										"typeString": "uint256"
+									},
+									"typeName": {
+										"id": 31,
+										"name": "uint",
+										"nodeType": "ElementaryTypeName",
+										"src": "488:4:0",
+										"typeDescriptions": {
+											"typeIdentifier": "t_uint256",
+											"typeString": "uint256"
+										}
+									},
+									"visibility": "internal"
+								}
+							],
+							"name": "BTCNetFlowStruct",
+							"nameLocation": "349:16:0",
+							"nodeType": "StructDefinition",
+							"scope": 34,
+							"src": "342:227:0",
+							"visibility": "public"
+						}
+					],
+					"src": "33:536:0"
+				},
+				"id": 0
+			}
+		}
+	}
+}

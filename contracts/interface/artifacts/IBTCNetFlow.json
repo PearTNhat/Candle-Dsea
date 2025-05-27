@@ -1,0 +1,182 @@
+{
+	"deploy": {
+		"VM:-": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		},
+		"main:1": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		},
+		"ropsten:3": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		},
+		"rinkeby:4": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		},
+		"kovan:42": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		},
+		"goerli:5": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		},
+		"Custom": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		}
+	},
+	"data": {
+		"bytecode": {
+			"functionDebugData": {},
+			"generatedSources": [],
+			"linkReferences": {},
+			"object": "",
+			"opcodes": "",
+			"sourceMap": ""
+		},
+		"deployedBytecode": {
+			"functionDebugData": {},
+			"generatedSources": [],
+			"immutableReferences": {},
+			"linkReferences": {},
+			"object": "",
+			"opcodes": "",
+			"sourceMap": ""
+		},
+		"gasEstimates": null,
+		"methodIdentifiers": {
+			"addNetFlow((uint64,uint64,uint256,uint256,uint256,uint256,uint256,uint256))": "96850e25",
+			"getNetFlowCount()": "6e2f9937",
+			"getNetFlows()": "d68c38f5"
+		}
+	},
+	"abi": [
+		{
+			"inputs": [
+				{
+					"components": [
+						{
+							"internalType": "uint64",
+							"name": "startTime",
+							"type": "uint64"
+						},
+						{
+							"internalType": "uint64",
+							"name": "endTime",
+							"type": "uint64"
+						},
+						{
+							"internalType": "uint256",
+							"name": "inflow",
+							"type": "uint256"
+						},
+						{
+							"internalType": "uint256",
+							"name": "outflow",
+							"type": "uint256"
+						},
+						{
+							"internalType": "uint256",
+							"name": "price",
+							"type": "uint256"
+						},
+						{
+							"internalType": "uint256",
+							"name": "volume",
+							"type": "uint256"
+						},
+						{
+							"internalType": "uint256",
+							"name": "marketCap",
+							"type": "uint256"
+						},
+						{
+							"internalType": "uint256",
+							"name": "aum",
+							"type": "uint256"
+						}
+					],
+					"internalType": "struct BTCNetFlowStruct",
+					"name": "data",
+					"type": "tuple"
+				}
+			],
+			"name": "addNetFlow",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [],
+			"name": "getNetFlowCount",
+			"outputs": [
+				{
+					"internalType": "uint256",
+					"name": "",
+					"type": "uint256"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [],
+			"name": "getNetFlows",
+			"outputs": [
+				{
+					"components": [
+						{
+							"internalType": "uint64",
+							"name": "startTime",
+							"type": "uint64"
+						},
+						{
+							"internalType": "uint64",
+							"name": "endTime",
+							"type": "uint64"
+						},
+						{
+							"internalType": "uint256",
+							"name": "inflow",
+							"type": "uint256"
+						},
+						{
+							"internalType": "uint256",
+							"name": "outflow",
+							"type": "uint256"
+						},
+						{
+							"internalType": "uint256",
+							"name": "price",
+							"type": "uint256"
+						},
+						{
+							"internalType": "uint256",
+							"name": "volume",
+							"type": "uint256"
+						},
+						{
+							"internalType": "uint256",
+							"name": "marketCap",
+							"type": "uint256"
+						},
+						{
+							"internalType": "uint256",
+							"name": "aum",
+							"type": "uint256"
+						}
+					],
+					"internalType": "struct BTCNetFlowStruct[]",
+					"name": "",
+					"type": "tuple[]"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		}
+	]
+}

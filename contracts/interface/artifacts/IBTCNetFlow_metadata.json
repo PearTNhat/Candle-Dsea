@@ -1,0 +1,177 @@
+{
+	"compiler": {
+		"version": "0.8.30+commit.73712a01"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"components": [
+							{
+								"internalType": "uint64",
+								"name": "startTime",
+								"type": "uint64"
+							},
+							{
+								"internalType": "uint64",
+								"name": "endTime",
+								"type": "uint64"
+							},
+							{
+								"internalType": "uint256",
+								"name": "inflow",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "outflow",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "price",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "volume",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "marketCap",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "aum",
+								"type": "uint256"
+							}
+						],
+						"internalType": "struct BTCNetFlowStruct",
+						"name": "data",
+						"type": "tuple"
+					}
+				],
+				"name": "addNetFlow",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getNetFlowCount",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getNetFlows",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "uint64",
+								"name": "startTime",
+								"type": "uint64"
+							},
+							{
+								"internalType": "uint64",
+								"name": "endTime",
+								"type": "uint64"
+							},
+							{
+								"internalType": "uint256",
+								"name": "inflow",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "outflow",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "price",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "volume",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "marketCap",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "aum",
+								"type": "uint256"
+							}
+						],
+						"internalType": "struct BTCNetFlowStruct[]",
+						"name": "",
+						"type": "tuple[]"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/interface/IBTCNetFlow.sol": "IBTCNetFlow"
+		},
+		"evmVersion": "prague",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": true,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/interface/IBTCNetFlow.sol": {
+			"keccak256": "0xcb2d6a7ef26db5d9228c727fe64cbbedeba7294a53aacce2d901667fa1bfdb26",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://89ad1db4676748ff13c0abe569f1d9b5872095c8f1200d102034238ce87f7c1e",
+				"dweb:/ipfs/QmbMTP1txuEsjyQ5q9HkX2HQnspNBBZWyuWqCZeQbaWWzD"
+			]
+		},
+		"contracts/struct/BTCNetFlowStruct.sol": {
+			"keccak256": "0xc57c45874586b2216f4380c5cd4fd7aa32289e03c54269860ba6eff3a46dfb55",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://40c8387c8aff278e8a43a6c7be0f463a3f8b5835a643151bec3ddfdb48052087",
+				"dweb:/ipfs/QmcPsvkHgiMwgskt48sCTLvLdFmCvd8KCAFz9aMKRdYS8C"
+			]
+		}
+	},
+	"version": 1
+}
