@@ -17,6 +17,17 @@ contract BTCNetflowFactory {
         uint64 indexed timeKey,
         address storageAddress
     );
+    event BTCNetFlowCreated(
+        Interval indexed interval,
+        uint64 indexed timeKey,
+        address indexed storageAddr,
+        uint256 inflow,
+        uint256 outflow,
+        uint256 price,
+        uint256 volume,
+        uint256 marketCap,
+        uint256 aum
+    );
 
     function createBTCNetflow(
         string memory _interval,
@@ -34,6 +45,17 @@ contract BTCNetflowFactory {
 
             emit NetFlowStorageCreated(interval, timeKey, storageAddr);
         }
+        emit BTCNetFlowCreated(
+            interval,
+            timeKey,
+            storageAddr,
+            data.inflow,
+            data.outflow,
+            data.price,
+            data.volume,
+            data.marketCap,
+            data.aum
+        );
 
         IBTCNetFlow(storageAddr).addNetFlow(data);
     }

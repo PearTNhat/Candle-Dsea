@@ -1,5 +1,5 @@
 {
-	"id": "7db14eacf57632a392fc9c1c1af747d5",
+	"id": "22eb00ef162299d83c88b247ab5a1eab",
 	"_format": "hh-sol-build-info-1",
 	"solcVersion": "0.8.30",
 	"solcLongVersion": "0.8.30+commit.73712a01",
@@ -7,12 +7,12 @@
 		"language": "Solidity",
 		"sources": {
 			"contracts/struct/KlineStruct.sol": {
-				"content": "// SPDX-License-Identifier: MIT\r\npragma solidity ^0.8.0;\r\nenum Interval {\r\n    OneSecond,\r\n    OneMinute,\r\n    ThreeMinutes,\r\n    FiveMinutes,\r\n    FifteenMinutes,\r\n    ThirtyMinutes,\r\n    OneHour,\r\n    TwoHours,\r\n    FourHours,\r\n    SixHours,\r\n    EightHours,\r\n    TwelveHours,\r\n    OneDay,\r\n    ThreeDays,\r\n    OneWeek,\r\n    OneMonth\r\n}\r\nstruct KlineRecord {\r\n    uint64 t;    // startTime\r\n    uint64 T;    // endTime\r\n    string s;    // symbol\r\n    string i;      // interval\r\n    uint256 f;    // firstTradeId\r\n    uint256 L;    // lastTradeId\r\n    string o;    // open\r\n    string c;    // close\r\n    string h;    // high\r\n    string l;    // low\r\n    string v;    // volume\r\n    uint256 n;    // trades\r\n    bool x;       // x (no change since name and comment are the same)\r\n    string q;    // quoteVolume\r\n    string V;    // takerBuyVolume\r\n    string Q;    // takerBuyQuoteVol\r\n    string B;     // ignoredField\r\n}\r\n\r\nstruct KlineResponse {\r\n    string e; //\r\n    uint E;\r\n    string s ; // symbol\r\n    KlineRecord k;\r\n}"
+				"content": "// SPDX-License-Identifier: MIT\r\npragma solidity ^0.8.0;\r\nenum Interval {\r\n    OneSecond,\r\n    OneMinute,\r\n    ThreeMinutes,\r\n    FiveMinutes,\r\n    FifteenMinutes,\r\n    ThirtyMinutes,\r\n    OneHour,\r\n    TwoHours,\r\n    FourHours,\r\n    SixHours,\r\n    EightHours,\r\n    TwelveHours,\r\n    OneDay,\r\n    ThreeDays,\r\n    OneWeek,\r\n    OneMonth\r\n}\r\nstruct KlineRecord {\r\n    uint64 t;    // startTime\r\n    uint64 T;    // endTime\r\n    string s;    // symbol\r\n    string i;      // interval\r\n    int256 f;    // firstTradeId\r\n    uint256 L;    // lastTradeId\r\n    string o;    // open\r\n    string c;    // close\r\n    string h;    // high\r\n    string l;    // low\r\n    string v;    // volume\r\n    uint256 n;    // trades\r\n    bool x;       // x (no change since name and comment are the same)\r\n    string q;    // quoteVolume\r\n    string V;    // takerBuyVolume\r\n    string Q;    // takerBuyQuoteVol\r\n    string B;     // ignoredField\r\n}\r\n\r\nstruct KlineResponse {\r\n    string e; //\r\n    uint E;\r\n    string s ; // symbol\r\n    KlineRecord k;\r\n}"
 			}
 		},
 		"settings": {
 			"optimizer": {
-				"enabled": false,
+				"enabled": true,
 				"runs": 200
 			},
 			"outputSelection": {
@@ -308,24 +308,24 @@
 									"id": 28,
 									"mutability": "mutable",
 									"name": "f",
-									"nameLocation": "494:1:0",
+									"nameLocation": "493:1:0",
 									"nodeType": "VariableDeclaration",
 									"scope": 53,
-									"src": "486:9:0",
+									"src": "486:8:0",
 									"stateVariable": false,
 									"storageLocation": "default",
 									"typeDescriptions": {
-										"typeIdentifier": "t_uint256",
-										"typeString": "uint256"
+										"typeIdentifier": "t_int256",
+										"typeString": "int256"
 									},
 									"typeName": {
 										"id": 27,
-										"name": "uint256",
+										"name": "int256",
 										"nodeType": "ElementaryTypeName",
-										"src": "486:7:0",
+										"src": "486:6:0",
 										"typeDescriptions": {
-											"typeIdentifier": "t_uint256",
-											"typeString": "uint256"
+											"typeIdentifier": "t_int256",
+											"typeString": "int256"
 										}
 									},
 									"visibility": "internal"
@@ -335,10 +335,10 @@
 									"id": 30,
 									"mutability": "mutable",
 									"name": "L",
-									"nameLocation": "529:1:0",
+									"nameLocation": "528:1:0",
 									"nodeType": "VariableDeclaration",
 									"scope": 53,
-									"src": "521:9:0",
+									"src": "520:9:0",
 									"stateVariable": false,
 									"storageLocation": "default",
 									"typeDescriptions": {
@@ -349,7 +349,7 @@
 										"id": 29,
 										"name": "uint256",
 										"nodeType": "ElementaryTypeName",
-										"src": "521:7:0",
+										"src": "520:7:0",
 										"typeDescriptions": {
 											"typeIdentifier": "t_uint256",
 											"typeString": "uint256"
@@ -362,10 +362,10 @@
 									"id": 32,
 									"mutability": "mutable",
 									"name": "o",
-									"nameLocation": "562:1:0",
+									"nameLocation": "561:1:0",
 									"nodeType": "VariableDeclaration",
 									"scope": 53,
-									"src": "555:8:0",
+									"src": "554:8:0",
 									"stateVariable": false,
 									"storageLocation": "default",
 									"typeDescriptions": {
@@ -376,7 +376,7 @@
 										"id": 31,
 										"name": "string",
 										"nodeType": "ElementaryTypeName",
-										"src": "555:6:0",
+										"src": "554:6:0",
 										"typeDescriptions": {
 											"typeIdentifier": "t_string_storage_ptr",
 											"typeString": "string"
@@ -389,10 +389,10 @@
 									"id": 34,
 									"mutability": "mutable",
 									"name": "c",
-									"nameLocation": "588:1:0",
+									"nameLocation": "587:1:0",
 									"nodeType": "VariableDeclaration",
 									"scope": 53,
-									"src": "581:8:0",
+									"src": "580:8:0",
 									"stateVariable": false,
 									"storageLocation": "default",
 									"typeDescriptions": {
@@ -403,7 +403,7 @@
 										"id": 33,
 										"name": "string",
 										"nodeType": "ElementaryTypeName",
-										"src": "581:6:0",
+										"src": "580:6:0",
 										"typeDescriptions": {
 											"typeIdentifier": "t_string_storage_ptr",
 											"typeString": "string"
@@ -416,10 +416,10 @@
 									"id": 36,
 									"mutability": "mutable",
 									"name": "h",
-									"nameLocation": "615:1:0",
+									"nameLocation": "614:1:0",
 									"nodeType": "VariableDeclaration",
 									"scope": 53,
-									"src": "608:8:0",
+									"src": "607:8:0",
 									"stateVariable": false,
 									"storageLocation": "default",
 									"typeDescriptions": {
@@ -430,7 +430,7 @@
 										"id": 35,
 										"name": "string",
 										"nodeType": "ElementaryTypeName",
-										"src": "608:6:0",
+										"src": "607:6:0",
 										"typeDescriptions": {
 											"typeIdentifier": "t_string_storage_ptr",
 											"typeString": "string"
@@ -443,10 +443,10 @@
 									"id": 38,
 									"mutability": "mutable",
 									"name": "l",
-									"nameLocation": "641:1:0",
+									"nameLocation": "640:1:0",
 									"nodeType": "VariableDeclaration",
 									"scope": 53,
-									"src": "634:8:0",
+									"src": "633:8:0",
 									"stateVariable": false,
 									"storageLocation": "default",
 									"typeDescriptions": {
@@ -457,7 +457,7 @@
 										"id": 37,
 										"name": "string",
 										"nodeType": "ElementaryTypeName",
-										"src": "634:6:0",
+										"src": "633:6:0",
 										"typeDescriptions": {
 											"typeIdentifier": "t_string_storage_ptr",
 											"typeString": "string"
@@ -470,10 +470,10 @@
 									"id": 40,
 									"mutability": "mutable",
 									"name": "v",
-									"nameLocation": "666:1:0",
+									"nameLocation": "665:1:0",
 									"nodeType": "VariableDeclaration",
 									"scope": 53,
-									"src": "659:8:0",
+									"src": "658:8:0",
 									"stateVariable": false,
 									"storageLocation": "default",
 									"typeDescriptions": {
@@ -484,7 +484,7 @@
 										"id": 39,
 										"name": "string",
 										"nodeType": "ElementaryTypeName",
-										"src": "659:6:0",
+										"src": "658:6:0",
 										"typeDescriptions": {
 											"typeIdentifier": "t_string_storage_ptr",
 											"typeString": "string"
@@ -497,10 +497,10 @@
 									"id": 42,
 									"mutability": "mutable",
 									"name": "n",
-									"nameLocation": "695:1:0",
+									"nameLocation": "694:1:0",
 									"nodeType": "VariableDeclaration",
 									"scope": 53,
-									"src": "687:9:0",
+									"src": "686:9:0",
 									"stateVariable": false,
 									"storageLocation": "default",
 									"typeDescriptions": {
@@ -511,7 +511,7 @@
 										"id": 41,
 										"name": "uint256",
 										"nodeType": "ElementaryTypeName",
-										"src": "687:7:0",
+										"src": "686:7:0",
 										"typeDescriptions": {
 											"typeIdentifier": "t_uint256",
 											"typeString": "uint256"
@@ -524,10 +524,10 @@
 									"id": 44,
 									"mutability": "mutable",
 									"name": "x",
-									"nameLocation": "721:1:0",
+									"nameLocation": "720:1:0",
 									"nodeType": "VariableDeclaration",
 									"scope": 53,
-									"src": "716:6:0",
+									"src": "715:6:0",
 									"stateVariable": false,
 									"storageLocation": "default",
 									"typeDescriptions": {
@@ -538,7 +538,7 @@
 										"id": 43,
 										"name": "bool",
 										"nodeType": "ElementaryTypeName",
-										"src": "716:4:0",
+										"src": "715:4:0",
 										"typeDescriptions": {
 											"typeIdentifier": "t_bool",
 											"typeString": "bool"
@@ -551,10 +551,10 @@
 									"id": 46,
 									"mutability": "mutable",
 									"name": "q",
-									"nameLocation": "795:1:0",
+									"nameLocation": "794:1:0",
 									"nodeType": "VariableDeclaration",
 									"scope": 53,
-									"src": "788:8:0",
+									"src": "787:8:0",
 									"stateVariable": false,
 									"storageLocation": "default",
 									"typeDescriptions": {
@@ -565,7 +565,7 @@
 										"id": 45,
 										"name": "string",
 										"nodeType": "ElementaryTypeName",
-										"src": "788:6:0",
+										"src": "787:6:0",
 										"typeDescriptions": {
 											"typeIdentifier": "t_string_storage_ptr",
 											"typeString": "string"
@@ -578,10 +578,10 @@
 									"id": 48,
 									"mutability": "mutable",
 									"name": "V",
-									"nameLocation": "828:1:0",
+									"nameLocation": "827:1:0",
 									"nodeType": "VariableDeclaration",
 									"scope": 53,
-									"src": "821:8:0",
+									"src": "820:8:0",
 									"stateVariable": false,
 									"storageLocation": "default",
 									"typeDescriptions": {
@@ -592,7 +592,7 @@
 										"id": 47,
 										"name": "string",
 										"nodeType": "ElementaryTypeName",
-										"src": "821:6:0",
+										"src": "820:6:0",
 										"typeDescriptions": {
 											"typeIdentifier": "t_string_storage_ptr",
 											"typeString": "string"
@@ -605,10 +605,10 @@
 									"id": 50,
 									"mutability": "mutable",
 									"name": "Q",
-									"nameLocation": "864:1:0",
+									"nameLocation": "863:1:0",
 									"nodeType": "VariableDeclaration",
 									"scope": 53,
-									"src": "857:8:0",
+									"src": "856:8:0",
 									"stateVariable": false,
 									"storageLocation": "default",
 									"typeDescriptions": {
@@ -619,7 +619,7 @@
 										"id": 49,
 										"name": "string",
 										"nodeType": "ElementaryTypeName",
-										"src": "857:6:0",
+										"src": "856:6:0",
 										"typeDescriptions": {
 											"typeIdentifier": "t_string_storage_ptr",
 											"typeString": "string"
@@ -632,10 +632,10 @@
 									"id": 52,
 									"mutability": "mutable",
 									"name": "B",
-									"nameLocation": "902:1:0",
+									"nameLocation": "901:1:0",
 									"nodeType": "VariableDeclaration",
 									"scope": 53,
-									"src": "895:8:0",
+									"src": "894:8:0",
 									"stateVariable": false,
 									"storageLocation": "default",
 									"typeDescriptions": {
@@ -646,7 +646,7 @@
 										"id": 51,
 										"name": "string",
 										"nodeType": "ElementaryTypeName",
-										"src": "895:6:0",
+										"src": "894:6:0",
 										"typeDescriptions": {
 											"typeIdentifier": "t_string_storage_ptr",
 											"typeString": "string"
@@ -659,7 +659,7 @@
 							"nameLocation": "347:11:0",
 							"nodeType": "StructDefinition",
 							"scope": 64,
-							"src": "340:587:0",
+							"src": "340:586:0",
 							"visibility": "public"
 						},
 						{
@@ -671,10 +671,10 @@
 									"id": 55,
 									"mutability": "mutable",
 									"name": "e",
-									"nameLocation": "966:1:0",
+									"nameLocation": "965:1:0",
 									"nodeType": "VariableDeclaration",
 									"scope": 63,
-									"src": "959:8:0",
+									"src": "958:8:0",
 									"stateVariable": false,
 									"storageLocation": "default",
 									"typeDescriptions": {
@@ -685,7 +685,7 @@
 										"id": 54,
 										"name": "string",
 										"nodeType": "ElementaryTypeName",
-										"src": "959:6:0",
+										"src": "958:6:0",
 										"typeDescriptions": {
 											"typeIdentifier": "t_string_storage_ptr",
 											"typeString": "string"
@@ -698,10 +698,10 @@
 									"id": 57,
 									"mutability": "mutable",
 									"name": "E",
-									"nameLocation": "982:1:0",
+									"nameLocation": "981:1:0",
 									"nodeType": "VariableDeclaration",
 									"scope": 63,
-									"src": "977:6:0",
+									"src": "976:6:0",
 									"stateVariable": false,
 									"storageLocation": "default",
 									"typeDescriptions": {
@@ -712,7 +712,7 @@
 										"id": 56,
 										"name": "uint",
 										"nodeType": "ElementaryTypeName",
-										"src": "977:4:0",
+										"src": "976:4:0",
 										"typeDescriptions": {
 											"typeIdentifier": "t_uint256",
 											"typeString": "uint256"
@@ -725,10 +725,10 @@
 									"id": 59,
 									"mutability": "mutable",
 									"name": "s",
-									"nameLocation": "997:1:0",
+									"nameLocation": "996:1:0",
 									"nodeType": "VariableDeclaration",
 									"scope": 63,
-									"src": "990:8:0",
+									"src": "989:8:0",
 									"stateVariable": false,
 									"storageLocation": "default",
 									"typeDescriptions": {
@@ -739,7 +739,7 @@
 										"id": 58,
 										"name": "string",
 										"nodeType": "ElementaryTypeName",
-										"src": "990:6:0",
+										"src": "989:6:0",
 										"typeDescriptions": {
 											"typeIdentifier": "t_string_storage_ptr",
 											"typeString": "string"
@@ -752,10 +752,10 @@
 									"id": 62,
 									"mutability": "mutable",
 									"name": "k",
-									"nameLocation": "1028:1:0",
+									"nameLocation": "1027:1:0",
 									"nodeType": "VariableDeclaration",
 									"scope": 63,
-									"src": "1016:13:0",
+									"src": "1015:13:0",
 									"stateVariable": false,
 									"storageLocation": "default",
 									"typeDescriptions": {
@@ -769,14 +769,14 @@
 											"id": 60,
 											"name": "KlineRecord",
 											"nameLocations": [
-												"1016:11:0"
+												"1015:11:0"
 											],
 											"nodeType": "IdentifierPath",
 											"referencedDeclaration": 53,
-											"src": "1016:11:0"
+											"src": "1015:11:0"
 										},
 										"referencedDeclaration": 53,
-										"src": "1016:11:0",
+										"src": "1015:11:0",
 										"typeDescriptions": {
 											"typeIdentifier": "t_struct$_KlineRecord_$53_storage_ptr",
 											"typeString": "struct KlineRecord"
@@ -786,14 +786,14 @@
 								}
 							],
 							"name": "KlineResponse",
-							"nameLocation": "938:13:0",
+							"nameLocation": "937:13:0",
 							"nodeType": "StructDefinition",
 							"scope": 64,
-							"src": "931:102:0",
+							"src": "930:102:0",
 							"visibility": "public"
 						}
 					],
-					"src": "33:1000:0"
+					"src": "33:999:0"
 				},
 				"id": 0
 			}

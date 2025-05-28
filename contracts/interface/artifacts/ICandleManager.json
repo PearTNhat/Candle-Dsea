@@ -31,7 +31,6 @@
 	},
 	"data": {
 		"bytecode": {
-			"functionDebugData": {},
 			"generatedSources": [],
 			"linkReferences": {},
 			"object": "",
@@ -39,7 +38,6 @@
 			"sourceMap": ""
 		},
 		"deployedBytecode": {
-			"functionDebugData": {},
 			"generatedSources": [],
 			"immutableReferences": {},
 			"linkReferences": {},
@@ -49,11 +47,91 @@
 		},
 		"gasEstimates": null,
 		"methodIdentifiers": {
-			"addCandle((uint64,string,string,string,string,string,uint64,string,uint32,string,string,string))": "a8f9b0af",
+			"addCandle((uint64,uint256,uint256,uint256,uint256,uint256,uint64,uint256,uint32,uint256,uint256,uint256,bool))": "1afb1a3e",
+			"candleCount()": "a6478d97",
 			"getCandles()": "ea6c8353"
 		}
 	},
 	"abi": [
+		{
+			"anonymous": false,
+			"inputs": [
+				{
+					"indexed": false,
+					"internalType": "uint64",
+					"name": "openTime",
+					"type": "uint64"
+				},
+				{
+					"indexed": false,
+					"internalType": "string",
+					"name": "openPrice",
+					"type": "string"
+				},
+				{
+					"indexed": false,
+					"internalType": "string",
+					"name": "highPrice",
+					"type": "string"
+				},
+				{
+					"indexed": false,
+					"internalType": "string",
+					"name": "lowPrice",
+					"type": "string"
+				},
+				{
+					"indexed": false,
+					"internalType": "string",
+					"name": "closePrice",
+					"type": "string"
+				},
+				{
+					"indexed": false,
+					"internalType": "string",
+					"name": "volume",
+					"type": "string"
+				},
+				{
+					"indexed": false,
+					"internalType": "uint64",
+					"name": "closeTime",
+					"type": "uint64"
+				},
+				{
+					"indexed": false,
+					"internalType": "string",
+					"name": "quoteAssetVolume",
+					"type": "string"
+				},
+				{
+					"indexed": false,
+					"internalType": "uint32",
+					"name": "numberOfTrades",
+					"type": "uint32"
+				},
+				{
+					"indexed": false,
+					"internalType": "string",
+					"name": "takerBuyBaseVolume",
+					"type": "string"
+				},
+				{
+					"indexed": false,
+					"internalType": "string",
+					"name": "takerBuyQuoteVolume",
+					"type": "string"
+				},
+				{
+					"indexed": false,
+					"internalType": "bool",
+					"name": "isClose",
+					"type": "bool"
+				}
+			],
+			"name": "CandleCreated",
+			"type": "event"
+		},
 		{
 			"inputs": [
 				{
@@ -64,29 +142,29 @@
 							"type": "uint64"
 						},
 						{
-							"internalType": "string",
+							"internalType": "uint256",
 							"name": "openPrice",
-							"type": "string"
+							"type": "uint256"
 						},
 						{
-							"internalType": "string",
+							"internalType": "uint256",
 							"name": "highPrice",
-							"type": "string"
+							"type": "uint256"
 						},
 						{
-							"internalType": "string",
+							"internalType": "uint256",
 							"name": "lowPrice",
-							"type": "string"
+							"type": "uint256"
 						},
 						{
-							"internalType": "string",
+							"internalType": "uint256",
 							"name": "closePrice",
-							"type": "string"
+							"type": "uint256"
 						},
 						{
-							"internalType": "string",
+							"internalType": "uint256",
 							"name": "volume",
-							"type": "string"
+							"type": "uint256"
 						},
 						{
 							"internalType": "uint64",
@@ -94,9 +172,9 @@
 							"type": "uint64"
 						},
 						{
-							"internalType": "string",
+							"internalType": "uint256",
 							"name": "quoteAssetVolume",
-							"type": "string"
+							"type": "uint256"
 						},
 						{
 							"internalType": "uint32",
@@ -104,19 +182,24 @@
 							"type": "uint32"
 						},
 						{
-							"internalType": "string",
+							"internalType": "uint256",
 							"name": "takerBuyBaseVolume",
-							"type": "string"
+							"type": "uint256"
 						},
 						{
-							"internalType": "string",
+							"internalType": "uint256",
 							"name": "takerBuyQuoteVolume",
-							"type": "string"
+							"type": "uint256"
 						},
 						{
-							"internalType": "string",
+							"internalType": "uint256",
 							"name": "unused",
-							"type": "string"
+							"type": "uint256"
+						},
+						{
+							"internalType": "bool",
+							"name": "isClose",
+							"type": "bool"
 						}
 					],
 					"internalType": "struct CandleRecord",
@@ -131,6 +214,19 @@
 		},
 		{
 			"inputs": [],
+			"name": "candleCount",
+			"outputs": [
+				{
+					"internalType": "uint256",
+					"name": "",
+					"type": "uint256"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [],
 			"name": "getCandles",
 			"outputs": [
 				{
@@ -141,29 +237,29 @@
 							"type": "uint64"
 						},
 						{
-							"internalType": "string",
+							"internalType": "uint256",
 							"name": "openPrice",
-							"type": "string"
+							"type": "uint256"
 						},
 						{
-							"internalType": "string",
+							"internalType": "uint256",
 							"name": "highPrice",
-							"type": "string"
+							"type": "uint256"
 						},
 						{
-							"internalType": "string",
+							"internalType": "uint256",
 							"name": "lowPrice",
-							"type": "string"
+							"type": "uint256"
 						},
 						{
-							"internalType": "string",
+							"internalType": "uint256",
 							"name": "closePrice",
-							"type": "string"
+							"type": "uint256"
 						},
 						{
-							"internalType": "string",
+							"internalType": "uint256",
 							"name": "volume",
-							"type": "string"
+							"type": "uint256"
 						},
 						{
 							"internalType": "uint64",
@@ -171,9 +267,9 @@
 							"type": "uint64"
 						},
 						{
-							"internalType": "string",
+							"internalType": "uint256",
 							"name": "quoteAssetVolume",
-							"type": "string"
+							"type": "uint256"
 						},
 						{
 							"internalType": "uint32",
@@ -181,19 +277,24 @@
 							"type": "uint32"
 						},
 						{
-							"internalType": "string",
+							"internalType": "uint256",
 							"name": "takerBuyBaseVolume",
-							"type": "string"
+							"type": "uint256"
 						},
 						{
-							"internalType": "string",
+							"internalType": "uint256",
 							"name": "takerBuyQuoteVolume",
-							"type": "string"
+							"type": "uint256"
 						},
 						{
-							"internalType": "string",
+							"internalType": "uint256",
 							"name": "unused",
-							"type": "string"
+							"type": "uint256"
+						},
+						{
+							"internalType": "bool",
+							"name": "isClose",
+							"type": "bool"
 						}
 					],
 					"internalType": "struct CandleRecord[]",

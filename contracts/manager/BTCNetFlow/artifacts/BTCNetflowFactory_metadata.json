@@ -21,6 +21,67 @@
 						"type": "uint64"
 					},
 					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "storageAddr",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "inflow",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "outflow",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "price",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "volume",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "marketCap",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "aum",
+						"type": "uint256"
+					}
+				],
+				"name": "BTCNetFlowCreated",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "enum Interval",
+						"name": "interval",
+						"type": "uint8"
+					},
+					{
+						"indexed": true,
+						"internalType": "uint64",
+						"name": "timeKey",
+						"type": "uint64"
+					},
+					{
 						"indexed": false,
 						"internalType": "address",
 						"name": "storageAddress",
@@ -65,12 +126,7 @@
 						"components": [
 							{
 								"internalType": "uint64",
-								"name": "startTime",
-								"type": "uint64"
-							},
-							{
-								"internalType": "uint64",
-								"name": "endTime",
+								"name": "timestamp",
 								"type": "uint64"
 							},
 							{
@@ -176,12 +232,7 @@
 						"components": [
 							{
 								"internalType": "uint64",
-								"name": "startTime",
-								"type": "uint64"
-							},
-							{
-								"internalType": "uint64",
-								"name": "endTime",
+								"name": "timestamp",
 								"type": "uint64"
 							},
 							{
@@ -242,12 +293,7 @@
 						"components": [
 							{
 								"internalType": "uint64",
-								"name": "startTime",
-								"type": "uint64"
-							},
-							{
-								"internalType": "uint64",
-								"name": "endTime",
+								"name": "timestamp",
 								"type": "uint64"
 							},
 							{
@@ -358,19 +404,19 @@
 			]
 		},
 		"contracts/manager/BTCNetFlow/BTCNetflowFactory.sol": {
-			"keccak256": "0x32b0c4012c6ac8bb8bfeceb37330840644db6beda1d5e1bca4c7a76a5f9887b1",
+			"keccak256": "0x066a6cf5643da10c1a6a97370accb3ec333e3086b0a54f6f7b08f149c2872426",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://ae2020277151d6d95968c19480e37bca472595bfe762bf9fff147214a1173d68",
-				"dweb:/ipfs/QmNqDq6gPRuHUcH7vEm5bUK1wS7rxJn5rdbCMNSMQd51zs"
+				"bzz-raw://cd87e015a30d398ca213012c325622dd911fb70a813fe35294a5c81dcb0350f2",
+				"dweb:/ipfs/QmZdmjdLKtufWxHZMtBMA7X4JaghWSKKB9H5a3Vh8TMD8a"
 			]
 		},
 		"contracts/struct/BTCNetFlowStruct.sol": {
-			"keccak256": "0xc57c45874586b2216f4380c5cd4fd7aa32289e03c54269860ba6eff3a46dfb55",
+			"keccak256": "0x0d07c1c7efd41bf83a88e481099655eb83e459232f43cdb813425994700aa416",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://40c8387c8aff278e8a43a6c7be0f463a3f8b5835a643151bec3ddfdb48052087",
-				"dweb:/ipfs/QmcPsvkHgiMwgskt48sCTLvLdFmCvd8KCAFz9aMKRdYS8C"
+				"bzz-raw://e1b8344e832a3551c7fed36e4219b8001589bf0f2b2e48e2e7a44b71458122c0",
+				"dweb:/ipfs/QmTQNUkgZp3y299DW7WJPB8yvZZ4WP8kyTNeaP5PgxiqoH"
 			]
 		},
 		"contracts/utils/Constance.sol": {

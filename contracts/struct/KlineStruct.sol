@@ -23,7 +23,7 @@ struct KlineRecord {
     uint64 T;    // endTime
     string s;    // symbol
     string i;      // interval
-    uint256 f;    // firstTradeId
+    int256 f;    // firstTradeId
     uint256 L;    // lastTradeId
     string o;    // open
     string c;    // close
