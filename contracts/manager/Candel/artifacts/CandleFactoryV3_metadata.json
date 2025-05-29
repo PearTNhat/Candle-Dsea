@@ -1,0 +1,472 @@
+{
+	"compiler": {
+		"version": "0.8.30+commit.73712a01"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "uint64",
+						"name": "openTime",
+						"type": "uint64"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "openPrice",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "highPrice",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "lowPrice",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "closePrice",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "volume",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint64",
+						"name": "closeTime",
+						"type": "uint64"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "quoteAssetVolume",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint32",
+						"name": "numberOfTrades",
+						"type": "uint32"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "takerBuyBaseVolume",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "takerBuyQuoteVolume",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "bool",
+						"name": "isClose",
+						"type": "bool"
+					}
+				],
+				"name": "KlineCreated",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "string",
+						"name": "symbol",
+						"type": "string"
+					},
+					{
+						"indexed": true,
+						"internalType": "string",
+						"name": "interval",
+						"type": "string"
+					},
+					{
+						"indexed": true,
+						"internalType": "uint64",
+						"name": "timeKey",
+						"type": "uint64"
+					},
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "storageAddress",
+						"type": "address"
+					}
+				],
+				"name": "ShardCreated",
+				"type": "event"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes32",
+						"name": "",
+						"type": "bytes32"
+					},
+					{
+						"internalType": "enum Interval",
+						"name": "",
+						"type": "uint8"
+					},
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "allTimekeys",
+				"outputs": [
+					{
+						"internalType": "uint64",
+						"name": "",
+						"type": "uint64"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "_symbol",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "_interval",
+						"type": "string"
+					},
+					{
+						"components": [
+							{
+								"internalType": "uint64",
+								"name": "openTime",
+								"type": "uint64"
+							},
+							{
+								"internalType": "uint256",
+								"name": "openPrice",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "highPrice",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "lowPrice",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "closePrice",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "volume",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint64",
+								"name": "closeTime",
+								"type": "uint64"
+							},
+							{
+								"internalType": "uint256",
+								"name": "quoteAssetVolume",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint32",
+								"name": "numberOfTrades",
+								"type": "uint32"
+							},
+							{
+								"internalType": "uint256",
+								"name": "takerBuyBaseVolume",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "takerBuyQuoteVolume",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "unused",
+								"type": "uint256"
+							},
+							{
+								"internalType": "bool",
+								"name": "isClose",
+								"type": "bool"
+							}
+						],
+						"internalType": "struct CandleRecord",
+						"name": "_candleRecord",
+						"type": "tuple"
+					}
+				],
+				"name": "createCandle",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "_symbol",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "_interval",
+						"type": "string"
+					},
+					{
+						"internalType": "uint64",
+						"name": "_timekey",
+						"type": "uint64"
+					}
+				],
+				"name": "getAddressManager",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "_symbol",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "_interval",
+						"type": "string"
+					},
+					{
+						"internalType": "uint64",
+						"name": "startTime",
+						"type": "uint64"
+					},
+					{
+						"internalType": "uint64",
+						"name": "endTime",
+						"type": "uint64"
+					}
+				],
+				"name": "getAllAddressInRange",
+				"outputs": [
+					{
+						"internalType": "address[]",
+						"name": "",
+						"type": "address[]"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "_symbol",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "_interval",
+						"type": "string"
+					}
+				],
+				"name": "getAllTimeKeys",
+				"outputs": [
+					{
+						"internalType": "uint64[]",
+						"name": "",
+						"type": "uint64[]"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "_symbol",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "_interval",
+						"type": "string"
+					}
+				],
+				"name": "getLengthTimeKeys",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "_symbol",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "_interval",
+						"type": "string"
+					}
+				],
+				"name": "initCandle",
+				"outputs": [
+					{
+						"internalType": "address[]",
+						"name": "",
+						"type": "address[]"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes32",
+						"name": "",
+						"type": "bytes32"
+					},
+					{
+						"internalType": "enum Interval",
+						"name": "",
+						"type": "uint8"
+					},
+					{
+						"internalType": "uint64",
+						"name": "",
+						"type": "uint64"
+					}
+				],
+				"name": "storages",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/manager/Candel/CandleFactoryV3.sol": "CandleFactoryV3"
+		},
+		"evmVersion": "prague",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": true,
+			"runs": 200
+		},
+		"remappings": [],
+		"viaIR": true
+	},
+	"sources": {
+		"contracts/interface/ICandleManager.sol": {
+			"keccak256": "0x1c262c4d9240b536ea2b16902f3d70687b7e739eae9d7b13e6d93089cbcb7691",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://44338a5b076fc01b05a602e2253d2376968ca30f4e1c0e11508d04dde7dc052a",
+				"dweb:/ipfs/QmeesghPYyyBG75ypFW5yab9S1wRk1diWYDTZvLfEnGi2R"
+			]
+		},
+		"contracts/manager/Candel/CandleFactoryV3.sol": {
+			"keccak256": "0x106985089a26884e424e4b8ef800e5529d17bd032e481f88662a76ba49375aee",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://ca29f9997a4a9e350e2fa2bcbb89b5fd4f069635708f780b9499f6aefd3393c9",
+				"dweb:/ipfs/QmdQmvS7dXjyYw7tkPuf8Qriq2pQbArBinF4v7zge8JWTZ"
+			]
+		},
+		"contracts/manager/Candel/CandleManagerV3.sol": {
+			"keccak256": "0x4271df2b9cdd0d0aeeedc397ef154366041dc1361f31c8de8479f7d17726bc65",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://c17d6849b7d3617e3a7036d157c87352b47c0e09815c76d60e239173554530c7",
+				"dweb:/ipfs/QmR9ADxaLG24vYGqnKdrXy7B9rw5FVwK1kwbbWTgHg5gHs"
+			]
+		},
+		"contracts/struct/CandleStruct.sol": {
+			"keccak256": "0x1bb1f3669f7f3877b5131d8ed82901d48c22abec1361c86c304706da9b7368dc",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://5f8177d9486eeb607dc35a2a42a5cc088776f5fdccad6b7e841f384b945ac0f2",
+				"dweb:/ipfs/QmT3Ajymzh2bPtkWfzhLMPXVTKUr3qpfwiKn8Zh7CbWRMG"
+			]
+		},
+		"contracts/utils/Constance.sol": {
+			"keccak256": "0x897c308d8549ebf6cb2ba6cc69eb1e2ab4d85ebd8d72b1e5bfb5cc3c1abc8e37",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://2eee7b730fc8660d53b364aeff729c78706bf7d665629db2bb6e309a53d36580",
+				"dweb:/ipfs/QmfCBbhFBGNcNHbgGxUx77KkPo1EAdCPA9tVKe6RcYEi5x"
+			]
+		}
+	},
+	"version": 1
+}
